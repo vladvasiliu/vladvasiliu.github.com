@@ -4,7 +4,8 @@
         <title>vBlog - nfsv4</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="../theme/css/main.css" type="text/css" />
-   
+        <link href="../" type="application/atom+xml" rel="alternate" title="vBlog ATOM Feed" />
+        
 
         <!--[if IE]>
                 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -20,20 +21,16 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="..">vBlog </a></h1>
+                <h1><a href="../index.html">vBlog </a></h1>
                 <nav><ul>
-                                                                                                    <li ><a href="../category/freebsd.html">FreeBSD</a></li>
-                                    <li ><a href="../category/mysql.html">MySQL</a></li>
-                                    <li ><a href="../category/misc.html">misc</a></li>
-                                </ul></nav>
+                                                <li><a href="../index.html">Home</a></li>
+                                                                </ul></nav>
         </header><!-- /#banner -->
-                
-            
 
-                            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="../default-nfsv4-acls-freebsd.html">Setting default NFSv4 ACLs on FreeBSD</a></h1> 
-                    <footer class="post-info">
+                 <section id="content" class="body">
+        <aside id="featured"><article>
+                <h1 class="entry-title"><a href="../default-nfsv4-acls-freebsd.html">Setting default NFSv4 ACLs on FreeBSD</a></h1>
+                <footer class="post-info">
         <abbr class="published" title="2013-01-22T13:29:00">
                 Tue 22 January 2013
         </abbr>
@@ -42,7 +39,8 @@
                 By <a class="url fn" href="../author/vlad-vasiliu.html">Vlad Vasiliu</a>
         </address>
         <p>In <a href="../category/freebsd.html">FreeBSD</a>. </p>
-<p>tags: <a href="../tag/freebsd.html">freebsd</a><a href="../tag/zfs.html">zfs</a><a href="../tag/acl.html">acl</a><a href="../tag/nfsv4.html">nfsv4</a><a href="../tag/sysadmin.html">sysadmin</a></p></footer><!-- /.post-info --><p>On FreeBSD with ZFS, only NFSv4 ACLs are supported. At the time of this writing, the <a href="https://wiki.freebsd.org/NFSv4_ACLs">FreeBSD documentation regarding ACLs</a> is a bit vague. Specifically, it doesn't talk about inheritable attributes.</p>
+<p>tags: <a href="../tag/freebsd.html">freebsd</a><a href="../tag/zfs.html">zfs</a><a href="../tag/acl.html">acl</a><a href="../tag/nfsv4.html">nfsv4</a><a href="../tag/sysadmin.html">sysadmin</a></p></p></footer><!-- /.post-info --><!-- /.post-info -->
+                <p>On FreeBSD with ZFS, only NFSv4 ACLs are supported. At the time of this writing, the <a href="https://wiki.freebsd.org/NFSv4_ACLs">FreeBSD documentation regarding ACLs</a> is a bit vague. Specifically, it doesn't talk about inheritable attributes.</p>
 <p>The <code>-d</code> argument, used to define default POSIX ACLs is not supported. Instead, there are some flags one can set in order to define how ACLs are inherited. For an explanation, look in the manual for setfacl, section "ACL inheritance flags".</p>
 <p>Let's say you want all the files and directories inside <code>somedir</code> to be readable by the users in the group <code>somegroup</code>. You would do the folling:</p>
 <div class="codehilite"><pre>setfacl -m g:somegroup:rx:fd:allow somedir
@@ -57,35 +55,46 @@ find . -type f -exec setfacl -m g:somegroup:r::allow <span class="o">{}</span> <
 
 
 <p>The first line sets the previous ACLs on all the subdirectories, while the second sets the ACL on all the files.</p>
-<p>In order for this to work, some ZFS attributes must be set <code>aclinherit=passthrough-x</code> and <code>aclmode=passthrough</code>. See <a href="http://docs.oracle.com/cd/E19082-01/817-2271/gbaaz/index.html" title="ACL Property Modes">here</a> for the ZFS properties documentation.</p>                </article>
-                                    <p class="paginator">
-        Page 1 / 1
-    </p>
-                            </aside><!-- /#featured -->
-                                                        </ol><!-- /#posts-list -->
-            </section><!-- /#content -->
-                    <section id="extras" class="body">
-                        <div class="blogroll">
-                        <h2>blogroll</h2>
+<p>In order for this to work, some ZFS attributes must be set <code>aclinherit=passthrough-x</code> and <code>aclmode=passthrough</code>. See <a href="http://docs.oracle.com/cd/E19082-01/817-2271/gbaaz/index.html" title="ACL Property Modes">here</a> for the ZFS properties documentation.</p>
+        </article></aside><!-- /#featured -->
+            </ol><!-- /#posts-list -->
+</section><!-- /#content -->
+
+        <aside id="sidebar">
+                <div class="widget">
+                        <h2>Categories</h2>
+                        <ul>
+                                                   <li ><a href="../category/freebsd.html">FreeBSD</a></li>
+                                                   <li ><a href="../category/mysql.html">MySQL</a></li>
+                                                   <li ><a href="../category/misc.html">misc</a></li>
+                                                </ul>
+                </div>
+                        <div class="widget blogroll">
+                        <h2>Blogroll</h2>
                         <ul>
                                                     <li><a href="http://docs.notmyidea.org/alexis/pelican/">Pelican</a></li>
                                                     <li><a href="http://python.org">Python.org</a></li>
                                                     <li><a href="http://jinja.pocoo.org">Jinja2</a></li>
                                                 </ul>
                 </div><!-- /.blogroll -->
-                                <div class="social">
-                        <h2>social</h2>
+                                <div class="widget social">
+                        <h2>Social</h2>
                         <ul>
+                            <li><a href="../" rel="alternate">atom feed</a></li>
                             
                                                     <li><a href="#">You can add links in your config file</a></li>
                                                     <li><a href="#">Another social link</a></li>
                                                 </ul>
                 </div><!-- /.social -->
-                </section><!-- /#extras -->
+                </aside><!-- /#sidebar -->
 
-        <footer id="contentinfo" class="body">
+        <footer id="footer" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">pelican</a>, which takes great advantages of <a href="http://python.org">python</a>.
+                </address><!-- /#about -->
 
-        </footer><!-- /#contentinfo -->
+                <p>The theme is «notmyidea-cms», a modified version of «notmyidea», the default theme.</p>
+        </footer><!-- /#footer -->
 
 </body>
 </html>
