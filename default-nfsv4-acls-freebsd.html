@@ -43,7 +43,7 @@
         <p>In <a href="./category/freebsd.html">FreeBSD</a>. </p>
 <p>tags: <a href="./tag/freebsd.html">freebsd</a><a href="./tag/zfs.html">zfs</a><a href="./tag/acl.html">acl</a><a href="./tag/nfsv4.html">nfsv4</a><a href="./tag/sysadmin.html">sysadmin</a></p></p></footer><!-- /.post-info --><!-- /.post-info -->
         <p>On FreeBSD with ZFS, only NFSv4 ACLs are supported. At the time of this writing, the <a href="https://wiki.freebsd.org/NFSv4_ACLs">FreeBSD documentation regarding ACLs</a> is a bit vague. Specifically, it doesn't talk about inheritable attributes.</p>
-<p>The <code>-d</code> argument, used to define default POSIX ACLs is not supported. Instead, there are some flags one can set in order to define how ACLs are inherited. For an explanation, look in the manual for setfacl, section "ACL inheritance flags".</p>
+<p>The <code>-d</code> argument, used to define default POSIX ACLs is not supported. Instead, there are some flags one can set in order to define how ACLs are inherited. For an explanation, look in the manual for <code>setfacl</code>, section "ACL inheritance flags".</p>
 <p>Let's say you want all the files and directories inside <code>somedir</code> to be readable by the users in the group <code>somegroup</code>. You would do the folling:</p>
 <div class="codehilite"><pre>setfacl -m g:somegroup:rx:fd:allow somedir
 </pre></div>
