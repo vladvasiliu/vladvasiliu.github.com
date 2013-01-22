@@ -59,6 +59,18 @@ find . -type f -exec setfacl -m g:somegroup:r::allow <span class="o">{}</span> <
 <p>The first line sets the previous ACLs on all the subdirectories, while the second sets the ACL on all the files.</p>
 <p>In order for this to work, some ZFS attributes must be set <code>aclinherit=passthrough-x</code> and <code>aclmode=passthrough</code>. See <a href="http://docs.oracle.com/cd/E19082-01/817-2271/gbaaz/index.html" title="ACL Property Modes">here</a> for the ZFS properties documentation.</p>
         </div><!-- /.entry-content -->
+                <div class="comments">
+        <h2>Comments !</h2>
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+               var disqus_identifier = "default-nfsv4-acls-freebsd.html";
+               (function() {
+               var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+               dsq.src = 'http://vladvasiliu.disqus.com/embed.js';
+               (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })();
+            </script>
+        </div>
         
 </article>
 </section>
