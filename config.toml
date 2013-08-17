@@ -32,7 +32,7 @@ email = "me@some.com"  # your email address
 
 [disqus]
 # your disqus's short name for this blog
-shortname = "your-disqus-short-name"
+shortname = "vladvasiliu"
 
 [theme]  # you can reset theme's default configuration here
 
