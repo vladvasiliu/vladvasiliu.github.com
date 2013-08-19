@@ -28,12 +28,11 @@ theme = "less"
 
 [author]
 name = "Vlad Vasiliu"
-email = "me@some.com"  # your email address
+email = ""  # your email address
 
 [disqus]
 # your disqus's short name for this blog
 shortname = "vladvasiliu"
 
 [theme]  # you can reset theme's default configuration here
-
 github = "vladvasiliu"
