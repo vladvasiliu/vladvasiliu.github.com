@@ -91,7 +91,7 @@ iface em1 inet6 static
     - cookie hash: B+onVMMDnR1uRT2nuD24VA==&lt;/code&gt;&lt;/pre&gt;
             &lt;/div&gt;
             
-&lt;p&gt;Assuming that the hostname is correct and running &lt;code&gt;rabbitmqctl&lt;/code&gt; as the rabbitmq user works, this is a cookiw mismatch problem.&lt;/p&gt;
+&lt;p&gt;Assuming that the hostname is correct and running &lt;code&gt;rabbitmqctl&lt;/code&gt; as the rabbitmq user works, this is a cookie mismatch problem.&lt;/p&gt;
 
 &lt;p&gt;In order to be able to run &lt;code&gt;rabbitmqctl&lt;/code&gt; as root, it must use the same cookie as the one used by the server. This cookie is usually found in &lt;code&gt;/var/lib/rabbitmq/.erlang.cookie&lt;/code&gt;. To use this cookie, the &lt;code&gt;HOME&lt;/code&gt; environment must be set to &lt;code&gt;/var/lib/rabbitmq&lt;/code&gt;. Either create a wrapper around &lt;code&gt;/usr/bin/rabbitmqctl&lt;/code&gt; that sets the correct environment, or edit this file to add &lt;code&gt;HOME=/var/lib/rabbitmq&lt;/code&gt; on the line that starts with &lt;code&gt;exec ${ERL_DIR}&lt;/code&gt;.&lt;/p&gt;
 </content>

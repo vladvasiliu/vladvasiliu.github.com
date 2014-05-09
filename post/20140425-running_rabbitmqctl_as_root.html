@@ -64,7 +64,7 @@
     - cookie hash: B+onVMMDnR1uRT2nuD24VA==</code></pre>
             </div>
             
-<p>Assuming that the hostname is correct and running <code>rabbitmqctl</code> as the rabbitmq user works, this is a cookiw mismatch problem.</p>
+<p>Assuming that the hostname is correct and running <code>rabbitmqctl</code> as the rabbitmq user works, this is a cookie mismatch problem.</p>
 
 <p>In order to be able to run <code>rabbitmqctl</code> as root, it must use the same cookie as the one used by the server. This cookie is usually found in <code>/var/lib/rabbitmq/.erlang.cookie</code>. To use this cookie, the <code>HOME</code> environment must be set to <code>/var/lib/rabbitmq</code>. Either create a wrapper around <code>/usr/bin/rabbitmqctl</code> that sets the correct environment, or edit this file to add <code>HOME=/var/lib/rabbitmq</code> on the line that starts with <code>exec ${ERL_DIR}</code>.</p>
 
