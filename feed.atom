@@ -20,7 +20,7 @@
 
 &lt;p&gt;The recommended method is using Dibbler, but this solution is pretty buggy.&lt;/p&gt;
 
-&lt;p&gt;When using &lt;code&gt;dhclient&lt;/code&gt; on Ubuntu or Debian (other systems might have a similar behaviour) with a static address, the interface doesn&amp;#39;t end up with the IP set. The solution is to pass the &lt;code&gt;-S&lt;/code&gt; option to dhclient, to only request stateless configuration.&lt;/p&gt;
+&lt;p&gt;When using &lt;code&gt;dhclient&lt;/code&gt; on Ubuntu or Debian (other systems might have a similar behaviour) with a static address, the interface doesn&amp;#39;t end up with the IP set. The solution is to pass the &lt;code&gt;-N&lt;/code&gt; option to dhclient, to only request stateless configuration.&lt;/p&gt;
 
 &lt;p&gt;Below are samples of &lt;code&gt;dhclient6.conf&lt;/code&gt; and &lt;code&gt;interfaces&lt;/code&gt;. Note that in this configuration everything is configured by the client, but you could request a name server from the DHCP server.&lt;/p&gt;
 
@@ -41,7 +41,7 @@ iface em1 inet6 static
     address your_ip_v6_address
     netmask your_nemask
     accept_ra 1
-    post-up /sbin/dhclient -cf /etc/dhcp/dhclient6.conf -6 -S -P em1&lt;/code&gt;&lt;/pre&gt;
+    post-up /sbin/dhclient -cf /etc/dhcp/dhclient6.conf -6 -P -N em1&lt;/code&gt;&lt;/pre&gt;
             &lt;/div&gt;
             </content>
   </entry>

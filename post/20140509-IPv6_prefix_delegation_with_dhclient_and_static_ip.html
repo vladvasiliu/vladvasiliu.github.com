@@ -30,7 +30,7 @@
 
 <p>The recommended method is using Dibbler, but this solution is pretty buggy.</p>
 
-<p>When using <code>dhclient</code> on Ubuntu or Debian (other systems might have a similar behaviour) with a static address, the interface doesn&#39;t end up with the IP set. The solution is to pass the <code>-S</code> option to dhclient, to only request stateless configuration.</p>
+<p>When using <code>dhclient</code> on Ubuntu or Debian (other systems might have a similar behaviour) with a static address, the interface doesn&#39;t end up with the IP set. The solution is to pass the <code>-N</code> option to dhclient, to only request stateless configuration.</p>
 
 <p>Below are samples of <code>dhclient6.conf</code> and <code>interfaces</code>. Note that in this configuration everything is configured by the client, but you could request a name server from the DHCP server.</p>
 
@@ -51,7 +51,7 @@ iface em1 inet6 static
     address your_ip_v6_address
     netmask your_nemask
     accept_ra 1
-    post-up /sbin/dhclient -cf /etc/dhcp/dhclient6.conf -6 -S -P em1</code></pre>
+    post-up /sbin/dhclient -cf /etc/dhcp/dhclient6.conf -6 -P -N em1</code></pre>
             </div>
             
   </div>

@@ -6,7 +6,7 @@ Some hosting providers, like [Online](http://online.net) in France provide IPv6 
 
 The recommended method is using Dibbler, but this solution is pretty buggy.
 
-When using `dhclient` on Ubuntu or Debian (other systems might have a similar behaviour) with a static address, the interface doesn't end up with the IP set. The solution is to pass the `-S` option to dhclient, to only request stateless configuration.
+When using `dhclient` on Ubuntu or Debian (other systems might have a similar behaviour) with a static address, the interface doesn't end up with the IP set. The solution is to pass the `-N` option to dhclient, to only request stateless configuration.
 
 Below are samples of `dhclient6.conf` and `interfaces`. Note that in this configuration everything is configured by the client, but you could request a name server from the DHCP server.
 
@@ -24,4 +24,4 @@ Below are samples of `dhclient6.conf` and `interfaces`. Note that in this config
         address your_ip_v6_address
         netmask your_nemask
         accept_ra 1
-        post-up /sbin/dhclient -cf /etc/dhcp/dhclient6.conf -6 -S -P em1
+        post-up /sbin/dhclient -cf /etc/dhcp/dhclient6.conf -6 -P -N em1
