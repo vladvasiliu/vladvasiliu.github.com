@@ -9,6 +9,21 @@
   </author>
   <generator>PyAtom</generator>
   <entry xml:base="/feed.atom">
+    <title type="text">IPv6 routing and router advertisments on Ubuntu / Debian</title>
+    <id>/post/20140514-IPv6_routing_with_router_advertisment.html</id>
+    <updated>2015-05-09T10:47:00Z</updated>
+    <link href="/post/20140514-IPv6_routing_with_router_advertisment.html" />
+    <author>
+      <name>Vlad Vasiliu</name>
+    </author>
+    <content type="html">&lt;p&gt;If your Linux box gets its IPv6 routing information via router advertisments, you may have noticed that upon enabling forwarding, it disregards those advertisments and it loses the configured gateways.&lt;/p&gt;
+
+&lt;p&gt;The have this configuration working again, set &lt;code&gt;accept_ra 2&lt;/code&gt; in &lt;code&gt;/etc/network/interfaces&lt;/code&gt;. This value is not documented in the &lt;code&gt;interfaces&lt;/code&gt; manual, but since kernel version 2.6.37 it allows the interface to both do forwarding and accept router advertisments.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://strugglers.net/%7Eandy/blog/2011/09/04/linux-ipv6-router-advertisements-and-forwarding/"&gt;Source&lt;/a&gt;&lt;/p&gt;
+</content>
+  </entry>
+  <entry xml:base="/feed.atom">
     <title type="text">IPv6 prefix delegation with static address and dhclient on Ubuntu / Debian</title>
     <id>/post/20140509-IPv6_prefix_delegation_with_dhclient_and_static_ip.html</id>
     <updated>2015-05-09T10:47:00Z</updated>
