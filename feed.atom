@@ -20,7 +20,7 @@
 
 &lt;p&gt;The recommended method is using Dibbler, but this solution is pretty buggy.&lt;/p&gt;
 
-&lt;p&gt;When using &lt;code&gt;dhclient&lt;/code&gt; on Ubuntu or Debian (other systems might have a similar behaviour) with a static address, the interface doesn&amp;#39;t end up with the IP set. The solution is to pass the &lt;code&gt;-N&lt;/code&gt; option to dhclient, to only request stateless configuration.&lt;/p&gt;
+&lt;p&gt;On Ubuntu or Debian, you can use the provided dhclient to obtain the prefix delegation.&lt;/p&gt;
 
 &lt;p&gt;Below are samples of &lt;code&gt;dhclient6.conf&lt;/code&gt; and &lt;code&gt;interfaces&lt;/code&gt;. Note that in this configuration everything is configured by the client, but you could request a name server from the DHCP server.&lt;/p&gt;
 
@@ -28,7 +28,7 @@
 
             &lt;div class="highlight"&gt;
               &lt;pre&gt;&lt;code&gt;interface &amp;quot;em1&amp;quot; {
-    send dhcp6.client-id your_duid;
+    send dhcp6.client-id your:duid;
     request;
 }&lt;/code&gt;&lt;/pre&gt;
             &lt;/div&gt;
@@ -38,10 +38,10 @@
             &lt;div class="highlight"&gt;
               &lt;pre&gt;&lt;code&gt;auto em1
 iface em1 inet6 static
-    address your_ip_v6_address
+    address your:ip:v6:address
     netmask your_nemask
     accept_ra 1
-    post-up /sbin/dhclient -cf /etc/dhcp/dhclient6.conf -6 -P -N em1&lt;/code&gt;&lt;/pre&gt;
+    pre-up /sbin/dhclient -cf /etc/dhcp/dhclient6.conf -6 -P em1&lt;/code&gt;&lt;/pre&gt;
             &lt;/div&gt;
             </content>
   </entry>

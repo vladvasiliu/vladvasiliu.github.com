@@ -30,7 +30,7 @@
 
 <p>The recommended method is using Dibbler, but this solution is pretty buggy.</p>
 
-<p>When using <code>dhclient</code> on Ubuntu or Debian (other systems might have a similar behaviour) with a static address, the interface doesn&#39;t end up with the IP set. The solution is to pass the <code>-N</code> option to dhclient, to only request stateless configuration.</p>
+<p>On Ubuntu or Debian, you can use the provided dhclient to obtain the prefix delegation.</p>
 
 <p>Below are samples of <code>dhclient6.conf</code> and <code>interfaces</code>. Note that in this configuration everything is configured by the client, but you could request a name server from the DHCP server.</p>
 
@@ -38,7 +38,7 @@
 
             <div class="highlight">
               <pre><code>interface &quot;em1&quot; {
-    send dhcp6.client-id your_duid;
+    send dhcp6.client-id your:duid;
     request;
 }</code></pre>
             </div>
@@ -48,10 +48,10 @@
             <div class="highlight">
               <pre><code>auto em1
 iface em1 inet6 static
-    address your_ip_v6_address
+    address your:ip:v6:address
     netmask your_nemask
     accept_ra 1
-    post-up /sbin/dhclient -cf /etc/dhcp/dhclient6.conf -6 -P -N em1</code></pre>
+    pre-up /sbin/dhclient -cf /etc/dhcp/dhclient6.conf -6 -P em1</code></pre>
             </div>
             
   </div>
