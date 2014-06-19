@@ -1,5 +1,5 @@
 title = "IPv6 prefix delegation with static address and dhclient on Ubuntu / Debian"
-datetime = "2015-05-09 10:47"
+datetime = "2014-05-09 10:47"
 tags = ["IPv6", "DHCPv6"]
 ------------
 Some hosting providers, like [Online](http://online.net) in France provide IPv6 access via prefix delegation. You get a DUID that has to be sent to their DHCP server. The IP address is configured by the client.

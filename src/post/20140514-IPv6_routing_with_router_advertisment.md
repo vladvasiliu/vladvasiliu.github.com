@@ -1,5 +1,5 @@
 title = "IPv6 routing and router advertisments on Ubuntu / Debian"
-datetime = "2015-05-09 10:47"
+datetime = "2014-05-09 10:47"
 tags = ["IPv6", "DHCPv6"]
 ------------
 If your Linux box gets its IPv6 routing information via router advertisments, you may have noticed that upon enabling forwarding, it disregards those advertisments and it loses the configured gateways.

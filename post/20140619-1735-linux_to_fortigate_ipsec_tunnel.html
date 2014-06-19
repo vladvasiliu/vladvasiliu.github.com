@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <meta name="description" content="" />
-  <title>IPv6 routing and router advertisments on Ubuntu / Debian</title>
+  <title>Establishing IPSec tunnel between Linux and Fortigate</title>
   <link rel="stylesheet" href="/less/static/css/layout.css" type="text/css" />
   <link rel="stylesheet" href="/less/static/css/post.css" type="text/css" />
 </head>
@@ -23,23 +23,39 @@
     </div>
     <p class="flourish"><img src="/less/static/images/flourish.svg" height="60px" alt=""></p>
     <div class="content">
-              <h1 class="title">IPv6 routing and router advertisments on Ubuntu / Debian</h1>
-  <p class="date">written on May  09, 14 </p>
+              <h1 class="title">Establishing IPSec tunnel between Linux and Fortigate</h1>
+  <p class="date">written on Jun  19, 14 </p>
   <div class="post-html">
-    <p>If your Linux box gets its IPv6 routing information via router advertisments, you may have noticed that upon enabling forwarding, it disregards those advertisments and it loses the configured gateways.</p>
+    <p>Here is an example of a tunnel setup beetween Linux and Fortigate. It uses StrongSwan.</p>
 
-<p>The have this configuration working again, set <code>accept_ra 2</code> in <code>/etc/network/interfaces</code>. This value is not documented in the <code>interfaces</code> manual, but since kernel version 2.6.37 it allows the interface to both do forwarding and accept router advertisments.</p>
-
-<p><a href="http://strugglers.net/%7Eandy/blog/2011/09/04/linux-ipv6-router-advertisements-and-forwarding/">Source</a></p>
+            <div class="highlight">
+              <pre><code>conn myconn
+    type=tunnel
+    left=[local_ip_address]
+    leftsubnet=[local_subnet_to_be_accessed_through_tunnel]
+    right=[remote_ip_address]
+    rightsubnet=[remote_subnet_to_be_accessed_through_tunnel]
+    keyexchange=ike
+    ikelifetime=28800s
+    ike=aes256-sha1-modp1536
+    authby=secret
+    keylife=1800s
+    esp=aes256-sha1
+    auto=start</code></pre>
+            </div>
+            
+<p>This configures the forwarding policy. If you want to access the remote end of the tunnel from the gateway, set up a virtual interface and configure it with an address within the local_subnet.</p>
 
   </div>
       <p class="tags">
       This entry was tagged
-                            <a href="/tag/IPv6.html">IPv6</a>
+                            <a href="/tag/IPSec.html">IPSec</a>
                 ,
-                              <a href="/tag/DHCPv6.html">DHCPv6</a>
+                              <a href="/tag/VPN.html">VPN</a>
+                ,
+                              <a href="/tag/Tunneling.html">Tunneling</a>
                   </p>
-    <div class="cut">~~~~~~~~ <a href="/src/post/20140514-IPv6_routing_with_router_advertisment.md">Show Source</a> ~~~~~~~~</div>
+    <div class="cut">~~~~~~~~ <a href="/src/post/20140619-1735-linux_to_fortigate_ipsec_tunnel.md">Show Source</a> ~~~~~~~~</div>
     <!-- Disqus Comment BEGIN -->
     <div id="disqus_thread"></div>
     <script type="text/javascript">
