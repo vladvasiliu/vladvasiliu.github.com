@@ -1,0 +1,71 @@
+==================================================================
+https://keybase.io/vvlad
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://vladvasiliu.com
+  * I am vvlad (https://keybase.io/vvlad) on keybase.
+  * I have a public key with fingerprint 6170 D1AD A316 180C 8DB2  73AC A42C F9EE 2E60 AED9
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "6170d1ada316180c8db273aca42cf9ee2e60aed9",
+            "host": "keybase.io",
+            "key_id": "a42cf9ee2e60aed9",
+            "uid": "db00c1dd7b0f8ac8f76c425018bee100",
+            "username": "vvlad"
+        },
+        "service": {
+            "hostname": "vladvasiliu.com",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1411477202,
+    "expire_in": 157680000,
+    "prev": "d96e061393aaf314e6be4eae0f3dcc346fd0168c3a0e7b3cf5071e62767c4425",
+    "seqno": 4,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v1.0.5
+Comment: https://keybase.io/crypto
+
+yML5AnicO8LLzMDFeNTmh9kuw5woxtMHPpYyhCjmXapWSspPqVSyqlbKTgVTaZl5
+6alFBUWZeSVKVkpmhuYGKYaJKYnGhmaGFgbJFilJRubGicmJJkbJaZapqUapZgaJ
+qSmWSjpKGfnFIB1AY5ISi1P1MvOBYkBOfGYKUBSL+lKwREqSgUGyYUqKeZJBmkVi
+skWauVmyiZGpgaFFUmqqoYEBSGFxalFeYm4qUHVZWU5iilKtjhJQqCwzORXkYJC9
+MGmgbFlicWZOZqlecn4uUG9BUX5JfnJ+DlAyo6SkwAqkt6SyAKS4PDUpHmpMfFJm
+XgrQ30ANZalFxZn5eUpWhkCVySWZIHMNTQwNTczNjQyMdJRSKwoyi1LjM0EqTM3N
+LAyAAGRNahnIM5ZmqQZmhsaWxomJacaGJqlmSakmqYmpBmnGKcnJxiZmaSkGhmYW
+ycaJBqnmScbJaaYG5oapZkbmZubJJkBfK4E8VpiXr2RlAnRmYjrQyOLM9LzEktKi
+VKXaQwdjWBgYuRjYWJlAMcfAxSkAi8/fLgIM+zT95zybPKu3ZFN6me9Utl/ZSk6H
+71+uKL49ofp3o2C9nEG6vfu3WYc+GFmaci9JS7jX7rPefPL1IDlG8ymz/Z2PzZR0
+id3YzXK4JVgiYbl14fstbGuvzK3eJFTCuklrTvDsV3O0vFSl8l6KC808cSrJ0aDW
+8WJm9/SFn9Z1mCycvOhL0BTmE2sqt868d3nSvjPuFyY/WthSFeZ/6UR9a3XHD4ny
+psKctrikWMZHs0W3xsgcelv1vzjdOvMKr8s7qd+xjEzXHpRN11PMWt98jjNP/oG9
+y5/w82GNbFUSxRvFV9aEbuXvWP9frnhDfJT5/Zda3yRlI/VZjzy1zfezmae/ubd4
+fsmRG2vyXAQMlXndn83c9Oq9gFvPFq7kRdbeInHbLaMrGh9Nu5R3o/jnRou5t/52
+Lr/hY3/k8xG56sqSVd5BieYTDTj5Z6zLi508b+96M/7rEy+7y/6ZGLk/rGzL93Bj
+u7tRFsEe+xzv7D8p/IExOKp+mVjzR9mf9RdP1/5o1hT8zhzMmjHJeyEXb86zXceF
+mA9v2dp+8cD5mZ7HGnleTGS9EL5CqdTlntI8WZ8fD1gNRX7aSbxLnqmwvnz5lOC/
+B1b98L3xtbtO7OL2Pde2f/0U94/z3qHf3ol3rYQvdzwIlNj2IKjT5XSP8FQNxvi0
+SotXEYfb3RPDGZY8kp9ooaA+WYzlQuieu9u7Ml3eH9yR8m/ry037AcDIlFw=
+=1CYx
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/vvlad
+
+==================================================================
+
