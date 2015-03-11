@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="description" content="" />
+  <title>DHCP Option 121 in PFSense</title>
+  <link rel="stylesheet" href="/less/static/css/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/less/static/css/post.css" type="text/css" />
+</head>
+<body>
+  <!-- 800px width -->
+  <div class="container">
+    <div class="header">
+      <h1><a href="/">vBlog</a></h1>       <h2></h2>
+      <p class="nav separator">        <span>
+        <a href="/">Home</a> ~
+        <a href="/tags.html">Tags</a> ~
+        <a href="/archives.html">Archives</a> ~
+        <a href="/about.html">About</a> ~
+        <a href="/feed.atom">Rss</a>
+      </span>
+      </p>
+    </div>
+    <p class="flourish"><img src="/less/static/images/flourish.svg" height="60px" alt=""></p>
+    <div class="content">
+              <h1 class="title">DHCP Option 121 in PFSense</h1>
+  <p class="date">written on Mar  11, 15 </p>
+  <div class="post-html">
+    <p>The DHCP Option 121 is described here: <a href="http://tools.ietf.org/html/rfc3442">http://tools.ietf.org/html/rfc3442</a>. It allows the DHCP server to send a classless route.</p>
+
+<p>In PFSense, one can add this option by setting the type to string. The catch is that the length is variable, according to the netmask length.</p>
+
+<p>For example, to add 10.0.0.0/8 via 10.100.5.1, the HEX is: <code>08:0A:0A:64:05:01</code></p>
+
+  </div>
+      <p class="tags">
+      This entry was tagged
+                            <a href="/tag/Net.html">Net</a>
+                ,
+                              <a href="/tag/dhcp.html">dhcp</a>
+                ,
+                              <a href="/tag/PFSense.html">PFSense</a>
+                  </p>
+    <div class="cut">~~~~~~~~ <a href="/src/post/20150311-2031_DHCP_Option_121.md">Show Source</a> ~~~~~~~~</div>
+    <!-- Disqus Comment BEGIN -->
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'vladvasiliu'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  <!-- Disqus Comment END -->
+    </div>
+    <div class="footer-push">
+          </div>
+  </div>
+  <div class="footer">
+      © 2014 Vlad Vasiliu |
+      blog powered by <a href="https://github.com/hit9/lilac">lilac</a> |
+      theme by <a href="http://hit9.org">hit9</a>
+  </div>
+</body>
+</html>
