@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dhcpv6 on vBlog</title>
+    <link>http://vladvasiliu.com/tags/dhcpv6/index.xml</link>
+    <description>Recent content in Dhcpv6 on vBlog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Copyright © 2016 Vlad Vasiliu; all rights reserved.</copyright>
+    <atom:link href="http://vladvasiliu.com/tags/dhcpv6/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>IPv6 prefix delegation with static address and dhclient on Ubuntu / Debian</title>
+      <link>http://vladvasiliu.com/post/20140509-IPv6_prefix_delegation_with_dhclient_and_static_ip/</link>
+      <pubDate>Fri, 09 May 2014 10:47:00 +0200</pubDate>
+      
+      <guid>http://vladvasiliu.com/post/20140509-IPv6_prefix_delegation_with_dhclient_and_static_ip/</guid>
+      <description>&lt;p&gt;Some hosting providers, like &lt;a href=&#34;http://online.net&#34;&gt;Online&lt;/a&gt; in France provide IPv6 access via prefix delegation. You get a DUID that has to be sent to their DHCP server. The IP address is configured by the client.&lt;/p&gt;
+
+&lt;p&gt;The recommended method is using Dibbler, but this solution is pretty buggy.&lt;/p&gt;
+
+&lt;p&gt;On Ubuntu or Debian, you can use the provided dhclient to obtain the prefix delegation.&lt;/p&gt;
+
+&lt;p&gt;Below are samples of &lt;code&gt;dhclient6.conf&lt;/code&gt; and &lt;code&gt;interfaces&lt;/code&gt;. Note that in this configuration everything is configured by the client, but you could request a name server from the DHCP server.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;/etc/dhcp/dhclient6.conf&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;interface &amp;quot;em1&amp;quot; {
+    send dhcp6.client-id your:duid;
+    request;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;/etc/network/interfaces&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;auto em1
+iface em1 inet6 static
+    address your:ip:v6:address
+    netmask your_nemask
+    accept_ra 1
+    pre-up /sbin/dhclient -cf /etc/dhcp/dhclient6.conf -6 -P em1
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>IPv6 routing and router advertisments on Ubuntu / Debian</title>
+      <link>http://vladvasiliu.com/post/20140514-IPv6_routing_with_router_advertisment/</link>
+      <pubDate>Fri, 09 May 2014 10:47:00 +0200</pubDate>
+      
+      <guid>http://vladvasiliu.com/post/20140514-IPv6_routing_with_router_advertisment/</guid>
+      <description>&lt;p&gt;If your Linux box gets its IPv6 routing information via router advertisments, you may have noticed that upon enabling forwarding, it disregards those advertisments and it loses the configured gateways.&lt;/p&gt;
+
+&lt;p&gt;The have this configuration working again, set &lt;code&gt;accept_ra 2&lt;/code&gt; in &lt;code&gt;/etc/network/interfaces&lt;/code&gt;. This value is not documented in the &lt;code&gt;interfaces&lt;/code&gt; manual, but since kernel version 2.6.37 it allows the interface to both do forwarding and accept router advertisments.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://strugglers.net/~andy/blog/2011/09/04/linux-ipv6-router-advertisements-and-forwarding/&#34;&gt;Source&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

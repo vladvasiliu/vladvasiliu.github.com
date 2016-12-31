@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Powerline on vBlog</title>
+    <link>http://vladvasiliu.com/tags/powerline/index.xml</link>
+    <description>Recent content in Powerline on vBlog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Copyright © 2016 Vlad Vasiliu; all rights reserved.</copyright>
+    <atom:link href="http://vladvasiliu.com/tags/powerline/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Installing Powerline on Mac OS X</title>
+      <link>http://vladvasiliu.com/post/20130819-1225-Powerline_on_mac_os_x/</link>
+      <pubDate>Mon, 19 Aug 2013 12:25:00 +0200</pubDate>
+      
+      <guid>http://vladvasiliu.com/post/20130819-1225-Powerline_on_mac_os_x/</guid>
+      <description>&lt;p&gt;While installing &lt;a href=&#34;https://github.com/Lokaltog/powerline&#34;&gt;Powerline&lt;/a&gt; on MacOS X following the &lt;a href=&#34;https://powerline.readthedocs.org/en/latest/installation/osx.html#installation-osx&#34;&gt;documentation&lt;/a&gt;, there are some import problems.&lt;/p&gt;
+
+&lt;p&gt;It turns out that running &lt;code&gt;python setup.py install&lt;/code&gt; installs everything into &lt;code&gt;/path/to/site-packages/Powerline-beta-py2.7.egg/&lt;/code&gt;. This folder should be named &lt;code&gt;powerline&lt;/code&gt; instead.&lt;/p&gt;
+
+&lt;p&gt;Symlinking the included &lt;code&gt;powerline&lt;/code&gt; folder to &lt;code&gt;site-packages/powerline&lt;/code&gt; seems to fix this.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

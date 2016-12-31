@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Net on vBlog</title>
+    <link>http://vladvasiliu.com/tags/net/index.xml</link>
+    <description>Recent content in Net on vBlog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Copyright © 2016 Vlad Vasiliu; all rights reserved.</copyright>
+    <atom:link href="http://vladvasiliu.com/tags/net/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>DHCP Option 121 in PFSense</title>
+      <link>http://vladvasiliu.com/post/20150311-2031_DHCP_Option_121/</link>
+      <pubDate>Wed, 11 Mar 2015 20:32:00 +0200</pubDate>
+      
+      <guid>http://vladvasiliu.com/post/20150311-2031_DHCP_Option_121/</guid>
+      <description>&lt;p&gt;The DHCP Option 121 is described here: &lt;a href=&#34;http://tools.ietf.org/html/rfc3442&#34;&gt;http://tools.ietf.org/html/rfc3442&lt;/a&gt;. It allows the DHCP server to send a classless route.&lt;/p&gt;
+
+&lt;p&gt;In PFSense, one can add this option by setting the type to string. The catch is that the length is variable, according to the netmask length.&lt;/p&gt;
+
+&lt;p&gt;For example, to add 10.0.0.0/8 via 10.100.5.1, the HEX is: &lt;code&gt;08:0A:0A:64:05:01&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

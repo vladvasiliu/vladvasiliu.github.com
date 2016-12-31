@@ -1,0 +1,185 @@
+<html lang="en">
+<head>
+
+  
+  <meta charset="utf-8">
+  <title>Macos X</title>
+  <meta name="description" content="Macos X">
+  <meta name="author" content="Vlad Vasiliu">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="http://vladvasiliu.com/css/fonts.css">
+  
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+  
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+
+  <link rel="stylesheet" href="http://vladvasiliu.com/css/custom.css">
+
+  
+  
+  <link rel="stylesheet" href="http://vladvasiliu.com/highlight/styles/default.css">
+  
+  <script src="http://vladvasiliu.com/highlight/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+
+<div class="header pure-g">
+    <div class="pure-u-1-24 pure-u-md-5-24"></div>
+    <div class="pure-u-11-12 pure-u-md-5-8">
+        <div class="desktop pure-menu pure-menu-horizontal nav-menu">
+            
+            <a href="http://vladvasiliu.com/" class="site-title pure-menu-heading">vBlog</a>
+            <ul class="pure-menu-list">
+                
+                <li class="pure-menu-item">
+                    <a href="http://vladvasiliu.com/about/" class="pure-menu-link">About</a>
+                </li>
+            </ul>
+        </div>
+        <div class="mobile pure-menu nav-menu">
+            <a href="/" class="pure-menu-heading" id="toggle-home">vBlog</a>
+            <a href="#" id="toggle-btn">&#9776;</a>
+            <ul class="pure-menu-list" id="toggle-content" style="display:none;">
+                
+                
+                <li class="pure-menu-item">
+                    <a href="http://vladvasiliu.com/about" class="pure-menu-link">About</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="pure-u-1-24 pure-u-md-1-6"></div>
+</div>
+
+
+
+<div class="pure-g">
+    <div class="pure-u-1-24 pure-u-md-5-24"></div>
+	<div class="pure-u-11-12 pure-u-md-5-8">
+	  <p class="posts-name">Macos X:</p>
+
+	  <ul class="posts">
+		
+		
+		
+		<li>
+		  <a href="http://vladvasiliu.com/post/20130819-1225-Powerline_on_mac_os_x/">Installing Powerline on Mac OS X</a>
+
+		  <p class="footnote">
+			submitted <time datetime="2013-08-19T12:25:00&#43;02:00" class="post-list timeago">2013-08-19T12:25:00&#43;02:00</time>
+
+			
+			to
+			
+
+			
+			tags:[ <a href="http://vladvasiliu.com/tags/macos-x">MacOS X</a> <a href="http://vladvasiliu.com/tags/powerline">Powerline</a> ]
+			
+
+			
+
+			
+
+		  </p>
+		</li>
+		
+		
+		
+		<li>
+		  <a href="http://vladvasiliu.com/post/20130819-1218-zsh_with_python_module_on_mac_os_x/">Building ZSH with zpython module on MacOS X</a>
+
+		  <p class="footnote">
+			submitted <time datetime="2013-08-19T12:19:00&#43;02:00" class="post-list timeago">2013-08-19T12:19:00&#43;02:00</time>
+
+			
+			to
+			
+
+			
+			tags:[ <a href="http://vladvasiliu.com/tags/macos-x">MacOS X</a> <a href="http://vladvasiliu.com/tags/zsh">ZSH</a> <a href="http://vladvasiliu.com/tags/python">Python</a> ]
+			
+
+			
+
+			
+
+		  </p>
+		</li>
+		
+		
+	  </ul>
+	</div>
+    <div class="pure-u-1-24 pure-u-md-1-6"></div>
+</div>
+
+<div class="footer pure-g">
+    <div class="pure-u-1-24 pure-u-md-5-24"></div>
+    <div class="pure-u-11-12 pure-u-md-5-8">
+        <div class="pure-menu pure-menu-horizontal footer-content">
+            <ul>
+                <li class="pure-menu-heading" id="foot-name">Vlad Vasiliu:</li>
+
+                
+
+                
+                <li class="pure-menu-item">
+                    <a href="https://github.com/vladvasiliu" class="pure-menu-link">GitHub</a>
+                </li>
+                
+
+                
+                <li class="pure-menu-item">
+                    <a href="https://www.linkedin.com/in/vlad-vasiliu-460b2b18" class="pure-menu-link">LinkedIn</a>
+                </li>
+                
+
+                
+
+                
+                <li class="pure-menu-item">
+                    <a href="https://twitter.com/vvasiliu" class="pure-menu-link">Twitter</a>
+                </li>
+                
+
+            </ul>
+            <a href="#" class="pure-menu-heading pull-right" id="gototop-btn">↑↑</a>
+        </div>
+	  </div>
+      <div class="pure-u-1-24 pure-u-md-1-6"></div>
+</div>
+
+
+<script src="http://vladvasiliu.com/js/jquery.min.js" type="text/javascript"></script>
+<script src="http://vladvasiliu.com/js/jquery.timeago.js" type="text/javascript"></script>
+<script type="text/javascript">
+  $(function(){
+    $("time.timeago").timeago();
+  })
+  $("#toggle-btn").click(function(){
+    $("#toggle-content").toggle();
+    if($(this).html() === "☰") {
+        $(this).html("X")
+    } else {
+        $(this).html("☰")
+    }
+  });
+  $(window).resize(function(){
+    if(window.innerWidth > 768) {
+      $(".desktop").removeAttr("style");
+    }
+  });
+</script>
+
+</body>
+</html>
+
