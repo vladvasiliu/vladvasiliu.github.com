@@ -6,8 +6,24 @@
     <description>Recent content on vBlog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2016 Vlad Vasiliu; all rights reserved.</copyright>
-    <lastBuildDate>Wed, 11 Mar 2015 20:32:00 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 31 Dec 2016 12:02:49 +0100</lastBuildDate>
     <atom:link href="http://vladvasiliu.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>about</title>
+      <link>http://vladvasiliu.com/about/</link>
+      <pubDate>Sat, 31 Dec 2016 12:02:49 +0100</pubDate>
+      
+      <guid>http://vladvasiliu.com/about/</guid>
+      <description>
+
+&lt;h1 id=&#34;hi&#34;&gt;Hi&lt;/h1&gt;
+
+&lt;p&gt;I&amp;rsquo;m Vlad Vasiliu.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m in charge of the network and systems infrastructure at Les Cinémas Gaumont Pathé in Paris, France.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>DHCP Option 121 in PFSense</title>
