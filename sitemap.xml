@@ -7,6 +7,11 @@
   </url>
   
   <url>
+    <loc>http://vladvasiliu.com/post/20161231-1210-Using_python_in_saltstack_reactor/</loc>
+    <lastmod>2016-12-31T12:11:00+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://vladvasiliu.com/post/20150311-2031_DHCP_Option_121/</loc>
     <lastmod>2015-03-11T20:32:00+02:00</lastmod>
   </url>
@@ -170,7 +175,7 @@
   
   <url>
     <loc>http://vladvasiliu.com/post/</loc>
-    <lastmod>2015-03-11T20:32:00+02:00</lastmod>
+    <lastmod>2016-12-31T12:11:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -193,8 +198,20 @@
   </url>
   
   <url>
+    <loc>http://vladvasiliu.com/tags/salt/</loc>
+    <lastmod>2016-12-31T12:11:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://vladvasiliu.com/tags/ssl/</loc>
     <lastmod>2015-02-04T17:38:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://vladvasiliu.com/tags/sys/</loc>
+    <lastmod>2016-12-31T12:11:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
