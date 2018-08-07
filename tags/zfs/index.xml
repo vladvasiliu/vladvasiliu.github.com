@@ -2,11 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Zfs on vBlog</title>
-    <link>http://vladvasiliu.com/tags/zfs/index.xml</link>
+    <link>http://vladvasiliu.com/tags/zfs/</link>
     <description>Recent content in Zfs on vBlog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright © 2016 Vlad Vasiliu; all rights reserved.</copyright>
-    <atom:link href="http://vladvasiliu.com/tags/zfs/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2018 Vlad Vasiliu; all rights reserved.</copyright>
+    <lastBuildDate>Sat, 17 Aug 2013 21:11:00 +0200</lastBuildDate>
+    
+	<atom:link href="http://vladvasiliu.com/tags/zfs/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Setting default NFSv4 ACLs on FreeBSD</title>
@@ -14,28 +17,8 @@
       <pubDate>Sat, 17 Aug 2013 21:11:00 +0200</pubDate>
       
       <guid>http://vladvasiliu.com/post/2013-08-17_03-setting_default_nfsv4_acls_on_freebsd/</guid>
-      <description>&lt;p&gt;On FreeBSD with ZFS, only NFSv4 ACLs are supported. At the time of this writing, the &lt;a href=&#34;https://wiki.freebsd.org/NFSv4_ACLs&#34;&gt;FreeBSD documentation regarding ACLs&lt;/a&gt; is a bit vague. Specifically, it doesn’t talk about inheritable attributes.&lt;/p&gt;
-
-&lt;p&gt;The &lt;code&gt;-d&lt;/code&gt; argument, used to define default POSIX ACLs is not supported. Instead, there are some flags one can set in order to define how ACLs are inherited. For an explanation, look in the manual for &lt;code&gt;setfacl&lt;/code&gt;, section &lt;em&gt;ACL inheritance flags&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;Let’s say you want all the files and directories inside &lt;code&gt;somedir&lt;/code&gt; to be readable by the users in the group &lt;code&gt;somegroup&lt;/code&gt;. You would do the following:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;setfacl -m g:somegroup:rx:fd:allow somedir
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This sets &lt;code&gt;somedir&lt;/code&gt; to be readable and executable by &lt;code&gt;somegroup&lt;/code&gt; and those properties will be inherited by all new files (the &lt;code&gt;f&lt;/code&gt; flag) and directories (&lt;code&gt;d&lt;/code&gt; flag).&lt;/p&gt;
-
-&lt;p&gt;Note, however, that this only applies to newly created files. In the FreeBSD implementation of &lt;code&gt;setfacl&lt;/code&gt; there is no recursive option. One way of applying the changes to the subtree is:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;find . -type d -exec setfacl -m g:somegroup:rx:fd:allow {} \;
-find . -type f -exec setfacl -m g:somegroup:r::allow {} \;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The first line sets the previous ACLs on all the subdirectories, while the second sets the ACL on all the files.&lt;/p&gt;
-
-&lt;p&gt;In order for this to work, some ZFS attributes must be set: &lt;code&gt;aclinherit=passthrough-x&lt;/code&gt; and &lt;code&gt;aclmode=passthrough&lt;/code&gt;.
-See &lt;a href=&#34;http://docs.oracle.com/cd/E19082-01/817-2271/gbaaz/index.html&#34;&gt;here&lt;/a&gt; for the ZFS properties documentation.&lt;/p&gt;
-</description>
+      <description>On FreeBSD with ZFS, only NFSv4 ACLs are supported. At the time of this writing, the FreeBSD documentation regarding ACLs is a bit vague. Specifically, it doesn’t talk about inheritable attributes.
+The -d argument, used to define default POSIX ACLs is not supported. Instead, there are some flags one can set in order to define how ACLs are inherited. For an explanation, look in the manual for setfacl, section ACL inheritance flags.</description>
     </item>
     
   </channel>

@@ -2,122 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Bind on vBlog</title>
-    <link>http://vladvasiliu.com/tags/bind/index.xml</link>
+    <link>http://vladvasiliu.com/tags/bind/</link>
     <description>Recent content in Bind on vBlog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright © 2016 Vlad Vasiliu; all rights reserved.</copyright>
-    <atom:link href="http://vladvasiliu.com/tags/bind/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2018 Vlad Vasiliu; all rights reserved.</copyright>
+    <lastBuildDate>Mon, 08 Dec 2014 10:09:00 +0200</lastBuildDate>
+    
+	<atom:link href="http://vladvasiliu.com/tags/bind/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Zone transfer setup for BIND with split horizon on the same zone</title>
-      <link>http://vladvasiliu.com/post/20141208-1007-BIND_split_view_zone_synchronization/</link>
+      <link>http://vladvasiliu.com/post/20141208-1007-bind_split_view_zone_synchronization/</link>
       <pubDate>Mon, 08 Dec 2014 10:09:00 +0200</pubDate>
       
-      <guid>http://vladvasiliu.com/post/20141208-1007-BIND_split_view_zone_synchronization/</guid>
-      <description>&lt;p&gt;With the default configuration, a zone transfer from a master to a slave of BIND with split horizon has the slave transfer only the view of that zone that is available to its IP address. The documentation is a bit vague on the subject, but it turns out it is possible for the slave to transfer the zone definitions corresponding to all (or a subset) of the views.&lt;/p&gt;
-
-&lt;p&gt;The idea is to identify the slave for zone transfer purposes using something else that its IP address.&lt;/p&gt;
-
-&lt;p&gt;The way to make this work is by using keys to identify the slaves to the server, one key per view.&lt;/p&gt;
-
-&lt;p&gt;For example, key definitions:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;key &amp;quot;key1&amp;quot; {
-  algorithm hmac-sha512;
-  secret &amp;quot;[some_secret_1]&amp;quot;;
-};
-
-key &amp;quot;key2&amp;quot; {
-  algorithm hmac-sha512;
-  secret &amp;quot;[some_secret_2]&amp;quot;;
-};
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;ACLs:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;acl acl1 {
-  key &amp;quot;key1&amp;quot;;
-  !key &amp;quot;key2&amp;quot;;
-  !key &amp;quot;key3&amp;quot;;
-  10.1.0.0/24;
-};
-
-acl acl2 {
-  !key &amp;quot;key1&amp;quot;;
-  key &amp;quot;key2&amp;quot;;
-  !key &amp;quot;key3&amp;quot;;
-  10.2.0.0/24;
-};
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The views:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;view &amp;quot;view1&amp;quot; {
-  match-clients { acl1; };
-  empty-zones-enable no;
-
-  server 10.1.1.2 {
-    keys &amp;quot;key1&amp;quot;;
-  };
-
-  server 10.1.1.3 {
-    keys &amp;quot;key1&amp;quot;;
-  };
-
-  zone &amp;quot;.&amp;quot; IN {
-    type hint;
-    file &amp;quot;/etc/namedb/named.root&amp;quot;;
-  };
-
-  zone &amp;quot;my.zone.com&amp;quot; {
-    type master;
-    file &amp;quot;/etc/namedb/master/my.zone.com&amp;quot;;
-    allow-transfer {
-      key &amp;quot;key1&amp;quot;;
-    };
-    also-notify { 10.1.1.2; 10.1.1.3; };
-  };
-
-  allow-query { acl1; };
-  allow-query-cache { acl1; };
-  allow-recursion { acl1; };
-};
-
-view &amp;quot;view2&amp;quot; {
-  match-clients { acl2; };
-  empty-zones-enable no;
-
-  server 10.1.1.2 {
-    keys &amp;quot;key2&amp;quot;;
-  };
-
-  server 10.1.1.3 {
-    keys &amp;quot;key2&amp;quot;;
-  };
-
-  zone &amp;quot;.&amp;quot; IN {
-    type hint;
-    file &amp;quot;/etc/namedb/named.root&amp;quot;;
-  };
-
-  zone &amp;quot;my.zone.com&amp;quot; {
-    type master;
-    file &amp;quot;/etc/namedb/master/my.zone.com&amp;quot;;
-    allow-transfer {
-      key &amp;quot;key2&amp;quot;;
-    };
-    also-notify { 10.1.1.2; 10.1.1.3; };
-  };
-
-  allow-query { acl2; };
-  allow-query-cache { acl2; };
-  allow-recursion { acl2; };
-
-};
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The idea here is to identify the server by its key, hence it&amp;rsquo;s important that in the ACL definition the keys are before the IP, or else the IP will always match the same ACL. Also, the servers must of course use a different key for each zone. The keys may be shared among servers, or every server can have it&amp;rsquo;s own set of keys. Everybody else is identified by their IP address, and served the corresponding view.&lt;/p&gt;
-</description>
+      <guid>http://vladvasiliu.com/post/20141208-1007-bind_split_view_zone_synchronization/</guid>
+      <description>With the default configuration, a zone transfer from a master to a slave of BIND with split horizon has the slave transfer only the view of that zone that is available to its IP address. The documentation is a bit vague on the subject, but it turns out it is possible for the slave to transfer the zone definitions corresponding to all (or a subset) of the views.
+The idea is to identify the slave for zone transfer purposes using something else that its IP address.</description>
     </item>
     
   </channel>

@@ -2,234 +2,66 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on vBlog</title>
-    <link>http://vladvasiliu.com/post/index.xml</link>
+    <link>http://vladvasiliu.com/post/</link>
     <description>Recent content in Posts on vBlog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright © 2016 Vlad Vasiliu; all rights reserved.</copyright>
+    <copyright>Copyright © 2018 Vlad Vasiliu; all rights reserved.</copyright>
     <lastBuildDate>Sat, 31 Dec 2016 12:11:00 +0200</lastBuildDate>
-    <atom:link href="http://vladvasiliu.com/post/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="http://vladvasiliu.com/post/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Using Python in SaltStack reactor</title>
-      <link>http://vladvasiliu.com/post/20161231-1210-Using_python_in_saltstack_reactor/</link>
+      <link>http://vladvasiliu.com/post/20161231-1210-using_python_in_saltstack_reactor/</link>
       <pubDate>Sat, 31 Dec 2016 12:11:00 +0200</pubDate>
       
-      <guid>http://vladvasiliu.com/post/20161231-1210-Using_python_in_saltstack_reactor/</guid>
-      <description>&lt;p&gt;Sometimes you need to do some complex actions in a Salt Reactor in which case Python comes in handy.&lt;/p&gt;
-
-&lt;p&gt;The documentation is not very clear on how to write Python states. The main point is that Salt expects a structure that can be compiled to a Python dictionary. The run() function has to return a dictionary which resembles the state you would write with YAML.&lt;/p&gt;
-
-&lt;p&gt;Here&amp;rsquo;s an example to add a domain to route 53:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#!py
-
-def run():
-   &#39;&#39;&#39;Add domain name to route53&#39;&#39;&#39;
-
-   full_name = data[&#39;name&#39;]
-
-   subzone, name = full_name.split(&#39;.&#39;)
-   zone = &amp;quot;some.zone.tld&amp;quot;
-
-   try:
-       aws_query = __salt__[&#39;cloud.full_query&#39;]()[&#39;aws&#39;][&#39;ec2&#39;][full_name][&#39;dnsName&#39;]
-   except KeyError:
-       dns_setup_hsd = {&#39;setup-dns&#39;:
-           {&#39;local.test.nop&#39;: [
-               {&#39;tgt&#39;: &#39;some.minion.id&#39;},
-               ]}}
-   else:
-       dns_setup_hsd = {&#39;setup-dns&#39;:
-           {&#39;local.boto_route53.add_record&#39;: [
-               {&#39;tgt&#39;: &#39;some.minion.id&#39;},
-               {&#39;arg&#39;: [
-                   &#39;.&#39;.join((name, zone)),
-                   aws_query,
-                   zone,
-                   &#39;CNAME&#39;]}]}}
-
-   return dns_setup_hsd
-
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <guid>http://vladvasiliu.com/post/20161231-1210-using_python_in_saltstack_reactor/</guid>
+      <description>Sometimes you need to do some complex actions in a Salt Reactor in which case Python comes in handy.
+The documentation is not very clear on how to write Python states. The main point is that Salt expects a structure that can be compiled to a Python dictionary. The run() function has to return a dictionary which resembles the state you would write with YAML.
+Here&amp;rsquo;s an example to add a domain to route 53:</description>
     </item>
     
     <item>
       <title>DHCP Option 121 in PFSense</title>
-      <link>http://vladvasiliu.com/post/20150311-2031_DHCP_Option_121/</link>
+      <link>http://vladvasiliu.com/post/20150311-2031_dhcp_option_121/</link>
       <pubDate>Wed, 11 Mar 2015 20:32:00 +0200</pubDate>
       
-      <guid>http://vladvasiliu.com/post/20150311-2031_DHCP_Option_121/</guid>
-      <description>&lt;p&gt;The DHCP Option 121 is described here: &lt;a href=&#34;http://tools.ietf.org/html/rfc3442&#34;&gt;http://tools.ietf.org/html/rfc3442&lt;/a&gt;. It allows the DHCP server to send a classless route.&lt;/p&gt;
-
-&lt;p&gt;In PFSense, one can add this option by setting the type to string. The catch is that the length is variable, according to the netmask length.&lt;/p&gt;
-
-&lt;p&gt;For example, to add 10.0.0.0/8 via 10.100.5.1, the HEX is: &lt;code&gt;08:0A:0A:64:05:01&lt;/code&gt;&lt;/p&gt;
-</description>
+      <guid>http://vladvasiliu.com/post/20150311-2031_dhcp_option_121/</guid>
+      <description>The DHCP Option 121 is described here: http://tools.ietf.org/html/rfc3442. It allows the DHCP server to send a classless route.
+In PFSense, one can add this option by setting the type to string. The catch is that the length is variable, according to the netmask length.
+For example, to add 10.0.0.0/8 via 10.100.5.1, the HEX is: 08:0A:0A:64:05:01</description>
     </item>
     
     <item>
       <title>Custom SSL certificate for iDrac 7 without CSR</title>
-      <link>http://vladvasiliu.com/post/20150204-1737-DRAC_custom_ssl_cert/</link>
+      <link>http://vladvasiliu.com/post/20150204-1737-drac_custom_ssl_cert/</link>
       <pubDate>Wed, 04 Feb 2015 17:38:00 +0200</pubDate>
       
-      <guid>http://vladvasiliu.com/post/20150204-1737-DRAC_custom_ssl_cert/</guid>
-      <description>&lt;p&gt;If you want to use the Dell iDrac with a certificate signed by your CA, the web gui allows you to create a CSR, and upload the signed certificate. But if for some reason you want to generate the certificate and key outside of iDrac, the gui doesn&amp;rsquo;t offer a way to upload the key.&lt;/p&gt;
-
-&lt;p&gt;There is a way to use fully custom certificates, but it requires the &lt;code&gt;racadm&lt;/code&gt; command line utility. Assuming you have generated the certificate, here are the steps:&lt;/p&gt;
-
-&lt;p&gt;Upload the CA cert:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;    racadm -r 1.2.3.4 -i sslcertupload -f c:\path\to\ca.crt -t 2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Upload the cert key:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;    racadm -r 1.2.3.4 -i sslkeyupload -f c:\path\to\the_cert.key -t 1
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Upload the cert:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;    racadm -r 1.2.3.4 -i sslcertupload -f c:\path\to\the_cert.crt -t 1
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If you are using intermediate CAs, &lt;code&gt;ca.crt&lt;/code&gt; should contain all the CA chain, starting with the root one.&lt;/p&gt;
-</description>
+      <guid>http://vladvasiliu.com/post/20150204-1737-drac_custom_ssl_cert/</guid>
+      <description>If you want to use the Dell iDrac with a certificate signed by your CA, the web gui allows you to create a CSR, and upload the signed certificate. But if for some reason you want to generate the certificate and key outside of iDrac, the gui doesn&amp;rsquo;t offer a way to upload the key.
+There is a way to use fully custom certificates, but it requires the racadm command line utility.</description>
     </item>
     
     <item>
       <title>Zone transfer setup for BIND with split horizon on the same zone</title>
-      <link>http://vladvasiliu.com/post/20141208-1007-BIND_split_view_zone_synchronization/</link>
+      <link>http://vladvasiliu.com/post/20141208-1007-bind_split_view_zone_synchronization/</link>
       <pubDate>Mon, 08 Dec 2014 10:09:00 +0200</pubDate>
       
-      <guid>http://vladvasiliu.com/post/20141208-1007-BIND_split_view_zone_synchronization/</guid>
-      <description>&lt;p&gt;With the default configuration, a zone transfer from a master to a slave of BIND with split horizon has the slave transfer only the view of that zone that is available to its IP address. The documentation is a bit vague on the subject, but it turns out it is possible for the slave to transfer the zone definitions corresponding to all (or a subset) of the views.&lt;/p&gt;
-
-&lt;p&gt;The idea is to identify the slave for zone transfer purposes using something else that its IP address.&lt;/p&gt;
-
-&lt;p&gt;The way to make this work is by using keys to identify the slaves to the server, one key per view.&lt;/p&gt;
-
-&lt;p&gt;For example, key definitions:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;key &amp;quot;key1&amp;quot; {
-  algorithm hmac-sha512;
-  secret &amp;quot;[some_secret_1]&amp;quot;;
-};
-
-key &amp;quot;key2&amp;quot; {
-  algorithm hmac-sha512;
-  secret &amp;quot;[some_secret_2]&amp;quot;;
-};
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;ACLs:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;acl acl1 {
-  key &amp;quot;key1&amp;quot;;
-  !key &amp;quot;key2&amp;quot;;
-  !key &amp;quot;key3&amp;quot;;
-  10.1.0.0/24;
-};
-
-acl acl2 {
-  !key &amp;quot;key1&amp;quot;;
-  key &amp;quot;key2&amp;quot;;
-  !key &amp;quot;key3&amp;quot;;
-  10.2.0.0/24;
-};
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The views:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;view &amp;quot;view1&amp;quot; {
-  match-clients { acl1; };
-  empty-zones-enable no;
-
-  server 10.1.1.2 {
-    keys &amp;quot;key1&amp;quot;;
-  };
-
-  server 10.1.1.3 {
-    keys &amp;quot;key1&amp;quot;;
-  };
-
-  zone &amp;quot;.&amp;quot; IN {
-    type hint;
-    file &amp;quot;/etc/namedb/named.root&amp;quot;;
-  };
-
-  zone &amp;quot;my.zone.com&amp;quot; {
-    type master;
-    file &amp;quot;/etc/namedb/master/my.zone.com&amp;quot;;
-    allow-transfer {
-      key &amp;quot;key1&amp;quot;;
-    };
-    also-notify { 10.1.1.2; 10.1.1.3; };
-  };
-
-  allow-query { acl1; };
-  allow-query-cache { acl1; };
-  allow-recursion { acl1; };
-};
-
-view &amp;quot;view2&amp;quot; {
-  match-clients { acl2; };
-  empty-zones-enable no;
-
-  server 10.1.1.2 {
-    keys &amp;quot;key2&amp;quot;;
-  };
-
-  server 10.1.1.3 {
-    keys &amp;quot;key2&amp;quot;;
-  };
-
-  zone &amp;quot;.&amp;quot; IN {
-    type hint;
-    file &amp;quot;/etc/namedb/named.root&amp;quot;;
-  };
-
-  zone &amp;quot;my.zone.com&amp;quot; {
-    type master;
-    file &amp;quot;/etc/namedb/master/my.zone.com&amp;quot;;
-    allow-transfer {
-      key &amp;quot;key2&amp;quot;;
-    };
-    also-notify { 10.1.1.2; 10.1.1.3; };
-  };
-
-  allow-query { acl2; };
-  allow-query-cache { acl2; };
-  allow-recursion { acl2; };
-
-};
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The idea here is to identify the server by its key, hence it&amp;rsquo;s important that in the ACL definition the keys are before the IP, or else the IP will always match the same ACL. Also, the servers must of course use a different key for each zone. The keys may be shared among servers, or every server can have it&amp;rsquo;s own set of keys. Everybody else is identified by their IP address, and served the corresponding view.&lt;/p&gt;
-</description>
+      <guid>http://vladvasiliu.com/post/20141208-1007-bind_split_view_zone_synchronization/</guid>
+      <description>With the default configuration, a zone transfer from a master to a slave of BIND with split horizon has the slave transfer only the view of that zone that is available to its IP address. The documentation is a bit vague on the subject, but it turns out it is possible for the slave to transfer the zone definitions corresponding to all (or a subset) of the views.
+The idea is to identify the slave for zone transfer purposes using something else that its IP address.</description>
     </item>
     
     <item>
       <title>How to transfer Duo Security installation to a new phone on Android</title>
-      <link>http://vladvasiliu.com/post/20140822-1428-Backup-DUO-Security-Android/</link>
+      <link>http://vladvasiliu.com/post/20140822-1428-backup-duo-security-android/</link>
       <pubDate>Fri, 22 Aug 2014 14:31:00 +0200</pubDate>
       
-      <guid>http://vladvasiliu.com/post/20140822-1428-Backup-DUO-Security-Android/</guid>
-      <description>&lt;p&gt;The Duo Security application can be used to generate one time passwords for
-online services, as an alternative to Google Authenticator.&lt;/p&gt;
-
-&lt;p&gt;However, it does not offer a way to backup the configuration, so if for some
-reason it becomes unusable (say if your phone is stolen or broken) you will have
-to reinitialise all the accounts.&lt;/p&gt;
-
-&lt;p&gt;There is however a way to get to this informaiton. It requires however the phone
-to be &amp;ldquo;rooted&amp;rdquo;. The configuration file is found in
-&lt;code&gt;/data/data/com.duosecurity.duomobile/files/duokit/accounts.json&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;If your new phone is not rooted (or is not an Android devide) you can get the
-otp secrets from this file. In the application, when adding a new account,
- select &amp;ldquo;no barcode&amp;rdquo;, and enter the otp secret in the &lt;code&gt;key&lt;/code&gt; field.&lt;/p&gt;
-</description>
+      <guid>http://vladvasiliu.com/post/20140822-1428-backup-duo-security-android/</guid>
+      <description>The Duo Security application can be used to generate one time passwords for online services, as an alternative to Google Authenticator.
+However, it does not offer a way to backup the configuration, so if for some reason it becomes unusable (say if your phone is stolen or broken) you will have to reinitialise all the accounts.
+There is however a way to get to this informaiton. It requires however the phone to be &amp;ldquo;rooted&amp;rdquo;.</description>
     </item>
     
     <item>
@@ -238,73 +70,31 @@ otp secrets from this file. In the application, when adding a new account,
       <pubDate>Thu, 19 Jun 2014 17:37:00 +0200</pubDate>
       
       <guid>http://vladvasiliu.com/post/20140619-1735-linux_to_fortigate_ipsec_tunnel/</guid>
-      <description>&lt;p&gt;Here is an example of a tunnel setup beetween Linux and Fortigate. It uses StrongSwan.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;conn myconn
-    type=tunnel
-    left=[local_ip_address]
-    leftsubnet=[local_subnet_to_be_accessed_through_tunnel]
-    right=[remote_ip_address]
-    rightsubnet=[remote_subnet_to_be_accessed_through_tunnel]
-    keyexchange=ike
-    ikelifetime=28800s
-    ike=aes256-sha1-modp1536
-    authby=secret
-    keylife=1800s
-    esp=aes256-sha1
-    auto=start
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This configures the forwarding policy. If you want to access the remote end of the tunnel from the gateway, set up a virtual interface and configure it with an address within the local_subnet.&lt;/p&gt;
-</description>
+      <description>Here is an example of a tunnel setup beetween Linux and Fortigate. It uses StrongSwan.
+conn myconn type=tunnel left=[local_ip_address] leftsubnet=[local_subnet_to_be_accessed_through_tunnel] right=[remote_ip_address] rightsubnet=[remote_subnet_to_be_accessed_through_tunnel] keyexchange=ike ikelifetime=28800s ike=aes256-sha1-modp1536 authby=secret keylife=1800s esp=aes256-sha1 auto=start  This configures the forwarding policy. If you want to access the remote end of the tunnel from the gateway, set up a virtual interface and configure it with an address within the local_subnet.</description>
     </item>
     
     <item>
       <title>IPv6 prefix delegation with static address and dhclient on Ubuntu / Debian</title>
-      <link>http://vladvasiliu.com/post/20140509-IPv6_prefix_delegation_with_dhclient_and_static_ip/</link>
+      <link>http://vladvasiliu.com/post/20140509-ipv6_prefix_delegation_with_dhclient_and_static_ip/</link>
       <pubDate>Fri, 09 May 2014 10:47:00 +0200</pubDate>
       
-      <guid>http://vladvasiliu.com/post/20140509-IPv6_prefix_delegation_with_dhclient_and_static_ip/</guid>
-      <description>&lt;p&gt;Some hosting providers, like &lt;a href=&#34;http://online.net&#34;&gt;Online&lt;/a&gt; in France provide IPv6 access via prefix delegation. You get a DUID that has to be sent to their DHCP server. The IP address is configured by the client.&lt;/p&gt;
-
-&lt;p&gt;The recommended method is using Dibbler, but this solution is pretty buggy.&lt;/p&gt;
-
-&lt;p&gt;On Ubuntu or Debian, you can use the provided dhclient to obtain the prefix delegation.&lt;/p&gt;
-
-&lt;p&gt;Below are samples of &lt;code&gt;dhclient6.conf&lt;/code&gt; and &lt;code&gt;interfaces&lt;/code&gt;. Note that in this configuration everything is configured by the client, but you could request a name server from the DHCP server.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;/etc/dhcp/dhclient6.conf&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;interface &amp;quot;em1&amp;quot; {
-    send dhcp6.client-id your:duid;
-    request;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;/etc/network/interfaces&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;auto em1
-iface em1 inet6 static
-    address your:ip:v6:address
-    netmask your_nemask
-    accept_ra 1
-    pre-up /sbin/dhclient -cf /etc/dhcp/dhclient6.conf -6 -P em1
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <guid>http://vladvasiliu.com/post/20140509-ipv6_prefix_delegation_with_dhclient_and_static_ip/</guid>
+      <description>Some hosting providers, like Online in France provide IPv6 access via prefix delegation. You get a DUID that has to be sent to their DHCP server. The IP address is configured by the client.
+The recommended method is using Dibbler, but this solution is pretty buggy.
+On Ubuntu or Debian, you can use the provided dhclient to obtain the prefix delegation.
+Below are samples of dhclient6.conf and interfaces. Note that in this configuration everything is configured by the client, but you could request a name server from the DHCP server.</description>
     </item>
     
     <item>
       <title>IPv6 routing and router advertisments on Ubuntu / Debian</title>
-      <link>http://vladvasiliu.com/post/20140514-IPv6_routing_with_router_advertisment/</link>
+      <link>http://vladvasiliu.com/post/20140514-ipv6_routing_with_router_advertisment/</link>
       <pubDate>Fri, 09 May 2014 10:47:00 +0200</pubDate>
       
-      <guid>http://vladvasiliu.com/post/20140514-IPv6_routing_with_router_advertisment/</guid>
-      <description>&lt;p&gt;If your Linux box gets its IPv6 routing information via router advertisments, you may have noticed that upon enabling forwarding, it disregards those advertisments and it loses the configured gateways.&lt;/p&gt;
-
-&lt;p&gt;The have this configuration working again, set &lt;code&gt;accept_ra 2&lt;/code&gt; in &lt;code&gt;/etc/network/interfaces&lt;/code&gt;. This value is not documented in the &lt;code&gt;interfaces&lt;/code&gt; manual, but since kernel version 2.6.37 it allows the interface to both do forwarding and accept router advertisments.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://strugglers.net/~andy/blog/2011/09/04/linux-ipv6-router-advertisements-and-forwarding/&#34;&gt;Source&lt;/a&gt;&lt;/p&gt;
-</description>
+      <guid>http://vladvasiliu.com/post/20140514-ipv6_routing_with_router_advertisment/</guid>
+      <description>If your Linux box gets its IPv6 routing information via router advertisments, you may have noticed that upon enabling forwarding, it disregards those advertisments and it loses the configured gateways.
+The have this configuration working again, set accept_ra 2 in /etc/network/interfaces. This value is not documented in the interfaces manual, but since kernel version 2.6.37 it allows the interface to both do forwarding and accept router advertisments.
+Source</description>
     </item>
     
     <item>
@@ -313,61 +103,19 @@ iface em1 inet6 static
       <pubDate>Fri, 25 Apr 2014 11:42:00 +0200</pubDate>
       
       <guid>http://vladvasiliu.com/post/20140425-running_rabbitmqctl_as_root/</guid>
-      <description>&lt;p&gt;On some Linux distributions, running &lt;code&gt;rabbitmqctl&lt;/code&gt; as root may fail with the following error:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;    Error: unable to connect to node rabbit@host: nodedown
-
-
-
-    DIAGNOSTICS
-
-    ===========
-
-
-
-    attempted to contact: [rabbit@host]
-
-
-
-    rabbit@host:
-
-      * found rabbit (port 25672)
-
-      * TCP connection succeeded
-
-      * suggestion: hostname mismatch?
-
-      * suggestion: is the cookie set correctly?
-
-
-
-    current node details:
-
-    - node name: rabbitmqctl19092@localhost
-
-    - home dir: /root
-
-    - cookie hash: B+onVMMDnR1uRT2nuD24VA==
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Assuming that the hostname is correct and running &lt;code&gt;rabbitmqctl&lt;/code&gt; as the rabbitmq user works, this is a cookie mismatch problem.&lt;/p&gt;
-
-&lt;p&gt;In order to be able to run &lt;code&gt;rabbitmqctl&lt;/code&gt; as root, it must use the same cookie as the one used by the server. This cookie is usually found in &lt;code&gt;/var/lib/rabbitmq/.erlang.cookie&lt;/code&gt;. To use this cookie, the &lt;code&gt;HOME&lt;/code&gt; environment must be set to &lt;code&gt;/var/lib/rabbitmq&lt;/code&gt;. Either create a wrapper around &lt;code&gt;/usr/bin/rabbitmqctl&lt;/code&gt; that sets the correct environment, or edit this file to add &lt;code&gt;HOME=/var/lib/rabbitmq&lt;/code&gt; on the line that starts with &lt;code&gt;exec ${ERL_DIR}&lt;/code&gt;.&lt;/p&gt;
-</description>
+      <description>On some Linux distributions, running rabbitmqctl as root may fail with the following error:
+ Error: unable to connect to node rabbit@host: nodedown DIAGNOSTICS =========== attempted to contact: [rabbit@host] rabbit@host: * found rabbit (port 25672) * TCP connection succeeded * suggestion: hostname mismatch? * suggestion: is the cookie set correctly? current node details: - node name: rabbitmqctl19092@localhost - home dir: /root - cookie hash: B+onVMMDnR1uRT2nuD24VA==  Assuming that the hostname is correct and running rabbitmqctl as the rabbitmq user works, this is a cookie mismatch problem.</description>
     </item>
     
     <item>
       <title>Installing Powerline on Mac OS X</title>
-      <link>http://vladvasiliu.com/post/20130819-1225-Powerline_on_mac_os_x/</link>
+      <link>http://vladvasiliu.com/post/20130819-1225-powerline_on_mac_os_x/</link>
       <pubDate>Mon, 19 Aug 2013 12:25:00 +0200</pubDate>
       
-      <guid>http://vladvasiliu.com/post/20130819-1225-Powerline_on_mac_os_x/</guid>
-      <description>&lt;p&gt;While installing &lt;a href=&#34;https://github.com/Lokaltog/powerline&#34;&gt;Powerline&lt;/a&gt; on MacOS X following the &lt;a href=&#34;https://powerline.readthedocs.org/en/latest/installation/osx.html#installation-osx&#34;&gt;documentation&lt;/a&gt;, there are some import problems.&lt;/p&gt;
-
-&lt;p&gt;It turns out that running &lt;code&gt;python setup.py install&lt;/code&gt; installs everything into &lt;code&gt;/path/to/site-packages/Powerline-beta-py2.7.egg/&lt;/code&gt;. This folder should be named &lt;code&gt;powerline&lt;/code&gt; instead.&lt;/p&gt;
-
-&lt;p&gt;Symlinking the included &lt;code&gt;powerline&lt;/code&gt; folder to &lt;code&gt;site-packages/powerline&lt;/code&gt; seems to fix this.&lt;/p&gt;
-</description>
+      <guid>http://vladvasiliu.com/post/20130819-1225-powerline_on_mac_os_x/</guid>
+      <description>While installing Powerline on MacOS X following the documentation, there are some import problems.
+It turns out that running python setup.py install installs everything into /path/to/site-packages/Powerline-beta-py2.7.egg/. This folder should be named powerline instead.
+Symlinking the included powerline folder to site-packages/powerline seems to fix this.</description>
     </item>
     
     <item>
@@ -376,12 +124,9 @@ iface em1 inet6 static
       <pubDate>Mon, 19 Aug 2013 12:19:00 +0200</pubDate>
       
       <guid>http://vladvasiliu.com/post/20130819-1218-zsh_with_python_module_on_mac_os_x/</guid>
-      <description>&lt;p&gt;There is a fork of ZSH that has a Python module. It is able to run &lt;a href=&#34;https://github.com/Lokaltog/powerline&#34;&gt;Powerline&lt;/a&gt; smoothly.&lt;/p&gt;
-
-&lt;p&gt;However, on MacOS X, it doesn&amp;rsquo;t correctly detect the Python libs upon compilation. There seems to be a similar problem for Vim with python support: &lt;a href=&#34;http://stackoverflow.com/questions/6490513/vim-failing-to-compile-with-python-on-os-x&#34;&gt;http://stackoverflow.com/questions/6490513/vim-failing-to-compile-with-python-on-os-x&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;The workaround is the same. Editing the &lt;code&gt;Makefile&lt;/code&gt; in the &lt;code&gt;config&lt;/code&gt; directory of the Python installation fixes this. The modification is &lt;code&gt;PYTHONFRAMEWORKINSTALLDIR&lt;/code&gt; instead of &lt;code&gt;PYTHONFRAMEWORKDIR&lt;/code&gt; on the line beginning with &lt;code&gt;LINKFORSHARED&lt;/code&gt;&lt;/p&gt;
-</description>
+      <description>There is a fork of ZSH that has a Python module. It is able to run Powerline smoothly.
+However, on MacOS X, it doesn&amp;rsquo;t correctly detect the Python libs upon compilation. There seems to be a similar problem for Vim with python support: http://stackoverflow.com/questions/6490513/vim-failing-to-compile-with-python-on-os-x
+The workaround is the same. Editing the Makefile in the config directory of the Python installation fixes this. The modification is PYTHONFRAMEWORKINSTALLDIR instead of PYTHONFRAMEWORKDIR on the line beginning with LINKFORSHARED</description>
     </item>
     
     <item>
@@ -390,28 +135,8 @@ iface em1 inet6 static
       <pubDate>Sat, 17 Aug 2013 21:11:00 +0200</pubDate>
       
       <guid>http://vladvasiliu.com/post/2013-08-17_03-setting_default_nfsv4_acls_on_freebsd/</guid>
-      <description>&lt;p&gt;On FreeBSD with ZFS, only NFSv4 ACLs are supported. At the time of this writing, the &lt;a href=&#34;https://wiki.freebsd.org/NFSv4_ACLs&#34;&gt;FreeBSD documentation regarding ACLs&lt;/a&gt; is a bit vague. Specifically, it doesn’t talk about inheritable attributes.&lt;/p&gt;
-
-&lt;p&gt;The &lt;code&gt;-d&lt;/code&gt; argument, used to define default POSIX ACLs is not supported. Instead, there are some flags one can set in order to define how ACLs are inherited. For an explanation, look in the manual for &lt;code&gt;setfacl&lt;/code&gt;, section &lt;em&gt;ACL inheritance flags&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;Let’s say you want all the files and directories inside &lt;code&gt;somedir&lt;/code&gt; to be readable by the users in the group &lt;code&gt;somegroup&lt;/code&gt;. You would do the following:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;setfacl -m g:somegroup:rx:fd:allow somedir
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This sets &lt;code&gt;somedir&lt;/code&gt; to be readable and executable by &lt;code&gt;somegroup&lt;/code&gt; and those properties will be inherited by all new files (the &lt;code&gt;f&lt;/code&gt; flag) and directories (&lt;code&gt;d&lt;/code&gt; flag).&lt;/p&gt;
-
-&lt;p&gt;Note, however, that this only applies to newly created files. In the FreeBSD implementation of &lt;code&gt;setfacl&lt;/code&gt; there is no recursive option. One way of applying the changes to the subtree is:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;find . -type d -exec setfacl -m g:somegroup:rx:fd:allow {} \;
-find . -type f -exec setfacl -m g:somegroup:r::allow {} \;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The first line sets the previous ACLs on all the subdirectories, while the second sets the ACL on all the files.&lt;/p&gt;
-
-&lt;p&gt;In order for this to work, some ZFS attributes must be set: &lt;code&gt;aclinherit=passthrough-x&lt;/code&gt; and &lt;code&gt;aclmode=passthrough&lt;/code&gt;.
-See &lt;a href=&#34;http://docs.oracle.com/cd/E19082-01/817-2271/gbaaz/index.html&#34;&gt;here&lt;/a&gt; for the ZFS properties documentation.&lt;/p&gt;
-</description>
+      <description>On FreeBSD with ZFS, only NFSv4 ACLs are supported. At the time of this writing, the FreeBSD documentation regarding ACLs is a bit vague. Specifically, it doesn’t talk about inheritable attributes.
+The -d argument, used to define default POSIX ACLs is not supported. Instead, there are some flags one can set in order to define how ACLs are inherited. For an explanation, look in the manual for setfacl, section ACL inheritance flags.</description>
     </item>
     
     <item>
@@ -420,13 +145,8 @@ See &lt;a href=&#34;http://docs.oracle.com/cd/E19082-01/817-2271/gbaaz/index.htm
       <pubDate>Sat, 17 Aug 2013 21:05:00 +0200</pubDate>
       
       <guid>http://vladvasiliu.com/post/2013-08-17_02-mysql_replication_io_error_code_1045/</guid>
-      <description>&lt;p&gt;Setting up replication on MySQL may yield the following error:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[ERROR] Slave I/O: error connecting to master, Error code 1045
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The MySQL troubleshooting page gives a few hints, talking about credentials for the replication user. However, attempting a connection via the command line client works, so the password is OK and the slave can reach the master. As it turns out, for replication purposes, the maximum password length is 32 characters.&lt;/p&gt;
-</description>
+      <description>Setting up replication on MySQL may yield the following error:
+[ERROR] Slave I/O: error connecting to master, Error code 1045  The MySQL troubleshooting page gives a few hints, talking about credentials for the replication user. However, attempting a connection via the command line client works, so the password is OK and the slave can reach the master. As it turns out, for replication purposes, the maximum password length is 32 characters.</description>
     </item>
     
   </channel>
