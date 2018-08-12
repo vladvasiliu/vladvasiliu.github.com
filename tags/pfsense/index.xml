@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Pfsense on vBlog</title>
+    <title>PFSense on vBlog</title>
     <link>https://vladvasiliu.com/tags/pfsense/</link>
-    <description>Recent content in Pfsense on vBlog</description>
+    <description>Recent content in PFSense on vBlog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright © 2018 Vlad Vasiliu; all rights reserved.</copyright>
+    <language>en</language>
     <lastBuildDate>Wed, 11 Mar 2015 20:32:00 +0200</lastBuildDate>
     
 	<atom:link href="https://vladvasiliu.com/tags/pfsense/index.xml" rel="self" type="application/rss+xml" />

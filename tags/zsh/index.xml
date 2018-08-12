@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Zsh on vBlog</title>
+    <title>ZSH on vBlog</title>
     <link>https://vladvasiliu.com/tags/zsh/</link>
-    <description>Recent content in Zsh on vBlog</description>
+    <description>Recent content in ZSH on vBlog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright © 2018 Vlad Vasiliu; all rights reserved.</copyright>
+    <language>en</language>
     <lastBuildDate>Mon, 19 Aug 2013 12:19:00 +0200</lastBuildDate>
     
 	<atom:link href="https://vladvasiliu.com/tags/zsh/index.xml" rel="self" type="application/rss+xml" />
