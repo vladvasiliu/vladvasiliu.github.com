@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>FreeBSD on vBlog</title>
+    <title>Freebsd on vBlog</title>
     <link>https://vladvasiliu.com/tags/freebsd/</link>
-    <description>Recent content in FreeBSD on vBlog</description>
+    <description>Recent content in Freebsd on vBlog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sat, 17 Aug 2013 21:11:00 +0200</lastBuildDate>

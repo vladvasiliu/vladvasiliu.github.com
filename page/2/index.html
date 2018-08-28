@@ -55,7 +55,7 @@
 
 
 
-<meta property="og:updated_time" content="2014-08-22T14:31:00&#43;02:00"/>
+<meta property="og:updated_time" content="2014-12-08T10:09:00&#43;02:00"/>
 
 
 
@@ -135,6 +135,29 @@
   <section id="posts" class="posts">
     
     
+    
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/20141208-1007-bind_split_view_zone_synchronization/">Zone transfer setup for BIND with split horizon on the same zone</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2014-12-08 </span>
+      
+      <span class="more-meta"> 352 words </span>
+      <span class="more-meta"> 2 mins read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      With the default configuration, a zone transfer from a master to a slave of BIND with split horizon has the slave transfer only the view of that zone that is available to its IP address. The documentation is a bit vague on the subject, but it turns out it is possible for the slave to transfer the zone definitions corresponding to all (or a subset) of the views.
+The idea is to identify the slave for zone transfer purposes using something else that its IP address.
+    </div>
+    <div class="read-more">
+      <a href="/post/20141208-1007-bind_split_view_zone_synchronization/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
     
       <article class="post">
   <header class="post-header">
@@ -227,29 +250,6 @@ Source
     </div>
     <div class="read-more">
       <a href="/post/20140514-ipv6_routing_with_router_advertisment/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    
-      <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/20140425-running_rabbitmqctl_as_root/">Running rabbitmqctl as root</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-04-25 </span>
-      
-      <span class="more-meta"> 152 words </span>
-      <span class="more-meta"> 1 min read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      On some Linux distributions, running rabbitmqctl as root may fail with the following error:
- Error: unable to connect to node rabbit@host: nodedown DIAGNOSTICS =========== attempted to contact: [rabbit@host] rabbit@host: * found rabbit (port 25672) * TCP connection succeeded * suggestion: hostname mismatch? * suggestion: is the cookie set correctly? current node details: - node name: rabbitmqctl19092@localhost - home dir: /root - cookie hash: B+onVMMDnR1uRT2nuD24VA==  Assuming that the hostname is correct and running rabbitmqctl as the rabbitmq user works, this is a cookie mismatch problem.
-    </div>
-    <div class="read-more">
-      <a href="/post/20140425-running_rabbitmqctl_as_root/" class="read-more-link">Read more..</a>
     </div>
   </div>
 </article>

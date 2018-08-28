@@ -48,6 +48,15 @@
     </item>
     
     <item>
+      <title>Bsd</title>
+      <link>https://vladvasiliu.com/tags/bsd/</link>
+      <pubDate>Mon, 27 Aug 2018 09:22:00 +0200</pubDate>
+      
+      <guid>https://vladvasiliu.com/tags/bsd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Cert</title>
       <link>https://vladvasiliu.com/tags/cert/</link>
       <pubDate>Wed, 04 Feb 2015 17:38:00 +0200</pubDate>
@@ -95,9 +104,18 @@
     <item>
       <title>Dhcp</title>
       <link>https://vladvasiliu.com/tags/dhcp/</link>
-      <pubDate>Wed, 11 Mar 2015 20:32:00 +0200</pubDate>
+      <pubDate>Mon, 27 Aug 2018 09:22:00 +0200</pubDate>
       
       <guid>https://vladvasiliu.com/tags/dhcp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dhcpv6</title>
+      <link>https://vladvasiliu.com/tags/dhcpv6/</link>
+      <pubDate>Fri, 09 May 2014 10:47:00 +0200</pubDate>
+      
+      <guid>https://vladvasiliu.com/tags/dhcpv6/</guid>
       <description></description>
     </item>
     
@@ -120,6 +138,15 @@
     </item>
     
     <item>
+      <title>Freebsd</title>
+      <link>https://vladvasiliu.com/tags/freebsd/</link>
+      <pubDate>Sat, 17 Aug 2013 21:11:00 +0200</pubDate>
+      
+      <guid>https://vladvasiliu.com/tags/freebsd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>IPSec</title>
       <link>https://vladvasiliu.com/tags/ipsec/</link>
       <pubDate>Thu, 19 Jun 2014 17:37:00 +0200</pubDate>
@@ -130,6 +157,15 @@
     
     <item>
       <title>IPv6</title>
+      <link>https://vladvasiliu.com/tags/ipv6/</link>
+      <pubDate>Fri, 09 May 2014 10:47:00 +0200</pubDate>
+      
+      <guid>https://vladvasiliu.com/tags/ipv6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ipv6</title>
       <link>https://vladvasiliu.com/tags/ipv6/</link>
       <pubDate>Fri, 09 May 2014 10:47:00 +0200</pubDate>
       
@@ -192,11 +228,29 @@
     </item>
     
     <item>
+      <title>Pd</title>
+      <link>https://vladvasiliu.com/tags/pd/</link>
+      <pubDate>Mon, 27 Aug 2018 09:22:00 +0200</pubDate>
+      
+      <guid>https://vladvasiliu.com/tags/pd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Powerline</title>
       <link>https://vladvasiliu.com/tags/powerline/</link>
       <pubDate>Mon, 19 Aug 2013 12:25:00 +0200</pubDate>
       
       <guid>https://vladvasiliu.com/tags/powerline/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Prefix delegation</title>
+      <link>https://vladvasiliu.com/tags/prefix-delegation/</link>
+      <pubDate>Mon, 27 Aug 2018 09:22:00 +0200</pubDate>
+      
+      <guid>https://vladvasiliu.com/tags/prefix-delegation/</guid>
       <description></description>
     </item>
     
@@ -219,11 +273,38 @@
     </item>
     
     <item>
+      <title>Routing</title>
+      <link>https://vladvasiliu.com/tags/routing/</link>
+      <pubDate>Mon, 27 Aug 2018 09:22:00 +0200</pubDate>
+      
+      <guid>https://vladvasiliu.com/tags/routing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SLAAC</title>
+      <link>https://vladvasiliu.com/tags/slaac/</link>
+      <pubDate>Mon, 27 Aug 2018 09:22:00 +0200</pubDate>
+      
+      <guid>https://vladvasiliu.com/tags/slaac/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Salt</title>
       <link>https://vladvasiliu.com/tags/salt/</link>
       <pubDate>Sat, 31 Dec 2016 12:11:00 +0200</pubDate>
       
       <guid>https://vladvasiliu.com/tags/salt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sfr</title>
+      <link>https://vladvasiliu.com/tags/sfr/</link>
+      <pubDate>Mon, 27 Aug 2018 09:22:00 +0200</pubDate>
+      
+      <guid>https://vladvasiliu.com/tags/sfr/</guid>
       <description></description>
     </item>
     
