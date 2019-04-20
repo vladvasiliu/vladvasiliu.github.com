@@ -1,6 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <?xml-stylesheet type="text/xsl" href="https://vladvasiliu.com/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://vladvasiliu.com/tags/dhcpv6/</loc>
+    <lastmod>2018-08-27T09:22:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladvasiliu.com/tags/freebsd/</loc>
+    <lastmod>2018-08-27T09:22:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladvasiliu.com/tags/ipv6/</loc>
+    <lastmod>2018-08-27T09:22:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
   
   <url>
     <loc>https://vladvasiliu.com/post/20180827-0922-ipv6_prefix_delegation_freebsd/</loc>
@@ -10,10 +27,94 @@
   </url>
   
   <url>
+    <loc>https://vladvasiliu.com/post/</loc>
+    <lastmod>2018-08-27T09:22:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladvasiliu.com/tags/slaac/</loc>
+    <lastmod>2018-08-27T09:22:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladvasiliu.com/tags/sys/</loc>
+    <lastmod>2018-08-27T09:22:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladvasiliu.com/tags/</loc>
+    <lastmod>2018-08-27T09:22:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladvasiliu.com/tags/bsd/</loc>
+    <lastmod>2018-08-27T09:22:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladvasiliu.com/tags/dhcp/</loc>
+    <lastmod>2018-08-27T09:22:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladvasiliu.com/tags/pd/</loc>
+    <lastmod>2018-08-27T09:22:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladvasiliu.com/tags/prefix-delegation/</loc>
+    <lastmod>2018-08-27T09:22:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladvasiliu.com/tags/routing/</loc>
+    <lastmod>2018-08-27T09:22:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladvasiliu.com/tags/sfr/</loc>
+    <lastmod>2018-08-27T09:22:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladvasiliu.com/</loc>
+    <lastmod>2018-08-27T09:22:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://vladvasiliu.com/post/20180807-1626-dual_screen_kiosk_ubuntu/</loc>
     <lastmod>2018-08-07T16:27:00+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladvasiliu.com/tags/chrome/</loc>
+    <lastmod>2018-08-07T16:27:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladvasiliu.com/tags/kiosk/</loc>
+    <lastmod>2018-08-07T16:27:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladvasiliu.com/tags/linux/</loc>
+    <lastmod>2018-08-07T16:27:00+02:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -31,10 +132,28 @@
   </url>
   
   <url>
+    <loc>https://vladvasiliu.com/tags/salt/</loc>
+    <lastmod>2016-12-31T12:11:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://vladvasiliu.com/post/20150311-2031_dhcp_option_121/</loc>
     <lastmod>2015-03-11T20:32:00+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladvasiliu.com/tags/net/</loc>
+    <lastmod>2015-03-11T20:32:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladvasiliu.com/tags/pfsense/</loc>
+    <lastmod>2015-03-11T20:32:00+02:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -45,10 +164,58 @@
   </url>
   
   <url>
+    <loc>https://vladvasiliu.com/tags/dell/</loc>
+    <lastmod>2015-02-04T17:38:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladvasiliu.com/tags/cert/</loc>
+    <lastmod>2015-02-04T17:38:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladvasiliu.com/tags/drac/</loc>
+    <lastmod>2015-02-04T17:38:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladvasiliu.com/tags/ssl/</loc>
+    <lastmod>2015-02-04T17:38:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladvasiliu.com/tags/bind/</loc>
+    <lastmod>2014-12-08T10:09:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladvasiliu.com/tags/dns/</loc>
+    <lastmod>2014-12-08T10:09:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://vladvasiliu.com/post/20141208-1007-bind_split_view_zone_synchronization/</loc>
     <lastmod>2014-12-08T10:09:00+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladvasiliu.com/tags/android/</loc>
+    <lastmod>2014-08-22T14:31:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladvasiliu.com/tags/backup/</loc>
+    <lastmod>2014-08-22T14:31:00+02:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -66,6 +233,24 @@
   </url>
   
   <url>
+    <loc>https://vladvasiliu.com/tags/ipsec/</loc>
+    <lastmod>2014-06-19T17:37:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladvasiliu.com/tags/tunneling/</loc>
+    <lastmod>2014-06-19T17:37:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladvasiliu.com/tags/vpn/</loc>
+    <lastmod>2014-06-19T17:37:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://vladvasiliu.com/post/20140509-ipv6_prefix_delegation_with_dhclient_and_static_ip/</loc>
     <lastmod>2014-05-09T10:47:00+02:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -77,6 +262,12 @@
     <lastmod>2014-05-09T10:47:00+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladvasiliu.com/tags/rabbitmq/</loc>
+    <lastmod>2014-04-25T11:42:00+02:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -94,10 +285,40 @@
   </url>
   
   <url>
+    <loc>https://vladvasiliu.com/tags/macos-x/</loc>
+    <lastmod>2013-08-19T12:25:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladvasiliu.com/tags/powerline/</loc>
+    <lastmod>2013-08-19T12:25:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://vladvasiliu.com/post/20130819-1218-zsh_with_python_module_on_mac_os_x/</loc>
     <lastmod>2013-08-19T12:19:00+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladvasiliu.com/tags/python/</loc>
+    <lastmod>2013-08-19T12:19:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladvasiliu.com/tags/zsh/</loc>
+    <lastmod>2013-08-19T12:19:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladvasiliu.com/tags/acl/</loc>
+    <lastmod>2013-08-17T21:11:00+02:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -108,6 +329,24 @@
   </url>
   
   <url>
+    <loc>https://vladvasiliu.com/tags/zfs/</loc>
+    <lastmod>2013-08-17T21:11:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladvasiliu.com/tags/sysadmin/</loc>
+    <lastmod>2013-08-17T21:11:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladvasiliu.com/tags/mysql/</loc>
+    <lastmod>2013-08-17T21:05:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://vladvasiliu.com/post/2013-08-17_02-mysql_replication_io_error_code_1045/</loc>
     <lastmod>2013-08-17T21:05:00+02:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -115,316 +354,7 @@
   </url>
   
   <url>
-    <loc>https://vladvasiliu.com/tags/acl/</loc>
-    <lastmod>2013-08-17T21:11:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/android/</loc>
-    <lastmod>2014-08-22T14:31:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/bind/</loc>
-    <lastmod>2014-12-08T10:09:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/backup/</loc>
-    <lastmod>2014-08-22T14:31:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/bsd/</loc>
-    <lastmod>2018-08-27T09:22:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://vladvasiliu.com/categories/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/cert/</loc>
-    <lastmod>2015-02-04T17:38:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/chrome/</loc>
-    <lastmod>2018-08-07T16:27:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/dhcpv6/</loc>
-    <lastmod>2014-05-09T10:47:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/dns/</loc>
-    <lastmod>2014-12-08T10:09:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/dell/</loc>
-    <lastmod>2015-02-04T17:38:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/dhcp/</loc>
-    <lastmod>2018-08-27T09:22:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/dhcpv6/</loc>
-    <lastmod>2014-05-09T10:47:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/drac/</loc>
-    <lastmod>2015-02-04T17:38:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/freebsd/</loc>
-    <lastmod>2013-08-17T21:11:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/freebsd/</loc>
-    <lastmod>2013-08-17T21:11:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/ipsec/</loc>
-    <lastmod>2014-06-19T17:37:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/ipv6/</loc>
-    <lastmod>2014-05-09T10:47:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/ipv6/</loc>
-    <lastmod>2014-05-09T10:47:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/kiosk/</loc>
-    <lastmod>2018-08-07T16:27:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/linux/</loc>
-    <lastmod>2018-08-07T16:27:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/macos-x/</loc>
-    <lastmod>2013-08-19T12:25:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/mysql/</loc>
-    <lastmod>2013-08-17T21:05:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/net/</loc>
-    <lastmod>2015-03-11T20:32:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/pfsense/</loc>
-    <lastmod>2015-03-11T20:32:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/pd/</loc>
-    <lastmod>2018-08-27T09:22:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/post/</loc>
-    <lastmod>2018-08-27T09:22:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/powerline/</loc>
-    <lastmod>2013-08-19T12:25:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/prefix-delegation/</loc>
-    <lastmod>2018-08-27T09:22:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/python/</loc>
-    <lastmod>2013-08-19T12:19:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/rabbitmq/</loc>
-    <lastmod>2014-04-25T11:42:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/routing/</loc>
-    <lastmod>2018-08-27T09:22:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/slaac/</loc>
-    <lastmod>2018-08-27T09:22:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/salt/</loc>
-    <lastmod>2016-12-31T12:11:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/sfr/</loc>
-    <lastmod>2018-08-27T09:22:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/ssl/</loc>
-    <lastmod>2015-02-04T17:38:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/sys/</loc>
-    <lastmod>2016-12-31T12:11:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/sys/</loc>
-    <lastmod>2016-12-31T12:11:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/sysadmin/</loc>
-    <lastmod>2013-08-17T21:11:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/</loc>
-    <lastmod>2013-08-17T21:11:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/tunneling/</loc>
-    <lastmod>2014-06-19T17:37:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/vpn/</loc>
-    <lastmod>2014-06-19T17:37:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/zfs/</loc>
-    <lastmod>2013-08-17T21:11:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/tags/zsh/</loc>
-    <lastmod>2013-08-19T12:19:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladvasiliu.com/</loc>
-    <lastmod>2018-08-27T09:22:00+02:00</lastmod>
-    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   

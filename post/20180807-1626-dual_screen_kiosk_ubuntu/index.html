@@ -16,22 +16,17 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Vlad Vasiliu" />
-  <meta name="description" content="Background At work we have to large TV screens used for displaying Grafana dashboards. They are both connected to the same PC.
-The PC was running Windows so anytime the PC would reboot, we would have to manually conenct to it via VNC and move the browsers around and set them in full screen mode.
-As we are in the office only during work hours, the PC would be shut down and restarted everyday." />
+<meta name="author" content="Vlad Vasiliu" /><meta name="description" content="" /><meta name="keywords" content="linux, syadmin, unix, howto" />
 
 
 
 
 
 
-
-<meta name="generator" content="Hugo 0.46" />
+<meta name="generator" content="Hugo 0.55.2 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://vladvasiliu.com/post/20180807-1626-dual_screen_kiosk_ubuntu/" />
-
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,58 +34,31 @@ As we are in the office only during work hours, the PC would be shut down and re
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-
-
-
-
-
-<link href="/dist/even.min.css?v=3.2.0" rel="stylesheet">
-<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
-
-
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="Running Chrome in dual screen kiosk mode on Ubuntu" />
-<meta property="og:description" content="Background At work we have to large TV screens used for displaying Grafana dashboards. They are both connected to the same PC.
-The PC was running Windows so anytime the PC would reboot, we would have to manually conenct to it via VNC and move the browsers around and set them in full screen mode.
-As we are in the office only during work hours, the PC would be shut down and restarted everyday." />
+<meta property="og:description" content="" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://vladvasiliu.com/post/20180807-1626-dual_screen_kiosk_ubuntu/" />
-
-
-
 <meta property="article:published_time" content="2018-08-07T16:27:00&#43;02:00"/>
-
 <meta property="article:modified_time" content="2018-08-07T16:27:00&#43;02:00"/>
 
-
-
-
-
-
-
-
-
-
-
 <meta itemprop="name" content="Running Chrome in dual screen kiosk mode on Ubuntu">
-<meta itemprop="description" content="Background At work we have to large TV screens used for displaying Grafana dashboards. They are both connected to the same PC.
-The PC was running Windows so anytime the PC would reboot, we would have to manually conenct to it via VNC and move the browsers around and set them in full screen mode.
-As we are in the office only during work hours, the PC would be shut down and restarted everyday.">
+<meta itemprop="description" content="">
 
 
 <meta itemprop="datePublished" content="2018-08-07T16:27:00&#43;02:00" />
 <meta itemprop="dateModified" content="2018-08-07T16:27:00&#43;02:00" />
-<meta itemprop="wordCount" content="692">
+<meta itemprop="wordCount" content="0">
 
 
 
 <meta itemprop="keywords" content="sys,linux,chrome,kiosk," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Running Chrome in dual screen kiosk mode on Ubuntu"/>
-<meta name="twitter:description" content="Background At work we have to large TV screens used for displaying Grafana dashboards. They are both connected to the same PC.
-The PC was running Windows so anytime the PC would reboot, we would have to manually conenct to it via VNC and move the browsers around and set them in full screen mode.
-As we are in the office only during work hours, the PC would be shut down and restarted everyday."/>
+<meta name="twitter:description" content=""/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -158,18 +126,15 @@ As we are in the office only during work hours, the PC would be shut down and re
       <div class="post-meta">
         <span class="post-time"> 2018-08-07 </span>
         
-        <span class="more-meta"> 692 words </span>
-        <span class="more-meta"> 4 mins read </span>
+          <span class="more-meta"> 0 words </span>
+          <span class="more-meta"> 0 mins read </span>
         
       </div>
     </header>
 
-    
-    
-<div class="post-toc" id="post-toc">
+    <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Contents</h2>
-  
-  <div class="post-toc-content always-active">
+  <div class="post-toc-content">
     <nav id="TableOfContents">
 <ul>
 <li><a href="#background">Background</a></li>
@@ -187,11 +152,11 @@ As we are in the office only during work hours, the PC would be shut down and re
 </nav>
   </div>
 </div>
-
-    
-    
-
-    
+  <div class="post-outdated">
+    <div class="hint">
+      <p>[NOTE] Updated <span class="timeago" datetime="2018-08-07T16:27:00" title="August 7, 2018">August 7, 2018</span>. This article may have outdated content or subject matter.</p>
+    </div>
+  </div>
     <div class="post-content">
       
 
@@ -238,27 +203,44 @@ As we are in the office only during work hours, the PC would be shut down and re
 <ul>
 <li>Add <code>universe</code> repository in <code>/etc/apt/sources.list</code>:</li>
 </ul>
-
-<pre><code class="language-text">deb http://archive.ubuntu.com/ubuntu bionic main universe
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">deb http://archive.ubuntu.com/ubuntu bionic main universe
 deb http://archive.ubuntu.com/ubuntu bionic-security main universe
-deb http://archive.ubuntu.com/ubuntu bionic-updates main universe
-</code></pre>
-
+deb http://archive.ubuntu.com/ubuntu bionic-updates main universe</code></pre></td></tr></table>
+</div>
+</div>
 <ul>
 <li>Add i3 repositories (<a href="https://i3wm.org/docs/repositories.html">see doc here</a>) :</li>
 </ul>
-
-<pre><code>/usr/lib/apt/apt-helper download-file http://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2018.01.30_all.deb keyring.deb SHA256:baa43dbbd7232ea2b5444cae238d53bebb9d34601cc000e82f11111b1889078a
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">/usr/lib/apt/apt-helper download-file http://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2018.01.30_all.deb keyring.deb SHA256:baa43dbbd7232ea2b5444cae238d53bebb9d34601cc000e82f11111b1889078a
 sudo dpkg -i ./keyring.deb
-sudo echo &quot;deb http://debian.sur5r.net/i3/ $(grep '^DISTRIB_CODENAME=' /etc/lsb-release | cut -f2 -d=) universe&quot; &gt;&gt; /etc/apt/sources.list.d/sur5r-i3.list
-</code></pre>
-
+sudo echo &#34;deb http://debian.sur5r.net/i3/ $(grep &#39;^DISTRIB_CODENAME=&#39; /etc/lsb-release | cut -f2 -d=) universe&#34; &gt;&gt; /etc/apt/sources.list.d/sur5r-i3.list</pre></td></tr></table>
+</div>
+</div>
 <h1 id="packages">Packages</h1>
-
-<pre><code>sudo apt-get update
-sudo apt-get install xinit i3-wm chromium-browser unclutter
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">sudo apt-get update
+sudo apt-get install xinit i3-wm chromium-browser unclutter</pre></td></tr></table>
+</div>
+</div>
 <h1 id="automatic-login">Automatic Login</h1>
 
 <p>No Display Manager will be used. It&rsquo;s not particularly useful and this allows a very lightweight install.</p>
@@ -266,59 +248,117 @@ sudo apt-get install xinit i3-wm chromium-browser unclutter
 <p>Automatic login will be done on TTY1.</p>
 
 <p>Create an override for systemd TTY1 service by editting <code>/etc/systemd/system/getty@tty1.service.d/override.conf</code></p>
-
-<pre><code>[Service]
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[Service]
 ExecStart=
-ExecStart=-/sbin/agetty --autologin display --noclear %I $TERM
-</code></pre>
-
+ExecStart=-/sbin/agetty --autologin display --noclear %I $TERM</pre></td></tr></table>
+</div>
+</div>
 <p>To test automatic login, make sure you&rsquo;re connected to a different TTY and run</p>
-
-<pre><code>sudo systemctl daemon-reload
-sudo systemctl restart getty@tty1.service
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">sudo systemctl daemon-reload
+sudo systemctl restart getty@tty1.service</pre></td></tr></table>
+</div>
+</div>
 <p>TTY1 should be logged in to <em>display</em> user.</p>
 
 <h1 id="vnc-configuration">VNC configuration</h1>
 
 <p>Set up a password for vnc connection. Read up the man, there are some useful options. I only present the most basic useful ones here.</p>
-
-<pre><code>x11vnc -storepasswd &quot;t0p53cr37&quot; ~/.vnc_passwd
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">x11vnc -storepasswd &#34;t0p53cr37&#34; ~/.vnc_passwd</pre></td></tr></table>
+</div>
+</div>
 <p>I prefer running separate instances of Chrome, so I&rsquo;ll create their directories.</p>
-
-<pre><code>mkdir ~/browser1
-mkdir ~/browser2
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">mkdir ~/browser1
+mkdir ~/browser2</pre></td></tr></table>
+</div>
+</div>
 <h1 id="x-configuration">X configuration</h1>
 
 <p>We&rsquo;ll start X automatically upon login, so edit <code>~/.profile</code></p>
-
-<pre><code>[...]
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[...]
  
 if [[ ! $DISPLAY &amp;&amp; $XDG_VTNR -eq 1 ]]; then
   exec startx
-fi
-</code></pre>
-
+fi</pre></td></tr></table>
+</div>
+</div>
 <p>Tell X to start i3 and x11vnc by creating <code>.xinitrc</code> as follows</p>
-
-<pre><code>xset s off
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">xset s off
 xset -dpms
 
 # start VNC server
 exec x11vnc -find -forever -rfbauth ~/.vnc_passwd&amp;
 
 # start window-manager
-i3
-</code></pre>
-
+i3</pre></td></tr></table>
+</div>
+</div>
 <p>Configure i3 to show each browser on its own display. We do this by attributing each browser a class in <code>~/.config/i3/config</code></p>
-
-<pre><code>[...]
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[...]
 
 # Comment out if i3bar is not installed (useless, it will be covered by Chrome)
 # bar {
@@ -330,65 +370,114 @@ workspace 1 output DP-1
 workspace 2 output DP-2
 
 # tie each browser to each monitor
-for_window [class=&quot;^chromium-left$&quot;] move workspace number 1
-for_window [class=&quot;^chromium-right$&quot;] move workspace number 2
+for_window [class=&#34;^chromium-left$&#34;] move workspace number 1
+for_window [class=&#34;^chromium-right$&#34;] move workspace number 2
 
-exec ~/start-browsers.sh
-</code></pre>
-
+exec ~/start-browsers.sh</pre></td></tr></table>
+</div>
+</div>
 <p>Define a script to launch the two browsers in <code>~/start-browsers.sh</code> (don&rsquo;t forget to <code>chmod +x</code> it)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma"><span class="cp">#!/bin/bash
+</span><span class="cp"></span>
+<span class="nv">left_url</span><span class="o">=</span><span class="s2">&#34;https://your.monitor.url.com/dashboard-1&#34;</span>
+<span class="nv">right_url</span><span class="o">=</span><span class="s2">&#34;https://https://your.monitor.url.com/dashboard-2&#34;</span>
 
-<pre><code>#!/bin/bash
+<span class="nv">tmpdir1</span><span class="o">=</span>~/browser1
+<span class="nv">tmpdir2</span><span class="o">=</span>~/browser2
 
-left_url=&quot;https://your.monitor.url.com/dashboard-1&quot;
-right_url=&quot;https://https://your.monitor.url.com/dashboard-2&quot;
+<span class="nv">left_target</span><span class="o">=</span><span class="s2">&#34;chromium-browser --new-window </span><span class="nv">$left_url</span><span class="s2"> \
+</span><span class="s2">--user-data-dir=</span><span class="nv">$tmpdir1</span><span class="s2"> \
+</span><span class="s2">--class=chromium-left \
+</span><span class="s2">--no-first-run \
+</span><span class="s2">--disable-restore-session-state \
+</span><span class="s2">--no-default-browser-check \
+</span><span class="s2">--disable-java \
+</span><span class="s2">--disable-translate \
+</span><span class="s2">--disable-infobars \
+</span><span class="s2">--disable-suggestions-service \
+</span><span class="s2">--disable-save-password-bubble \
+</span><span class="s2">--start-fullscreen&#34;</span>
+<span class="nv">right_target</span><span class="o">=</span><span class="s2">&#34;chromium-browser --new-window </span><span class="nv">$right_url</span><span class="s2"> \
+</span><span class="s2">--disable-java --user-data-dir=</span><span class="nv">$tmpdir2</span><span class="s2"> \
+</span><span class="s2">--class=chromium-right \
+</span><span class="s2">--no-first-run \
+</span><span class="s2">--disable-restore-session-state \
+</span><span class="s2">--no-default-browser-check \
+</span><span class="s2">--disable-translate \
+</span><span class="s2">--disable-infobars \
+</span><span class="s2">--disable-suggestions-service \
+</span><span class="s2">--disable-save-password-bubble \
+</span><span class="s2">--start-fullscreen&#34;</span>
 
-tmpdir1=~/browser1
-tmpdir2=~/browser2
+<span class="c1"># start app for left screen</span>
+i3-msg <span class="s1">&#39;workspace 1&#39;</span>
+<span class="nv">$left_target</span> <span class="p">&amp;</span>
 
-left_target=&quot;chromium-browser --new-window $left_url \
---user-data-dir=$tmpdir1 \
---class=chromium-left \
---no-first-run \
---disable-restore-session-state \
---no-default-browser-check \
---disable-java \
---disable-translate \
---disable-infobars \
---disable-suggestions-service \
---disable-save-password-bubble \
---start-fullscreen&quot;
-right_target=&quot;chromium-browser --new-window $right_url \
---disable-java --user-data-dir=$tmpdir2 \
---class=chromium-right \
---no-first-run \
---disable-restore-session-state \
---no-default-browser-check \
---disable-translate \
---disable-infobars \
---disable-suggestions-service \
---disable-save-password-bubble \
---start-fullscreen&quot;
+<span class="c1"># start app for right screen</span>
+i3-msg <span class="s1">&#39;workspace 2&#39;</span>
+<span class="nv">$right_target</span> <span class="p">&amp;</span>
 
-# start app for left screen
-i3-msg 'workspace 1'
-$left_target &amp;
-
-# start app for right screen
-i3-msg 'workspace 2'
-$right_target &amp;
-
-# hide mouse pointer
-unclutter &amp;
-</code></pre>
-
+<span class="c1"># hide mouse pointer</span>
+unclutter <span class="p">&amp;</span></pre></td></tr></table>
+</div>
+</div>
 <h1 id="set-up-automatic-shutdown-via-cron">Set up automatic shutdown via cron</h1>
 
 <p>Run <code>sudo crontab -e</code> and add the folowing line for shutdown at 19:00. Don&rsquo;t forget to configure your BIOS / EFI to start the PC in the morning.</p>
-
-<pre><code>0   19  *   *   *     /sbin/halt -p
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">0   19  *   *   *     /sbin/halt -p</pre></td></tr></table>
+</div>
+</div>
 <h1 id="references">References</h1>
 
 <ul>
@@ -398,7 +487,6 @@ unclutter &amp;
 
     </div>
 
-    
     <div class="post-copyright">
   <p class="copyright-item">
     <span class="item-title">Author</span>
@@ -406,38 +494,28 @@ unclutter &amp;
   </p>
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
-    <span class="item-content">2018-08-07</span>
+    <span class="item-content">
+        2018-08-07
+        
+    </span>
   </p>
   
   
 </div>
-
-    
-    
-
-    <footer class="post-footer">
+<footer class="post-footer">
       <div class="post-tags">
-          
           <a href="/tags/sys/">sys</a>
-          
           <a href="/tags/linux/">linux</a>
-          
           <a href="/tags/chrome/">chrome</a>
-          
           <a href="/tags/kiosk/">kiosk</a>
-          
-        </div>
-
-      
+          </div>
       <nav class="post-nav">
-        
-          <a class="prev" href="/post/20180827-0922-ipv6_prefix_delegation_freebsd/">
+        <a class="prev" href="/post/20180827-0922-ipv6_prefix_delegation_freebsd/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">IPv6 prefix delegation on FreeBSD router</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
-        
-          <a class="next" href="/post/20161231-1210-using_python_in_saltstack_reactor/">
+        <a class="next" href="/post/20161231-1210-using_python_in_saltstack_reactor/">
             <span class="next-text nav-default">Using Python in SaltStack reactor</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
@@ -446,8 +524,7 @@ unclutter &amp;
     </footer>
   </article>
         </div>
-        
-  <div id="disqus_thread"></div>
+        <div id="disqus_thread"></div>
     <script type="text/javascript">
     (function() {
       
@@ -461,8 +538,6 @@ unclutter &amp;
     })();
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
 
       </div>
     </main>
@@ -490,13 +565,12 @@ unclutter &amp;
 
   <span class="copyright-year">
     &copy; 
-    
-      2013 - 
-    2018
+    2013 - 
+    2019
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
-    <span class="author">Vlad Vasiliu</span>
+    <span class="author">Copyright © 2019 Vlad Vasiliu; all rights reserved.</span>
   </span>
 </div>
     </footer>
@@ -506,27 +580,25 @@ unclutter &amp;
     </div>
   </div>
   
-<script src="/lib/highlight/highlight.pack.js?v=20171001"></script><script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
-  <script type="text/javascript" src="/lib/timeago/timeago-3.0.2.min.js"></script>
-  <script type="text/javascript" src="/lib/timeago/timeago.locales-3.0.2.min.js"></script>
-<script>  
-  var languageCode = "en".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
-  timeago().render(document.querySelectorAll('.timeago'), languageCode);
-  timeago.cancel();  
-</script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "en".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
 
 
-<script type="text/javascript" src="/dist/even.min.js?v=3.2.0"></script>
-
-
-<script>
+<script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
 	ga('create', 'UA-37751901-1', 'auto');
-	
+	ga('set', 'anonymizeIp', true);
 	ga('send', 'pageview');
 }
 </script>

@@ -16,22 +16,19 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Vlad Vasiliu" />
-  <meta name="description" content="There is a fork of ZSH that has a Python module. It is able to run Powerline smoothly.
+<meta name="author" content="Vlad Vasiliu" /><meta name="description" content="There is a fork of ZSH that has a Python module. It is able to run Powerline smoothly.
 However, on MacOS X, it doesn&amp;rsquo;t correctly detect the Python libs upon compilation. There seems to be a similar problem for Vim with python support: http://stackoverflow.com/questions/6490513/vim-failing-to-compile-with-python-on-os-x
-The workaround is the same. Editing the Makefile in the config directory of the Python installation fixes this. The modification is PYTHONFRAMEWORKINSTALLDIR instead of PYTHONFRAMEWORKDIR on the line beginning with LINKFORSHARED" />
+The workaround is the same. Editing the Makefile in the config directory of the Python installation fixes this. The modification is PYTHONFRAMEWORKINSTALLDIR instead of PYTHONFRAMEWORKDIR on the line beginning with LINKFORSHARED" /><meta name="keywords" content="linux, syadmin, unix, howto" />
 
 
 
 
 
 
-
-<meta name="generator" content="Hugo 0.46" />
+<meta name="generator" content="Hugo 0.55.2 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://vladvasiliu.com/post/20130819-1218-zsh_with_python_module_on_mac_os_x/" />
-
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,15 +36,8 @@ The workaround is the same. Editing the Makefile in the config directory of the 
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-
-
-
-
-
-<link href="/dist/even.min.css?v=3.2.0" rel="stylesheet">
-<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
-
-
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="Building ZSH with zpython module on MacOS X" />
@@ -56,22 +46,8 @@ However, on MacOS X, it doesn&rsquo;t correctly detect the Python libs upon comp
 The workaround is the same. Editing the Makefile in the config directory of the Python installation fixes this. The modification is PYTHONFRAMEWORKINSTALLDIR instead of PYTHONFRAMEWORKDIR on the line beginning with LINKFORSHARED" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://vladvasiliu.com/post/20130819-1218-zsh_with_python_module_on_mac_os_x/" />
-
-
-
 <meta property="article:published_time" content="2013-08-19T12:19:00&#43;02:00"/>
-
 <meta property="article:modified_time" content="2013-08-19T12:19:00&#43;02:00"/>
-
-
-
-
-
-
-
-
-
-
 
 <meta itemprop="name" content="Building ZSH with zpython module on MacOS X">
 <meta itemprop="description" content="There is a fork of ZSH that has a Python module. It is able to run Powerline smoothly.
@@ -158,31 +134,23 @@ The workaround is the same. Editing the Makefile in the config directory of the 
       <div class="post-meta">
         <span class="post-time"> 2013-08-19 </span>
         
-        <span class="more-meta"> 75 words </span>
-        <span class="more-meta"> 1 min read </span>
+          <span class="more-meta"> 75 words </span>
+          <span class="more-meta"> 1 min read </span>
         
       </div>
     </header>
 
-    
-    
-<div class="post-toc" id="post-toc">
+    <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Contents</h2>
-  
-  <div class="post-toc-content always-active">
+  <div class="post-toc-content">
     
   </div>
 </div>
-
-    
-    
   <div class="post-outdated">
     <div class="warn">
       <p>[NOTE] Updated <span class="timeago" datetime="2013-08-19T12:19:00" title="August 19, 2013">August 19, 2013</span>. This article may have outdated content or subject matter.</p>
     </div>
   </div>
-
-    
     <div class="post-content">
       <p>There is a fork of ZSH that has a Python module. It is able to run <a href="https://github.com/Lokaltog/powerline">Powerline</a> smoothly.</p>
 
@@ -192,7 +160,6 @@ The workaround is the same. Editing the Makefile in the config directory of the 
 
     </div>
 
-    
     <div class="post-copyright">
   <p class="copyright-item">
     <span class="item-title">Author</span>
@@ -200,36 +167,27 @@ The workaround is the same. Editing the Makefile in the config directory of the 
   </p>
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
-    <span class="item-content">2013-08-19</span>
+    <span class="item-content">
+        2013-08-19
+        
+    </span>
   </p>
   
   
 </div>
-
-    
-    
-
-    <footer class="post-footer">
+<footer class="post-footer">
       <div class="post-tags">
-          
           <a href="/tags/macos-x/">MacOS X</a>
-          
           <a href="/tags/zsh/">ZSH</a>
-          
           <a href="/tags/python/">Python</a>
-          
-        </div>
-
-      
+          </div>
       <nav class="post-nav">
-        
-          <a class="prev" href="/post/20130819-1225-powerline_on_mac_os_x/">
+        <a class="prev" href="/post/20130819-1225-powerline_on_mac_os_x/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">Installing Powerline on Mac OS X</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
-        
-          <a class="next" href="/post/2013-08-17_03-setting_default_nfsv4_acls_on_freebsd/">
+        <a class="next" href="/post/2013-08-17_03-setting_default_nfsv4_acls_on_freebsd/">
             <span class="next-text nav-default">Setting default NFSv4 ACLs on FreeBSD</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
@@ -238,8 +196,7 @@ The workaround is the same. Editing the Makefile in the config directory of the 
     </footer>
   </article>
         </div>
-        
-  <div id="disqus_thread"></div>
+        <div id="disqus_thread"></div>
     <script type="text/javascript">
     (function() {
       
@@ -253,8 +210,6 @@ The workaround is the same. Editing the Makefile in the config directory of the 
     })();
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
 
       </div>
     </main>
@@ -282,13 +237,12 @@ The workaround is the same. Editing the Makefile in the config directory of the 
 
   <span class="copyright-year">
     &copy; 
-    
-      2013 - 
-    2018
+    2013 - 
+    2019
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
-    <span class="author">Vlad Vasiliu</span>
+    <span class="author">Copyright © 2019 Vlad Vasiliu; all rights reserved.</span>
   </span>
 </div>
     </footer>
@@ -298,27 +252,25 @@ The workaround is the same. Editing the Makefile in the config directory of the 
     </div>
   </div>
   
-<script src="/lib/highlight/highlight.pack.js?v=20171001"></script><script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
-  <script type="text/javascript" src="/lib/timeago/timeago-3.0.2.min.js"></script>
-  <script type="text/javascript" src="/lib/timeago/timeago.locales-3.0.2.min.js"></script>
-<script>  
-  var languageCode = "en".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
-  timeago().render(document.querySelectorAll('.timeago'), languageCode);
-  timeago.cancel();  
-</script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "en".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
 
 
-<script type="text/javascript" src="/dist/even.min.js?v=3.2.0"></script>
-
-
-<script>
+<script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
 	ga('create', 'UA-37751901-1', 'auto');
-	
+	ga('set', 'anonymizeIp', true);
 	ga('send', 'pageview');
 }
 </script>

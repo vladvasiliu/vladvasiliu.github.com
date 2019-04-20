@@ -6,6 +6,7 @@
     <description>Recent content in BIND on vBlog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <copyright>Copyright © 2019 Vlad Vasiliu; all rights reserved.</copyright>
     <lastBuildDate>Mon, 08 Dec 2014 10:09:00 +0200</lastBuildDate>
     
 	<atom:link href="https://vladvasiliu.com/tags/bind/index.xml" rel="self" type="application/rss+xml" />
@@ -17,8 +18,7 @@
       <pubDate>Mon, 08 Dec 2014 10:09:00 +0200</pubDate>
       
       <guid>https://vladvasiliu.com/post/20141208-1007-bind_split_view_zone_synchronization/</guid>
-      <description>With the default configuration, a zone transfer from a master to a slave of BIND with split horizon has the slave transfer only the view of that zone that is available to its IP address. The documentation is a bit vague on the subject, but it turns out it is possible for the slave to transfer the zone definitions corresponding to all (or a subset) of the views.
-The idea is to identify the slave for zone transfer purposes using something else that its IP address.</description>
+      <description></description>
     </item>
     
   </channel>

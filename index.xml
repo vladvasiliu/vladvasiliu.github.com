@@ -6,6 +6,7 @@
     <description>Recent content on vBlog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <copyright>Copyright © 2019 Vlad Vasiliu; all rights reserved.</copyright>
     <lastBuildDate>Mon, 27 Aug 2018 09:22:00 +0200</lastBuildDate>
     
 	<atom:link href="https://vladvasiliu.com/index.xml" rel="self" type="application/rss+xml" />
@@ -27,9 +28,7 @@ This is supposed to be a drop-in replacement for the SFR provided box, so it wil
       <pubDate>Tue, 07 Aug 2018 16:27:00 +0200</pubDate>
       
       <guid>https://vladvasiliu.com/post/20180807-1626-dual_screen_kiosk_ubuntu/</guid>
-      <description>Background At work we have to large TV screens used for displaying Grafana dashboards. They are both connected to the same PC.
-The PC was running Windows so anytime the PC would reboot, we would have to manually conenct to it via VNC and move the browsers around and set them in full screen mode.
-As we are in the office only during work hours, the PC would be shut down and restarted everyday.</description>
+      <description></description>
     </item>
     
     <item>
@@ -48,9 +47,7 @@ I&amp;rsquo;m in charge of the network and systems infrastructure at Les Cinéma
       <pubDate>Sat, 31 Dec 2016 12:11:00 +0200</pubDate>
       
       <guid>https://vladvasiliu.com/post/20161231-1210-using_python_in_saltstack_reactor/</guid>
-      <description>Sometimes you need to do some complex actions in a Salt Reactor in which case Python comes in handy.
-The documentation is not very clear on how to write Python states. The main point is that Salt expects a structure that can be compiled to a Python dictionary. The run() function has to return a dictionary which resembles the state you would write with YAML.
-Here&amp;rsquo;s an example to add a domain to route 53:</description>
+      <description></description>
     </item>
     
     <item>
@@ -80,8 +77,7 @@ There is a way to use fully custom certificates, but it requires the racadm comm
       <pubDate>Mon, 08 Dec 2014 10:09:00 +0200</pubDate>
       
       <guid>https://vladvasiliu.com/post/20141208-1007-bind_split_view_zone_synchronization/</guid>
-      <description>With the default configuration, a zone transfer from a master to a slave of BIND with split horizon has the slave transfer only the view of that zone that is available to its IP address. The documentation is a bit vague on the subject, but it turns out it is possible for the slave to transfer the zone definitions corresponding to all (or a subset) of the views.
-The idea is to identify the slave for zone transfer purposes using something else that its IP address.</description>
+      <description></description>
     </item>
     
     <item>
@@ -101,8 +97,7 @@ There is however a way to get to this informaiton. It requires however the phone
       <pubDate>Thu, 19 Jun 2014 17:37:00 +0200</pubDate>
       
       <guid>https://vladvasiliu.com/post/20140619-1735-linux_to_fortigate_ipsec_tunnel/</guid>
-      <description>Here is an example of a tunnel setup beetween Linux and Fortigate. It uses StrongSwan.
-conn myconn type=tunnel left=[local_ip_address] leftsubnet=[local_subnet_to_be_accessed_through_tunnel] right=[remote_ip_address] rightsubnet=[remote_subnet_to_be_accessed_through_tunnel] keyexchange=ike ikelifetime=28800s ike=aes256-sha1-modp1536 authby=secret keylife=1800s esp=aes256-sha1 auto=start  This configures the forwarding policy. If you want to access the remote end of the tunnel from the gateway, set up a virtual interface and configure it with an address within the local_subnet.</description>
+      <description></description>
     </item>
     
     <item>
@@ -135,7 +130,7 @@ Source</description>
       
       <guid>https://vladvasiliu.com/post/20140425-running_rabbitmqctl_as_root/</guid>
       <description>On some Linux distributions, running rabbitmqctl as root may fail with the following error:
- Error: unable to connect to node rabbit@host: nodedown DIAGNOSTICS =========== attempted to contact: [rabbit@host] rabbit@host: * found rabbit (port 25672) * TCP connection succeeded * suggestion: hostname mismatch? * suggestion: is the cookie set correctly? current node details: - node name: rabbitmqctl19092@localhost - home dir: /root - cookie hash: B+onVMMDnR1uRT2nuD24VA==  Assuming that the hostname is correct and running rabbitmqctl as the rabbitmq user works, this is a cookie mismatch problem.</description>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33  Error: unable to connect to node rabbit@host: nodedown DIAGNOSTICS =========== attempted to contact: [rabbit@host] rabbit@host: * found rabbit (port 25672) * TCP connection succeeded * suggestion: hostname mismatch?</description>
     </item>
     
     <item>
@@ -177,7 +172,7 @@ The -d argument, used to define default POSIX ACLs is not supported. Instead, th
       
       <guid>https://vladvasiliu.com/post/2013-08-17_02-mysql_replication_io_error_code_1045/</guid>
       <description>Setting up replication on MySQL may yield the following error:
-[ERROR] Slave I/O: error connecting to master, Error code 1045  The MySQL troubleshooting page gives a few hints, talking about credentials for the replication user. However, attempting a connection via the command line client works, so the password is OK and the slave can reach the master. As it turns out, for replication purposes, the maximum password length is 32 characters.</description>
+1  [ERROR] Slave I/O: error connecting to master, Error code 1045   The MySQL troubleshooting page gives a few hints, talking about credentials for the replication user. However, attempting a connection via the command line client works, so the password is OK and the slave can reach the master. As it turns out, for replication purposes, the maximum password length is 32 characters.</description>
     </item>
     
   </channel>

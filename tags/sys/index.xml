@@ -6,10 +6,30 @@
     <description>Recent content in Sys on vBlog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 31 Dec 2016 12:11:00 +0200</lastBuildDate>
+    <copyright>Copyright © 2019 Vlad Vasiliu; all rights reserved.</copyright>
+    <lastBuildDate>Mon, 27 Aug 2018 09:22:00 +0200</lastBuildDate>
     
 	<atom:link href="https://vladvasiliu.com/tags/sys/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>IPv6 prefix delegation on FreeBSD router</title>
+      <link>https://vladvasiliu.com/post/20180827-0922-ipv6_prefix_delegation_freebsd/</link>
+      <pubDate>Mon, 27 Aug 2018 09:22:00 +0200</pubDate>
+      
+      <guid>https://vladvasiliu.com/post/20180827-0922-ipv6_prefix_delegation_freebsd/</guid>
+      <description>Goal I&amp;rsquo;m attempting to set up a router box in to replace my SFR router on a home network. As my SFR plan has native IPv6, this box will request a prefix delegation and set up IPv6 routing for the computers on the home network. It will also handle NAT for IPv4.
+This is supposed to be a drop-in replacement for the SFR provided box, so it will have to:</description>
+    </item>
+    
+    <item>
+      <title>Running Chrome in dual screen kiosk mode on Ubuntu</title>
+      <link>https://vladvasiliu.com/post/20180807-1626-dual_screen_kiosk_ubuntu/</link>
+      <pubDate>Tue, 07 Aug 2018 16:27:00 +0200</pubDate>
+      
+      <guid>https://vladvasiliu.com/post/20180807-1626-dual_screen_kiosk_ubuntu/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Using Python in SaltStack reactor</title>
@@ -17,9 +37,7 @@
       <pubDate>Sat, 31 Dec 2016 12:11:00 +0200</pubDate>
       
       <guid>https://vladvasiliu.com/post/20161231-1210-using_python_in_saltstack_reactor/</guid>
-      <description>Sometimes you need to do some complex actions in a Salt Reactor in which case Python comes in handy.
-The documentation is not very clear on how to write Python states. The main point is that Salt expects a structure that can be compiled to a Python dictionary. The run() function has to return a dictionary which resembles the state you would write with YAML.
-Here&amp;rsquo;s an example to add a domain to route 53:</description>
+      <description></description>
     </item>
     
   </channel>
