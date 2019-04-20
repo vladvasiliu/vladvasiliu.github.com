@@ -162,14 +162,16 @@ This is supposed to be a drop-in replacement for the SFR provided box, so it wil
     <div class="post-meta">
       <span class="post-time"> 2016-12-31 </span>
       
-        <span class="more-meta"> 0 words </span>
-        <span class="more-meta"> 0 mins read </span>
+        <span class="more-meta"> 152 words </span>
+        <span class="more-meta"> 1 min read </span>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      
+      Sometimes you need to do some complex actions in a Salt Reactor in which case Python comes in handy.
+The documentation is not very clear on how to write Python states. The main point is that Salt expects a structure that can be compiled to a Python dictionary. The run() function has to return a dictionary which resembles the state you would write with YAML.
+Here&rsquo;s an example to add a domain to route 53:
     </div>
     <div class="read-more">
       <a href="/post/20161231-1210-using_python_in_saltstack_reactor/" class="read-more-link">Read more..</a>

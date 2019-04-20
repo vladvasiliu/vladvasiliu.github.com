@@ -49,15 +49,6 @@
     </item>
     
     <item>
-      <title>Sys</title>
-      <link>https://vladvasiliu.com/tags/sys/</link>
-      <pubDate>Mon, 27 Aug 2018 09:22:00 +0200</pubDate>
-      
-      <guid>https://vladvasiliu.com/tags/sys/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>bsd</title>
       <link>https://vladvasiliu.com/tags/bsd/</link>
       <pubDate>Mon, 27 Aug 2018 09:22:00 +0200</pubDate>
@@ -108,6 +99,15 @@
       <pubDate>Mon, 27 Aug 2018 09:22:00 +0200</pubDate>
       
       <guid>https://vladvasiliu.com/tags/sfr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sys</title>
+      <link>https://vladvasiliu.com/tags/sys/</link>
+      <pubDate>Mon, 27 Aug 2018 09:22:00 +0200</pubDate>
+      
+      <guid>https://vladvasiliu.com/tags/sys/</guid>
       <description></description>
     </item>
     

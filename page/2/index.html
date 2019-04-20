@@ -119,14 +119,15 @@
     <div class="post-meta">
       <span class="post-time"> 2014-12-08 </span>
       
-        <span class="more-meta"> 0 words </span>
-        <span class="more-meta"> 0 mins read </span>
+        <span class="more-meta"> 436 words </span>
+        <span class="more-meta"> 3 mins read </span>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      
+      With the default configuration, a zone transfer from a master to a slave of BIND with split horizon has the slave transfer only the view of that zone that is available to its IP address. The documentation is a bit vague on the subject, but it turns out it is possible for the slave to transfer the zone definitions corresponding to all (or a subset) of the views.
+The idea is to identify the slave for zone transfer purposes using something else that its IP address.
     </div>
     <div class="read-more">
       <a href="/post/20141208-1007-bind_split_view_zone_synchronization/" class="read-more-link">Read more..</a>
@@ -163,14 +164,15 @@ There is however a way to get to this informaiton. It requires however the phone
     <div class="post-meta">
       <span class="post-time"> 2014-06-19 </span>
       
-        <span class="more-meta"> 0 words </span>
-        <span class="more-meta"> 0 mins read </span>
+        <span class="more-meta"> 75 words </span>
+        <span class="more-meta"> 1 min read </span>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      
+      Here is an example of a tunnel setup beetween Linux and Fortigate. It uses StrongSwan.
+1 2 3 4 5 6 7 8 9 10 11 12 13  conn myconn type=tunnel left=[local_ip_address] leftsubnet=[local_subnet_to_be_accessed_through_tunnel] right=[remote_ip_address] rightsubnet=[remote_subnet_to_be_accessed_through_tunnel] keyexchange=ike ikelifetime=28800s ike=aes256-sha1-modp1536 authby=secret keylife=1800s esp=aes256-sha1 auto=start   This configures the forwarding policy. If you want to access the remote end of the tunnel from the gateway, set up a virtual interface and configure it with an address within the local_subnet.
     </div>
     <div class="read-more">
       <a href="/post/20140619-1735-linux_to_fortigate_ipsec_tunnel/" class="read-more-link">Read more..</a>

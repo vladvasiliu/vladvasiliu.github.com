@@ -37,7 +37,9 @@ This is supposed to be a drop-in replacement for the SFR provided box, so it wil
       <pubDate>Sat, 31 Dec 2016 12:11:00 +0200</pubDate>
       
       <guid>https://vladvasiliu.com/post/20161231-1210-using_python_in_saltstack_reactor/</guid>
-      <description></description>
+      <description>Sometimes you need to do some complex actions in a Salt Reactor in which case Python comes in handy.
+The documentation is not very clear on how to write Python states. The main point is that Salt expects a structure that can be compiled to a Python dictionary. The run() function has to return a dictionary which resembles the state you would write with YAML.
+Here&amp;rsquo;s an example to add a domain to route 53:</description>
     </item>
     
     <item>
@@ -67,7 +69,8 @@ There is a way to use fully custom certificates, but it requires the racadm comm
       <pubDate>Mon, 08 Dec 2014 10:09:00 +0200</pubDate>
       
       <guid>https://vladvasiliu.com/post/20141208-1007-bind_split_view_zone_synchronization/</guid>
-      <description></description>
+      <description>With the default configuration, a zone transfer from a master to a slave of BIND with split horizon has the slave transfer only the view of that zone that is available to its IP address. The documentation is a bit vague on the subject, but it turns out it is possible for the slave to transfer the zone definitions corresponding to all (or a subset) of the views.
+The idea is to identify the slave for zone transfer purposes using something else that its IP address.</description>
     </item>
     
     <item>
@@ -87,7 +90,8 @@ There is however a way to get to this informaiton. It requires however the phone
       <pubDate>Thu, 19 Jun 2014 17:37:00 +0200</pubDate>
       
       <guid>https://vladvasiliu.com/post/20140619-1735-linux_to_fortigate_ipsec_tunnel/</guid>
-      <description></description>
+      <description>Here is an example of a tunnel setup beetween Linux and Fortigate. It uses StrongSwan.
+1 2 3 4 5 6 7 8 9 10 11 12 13  conn myconn type=tunnel left=[local_ip_address] leftsubnet=[local_subnet_to_be_accessed_through_tunnel] right=[remote_ip_address] rightsubnet=[remote_subnet_to_be_accessed_through_tunnel] keyexchange=ike ikelifetime=28800s ike=aes256-sha1-modp1536 authby=secret keylife=1800s esp=aes256-sha1 auto=start   This configures the forwarding policy. If you want to access the remote end of the tunnel from the gateway, set up a virtual interface and configure it with an address within the local_subnet.</description>
     </item>
     
     <item>
