@@ -47,9 +47,7 @@ I&amp;rsquo;m in charge of the network and systems infrastructure at Les Cinéma
       <pubDate>Sat, 31 Dec 2016 12:11:00 +0200</pubDate>
       
       <guid>https://vladvasiliu.com/post/20161231-1210-using_python_in_saltstack_reactor/</guid>
-      <description>Sometimes you need to do some complex actions in a Salt Reactor in which case Python comes in handy.
-The documentation is not very clear on how to write Python states. The main point is that Salt expects a structure that can be compiled to a Python dictionary. The run() function has to return a dictionary which resembles the state you would write with YAML.
-Here&amp;rsquo;s an example to add a domain to route 53:</description>
+      <description></description>
     </item>
     
     <item>
@@ -110,10 +108,7 @@ There is however a way to get to this informaiton. It requires however the phone
       <pubDate>Fri, 09 May 2014 10:47:00 +0200</pubDate>
       
       <guid>https://vladvasiliu.com/post/20140509-ipv6_prefix_delegation_with_dhclient_and_static_ip/</guid>
-      <description>Some hosting providers, like Online in France provide IPv6 access via prefix delegation. You get a DUID that has to be sent to their DHCP server. The IP address is configured by the client.
-The recommended method is using Dibbler, but this solution is pretty buggy.
-On Ubuntu or Debian, you can use the provided dhclient to obtain the prefix delegation.
-Below are samples of dhclient6.conf and interfaces. Note that in this configuration everything is configured by the client, but you could request a name server from the DHCP server.</description>
+      <description></description>
     </item>
     
     <item>
@@ -165,8 +160,7 @@ The workaround is the same. Editing the Makefile in the config directory of the 
       <pubDate>Sat, 17 Aug 2013 21:11:00 +0200</pubDate>
       
       <guid>https://vladvasiliu.com/post/2013-08-17_03-setting_default_nfsv4_acls_on_freebsd/</guid>
-      <description>On FreeBSD with ZFS, only NFSv4 ACLs are supported. At the time of this writing, the FreeBSD documentation regarding ACLs is a bit vague. Specifically, it doesn’t talk about inheritable attributes.
-The -d argument, used to define default POSIX ACLs is not supported. Instead, there are some flags one can set in order to define how ACLs are inherited. For an explanation, look in the manual for setfacl, section ACL inheritance flags.</description>
+      <description></description>
     </item>
     
     <item>

@@ -28,10 +28,7 @@ This is supposed to be a drop-in replacement for the SFR provided box, so it wil
       <pubDate>Fri, 09 May 2014 10:47:00 +0200</pubDate>
       
       <guid>https://vladvasiliu.com/post/20140509-ipv6_prefix_delegation_with_dhclient_and_static_ip/</guid>
-      <description>Some hosting providers, like Online in France provide IPv6 access via prefix delegation. You get a DUID that has to be sent to their DHCP server. The IP address is configured by the client.
-The recommended method is using Dibbler, but this solution is pretty buggy.
-On Ubuntu or Debian, you can use the provided dhclient to obtain the prefix delegation.
-Below are samples of dhclient6.conf and interfaces. Note that in this configuration everything is configured by the client, but you could request a name server from the DHCP server.</description>
+      <description></description>
     </item>
     
     <item>

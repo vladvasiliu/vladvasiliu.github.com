@@ -18,9 +18,7 @@
       <pubDate>Sat, 31 Dec 2016 12:11:00 +0200</pubDate>
       
       <guid>https://vladvasiliu.com/post/20161231-1210-using_python_in_saltstack_reactor/</guid>
-      <description>Sometimes you need to do some complex actions in a Salt Reactor in which case Python comes in handy.
-The documentation is not very clear on how to write Python states. The main point is that Salt expects a structure that can be compiled to a Python dictionary. The run() function has to return a dictionary which resembles the state you would write with YAML.
-Here&amp;rsquo;s an example to add a domain to route 53:</description>
+      <description></description>
     </item>
     
   </channel>
