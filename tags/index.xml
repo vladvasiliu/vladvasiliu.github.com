@@ -13,6 +13,24 @@
     
     
     <item>
+      <title>bsd</title>
+      <link>https://vladvasiliu.com/tags/bsd/</link>
+      <pubDate>Mon, 27 Aug 2018 09:22:00 +0200</pubDate>
+      
+      <guid>https://vladvasiliu.com/tags/bsd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dhcp</title>
+      <link>https://vladvasiliu.com/tags/dhcp/</link>
+      <pubDate>Mon, 27 Aug 2018 09:22:00 +0200</pubDate>
+      
+      <guid>https://vladvasiliu.com/tags/dhcp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>DHCPv6</title>
       <link>https://vladvasiliu.com/tags/dhcpv6/</link>
       <pubDate>Mon, 27 Aug 2018 09:22:00 +0200</pubDate>
@@ -36,42 +54,6 @@
       <pubDate>Mon, 27 Aug 2018 09:22:00 +0200</pubDate>
       
       <guid>https://vladvasiliu.com/tags/ipv6/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>SLAAC</title>
-      <link>https://vladvasiliu.com/tags/slaac/</link>
-      <pubDate>Mon, 27 Aug 2018 09:22:00 +0200</pubDate>
-      
-      <guid>https://vladvasiliu.com/tags/slaac/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Sys</title>
-      <link>https://vladvasiliu.com/tags/sys/</link>
-      <pubDate>Mon, 27 Aug 2018 09:22:00 +0200</pubDate>
-      
-      <guid>https://vladvasiliu.com/tags/sys/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>bsd</title>
-      <link>https://vladvasiliu.com/tags/bsd/</link>
-      <pubDate>Mon, 27 Aug 2018 09:22:00 +0200</pubDate>
-      
-      <guid>https://vladvasiliu.com/tags/bsd/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>dhcp</title>
-      <link>https://vladvasiliu.com/tags/dhcp/</link>
-      <pubDate>Mon, 27 Aug 2018 09:22:00 +0200</pubDate>
-      
-      <guid>https://vladvasiliu.com/tags/dhcp/</guid>
       <description></description>
     </item>
     
@@ -108,6 +90,24 @@
       <pubDate>Mon, 27 Aug 2018 09:22:00 +0200</pubDate>
       
       <guid>https://vladvasiliu.com/tags/sfr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SLAAC</title>
+      <link>https://vladvasiliu.com/tags/slaac/</link>
+      <pubDate>Mon, 27 Aug 2018 09:22:00 +0200</pubDate>
+      
+      <guid>https://vladvasiliu.com/tags/slaac/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sys</title>
+      <link>https://vladvasiliu.com/tags/sys/</link>
+      <pubDate>Mon, 27 Aug 2018 09:22:00 +0200</pubDate>
+      
+      <guid>https://vladvasiliu.com/tags/sys/</guid>
       <description></description>
     </item>
     
@@ -166,20 +166,20 @@
     </item>
     
     <item>
-      <title>Dell</title>
-      <link>https://vladvasiliu.com/tags/dell/</link>
-      <pubDate>Wed, 04 Feb 2015 17:38:00 +0200</pubDate>
-      
-      <guid>https://vladvasiliu.com/tags/dell/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>cert</title>
       <link>https://vladvasiliu.com/tags/cert/</link>
       <pubDate>Wed, 04 Feb 2015 17:38:00 +0200</pubDate>
       
       <guid>https://vladvasiliu.com/tags/cert/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dell</title>
+      <link>https://vladvasiliu.com/tags/dell/</link>
+      <pubDate>Wed, 04 Feb 2015 17:38:00 +0200</pubDate>
+      
+      <guid>https://vladvasiliu.com/tags/dell/</guid>
       <description></description>
     </item>
     
@@ -319,20 +319,20 @@
     </item>
     
     <item>
-      <title>ZFS</title>
-      <link>https://vladvasiliu.com/tags/zfs/</link>
-      <pubDate>Sat, 17 Aug 2013 21:11:00 +0200</pubDate>
-      
-      <guid>https://vladvasiliu.com/tags/zfs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>sysadmin</title>
       <link>https://vladvasiliu.com/tags/sysadmin/</link>
       <pubDate>Sat, 17 Aug 2013 21:11:00 +0200</pubDate>
       
       <guid>https://vladvasiliu.com/tags/sysadmin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ZFS</title>
+      <link>https://vladvasiliu.com/tags/zfs/</link>
+      <pubDate>Sat, 17 Aug 2013 21:11:00 +0200</pubDate>
+      
+      <guid>https://vladvasiliu.com/tags/zfs/</guid>
       <description></description>
     </item>
     

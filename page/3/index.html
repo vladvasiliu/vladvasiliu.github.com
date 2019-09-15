@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.2 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.58.2 with theme even" />
 
 
 <link rel="canonical" href="https://vladvasiliu.com/" />
@@ -45,8 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://vladvasiliu.com/" />
 
-<meta property="og:updated_time" content="2018-08-27T09:22:00&#43;02:00"/>
-
+<meta property="og:updated_time" content="2018-08-27T09:22:00+02:00" />
 <meta itemprop="name" content="vBlog">
 <meta itemprop="description" content="Notes from a systems engineer.">
 
@@ -130,7 +129,7 @@
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33  Error: unable to connect to node rabbit@host: nodedown DIAGNOSTICS =========== attempted to contact: [rabbit@host] rabbit@host: * found rabbit (port 25672) * TCP connection succeeded * suggestion: hostname mismatch?
     </div>
     <div class="read-more">
-      <a href="/post/20140425-running_rabbitmqctl_as_root/" class="read-more-link">Read more..</a>
+      <a href="/post/20140425-running_rabbitmqctl_as_root/" class="read-more-link">Read more...</a>
     </div>
   </div>
 </article>
@@ -153,7 +152,7 @@ It turns out that running python setup.py install installs everything into /path
 Symlinking the included powerline folder to site-packages/powerline seems to fix this.
     </div>
     <div class="read-more">
-      <a href="/post/20130819-1225-powerline_on_mac_os_x/" class="read-more-link">Read more..</a>
+      <a href="/post/20130819-1225-powerline_on_mac_os_x/" class="read-more-link">Read more...</a>
     </div>
   </div>
 </article>
@@ -176,7 +175,7 @@ However, on MacOS X, it doesn&rsquo;t correctly detect the Python libs upon comp
 The workaround is the same. Editing the Makefile in the config directory of the Python installation fixes this. The modification is PYTHONFRAMEWORKINSTALLDIR instead of PYTHONFRAMEWORKDIR on the line beginning with LINKFORSHARED
     </div>
     <div class="read-more">
-      <a href="/post/20130819-1218-zsh_with_python_module_on_mac_os_x/" class="read-more-link">Read more..</a>
+      <a href="/post/20130819-1218-zsh_with_python_module_on_mac_os_x/" class="read-more-link">Read more...</a>
     </div>
   </div>
 </article>
@@ -187,17 +186,18 @@ The workaround is the same. Editing the Makefile in the config directory of the 
     <div class="post-meta">
       <span class="post-time"> 2013-08-17 </span>
       
-        <span class="more-meta"> 0 words </span>
-        <span class="more-meta"> 0 mins read </span>
+        <span class="more-meta"> 226 words </span>
+        <span class="more-meta"> 2 mins read </span>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      
+      On FreeBSD with ZFS, only NFSv4 ACLs are supported. At the time of this writing, the FreeBSD documentation regarding ACLs is a bit vague. Specifically, it doesn’t talk about inheritable attributes.
+The -d argument, used to define default POSIX ACLs is not supported. Instead, there are some flags one can set in order to define how ACLs are inherited. For an explanation, look in the manual for setfacl, section ACL inheritance flags.
     </div>
     <div class="read-more">
-      <a href="/post/2013-08-17_03-setting_default_nfsv4_acls_on_freebsd/" class="read-more-link">Read more..</a>
+      <a href="/post/2013-08-17_03-setting_default_nfsv4_acls_on_freebsd/" class="read-more-link">Read more...</a>
     </div>
   </div>
 </article>
@@ -219,7 +219,7 @@ The workaround is the same. Editing the Makefile in the config directory of the 
 1  [ERROR] Slave I/O: error connecting to master, Error code 1045   The MySQL troubleshooting page gives a few hints, talking about credentials for the replication user. However, attempting a connection via the command line client works, so the password is OK and the slave can reach the master. As it turns out, for replication purposes, the maximum password length is 32 characters.
     </div>
     <div class="read-more">
-      <a href="/post/2013-08-17_02-mysql_replication_io_error_code_1045/" class="read-more-link">Read more..</a>
+      <a href="/post/2013-08-17_02-mysql_replication_io_error_code_1045/" class="read-more-link">Read more...</a>
     </div>
   </div>
 </article>

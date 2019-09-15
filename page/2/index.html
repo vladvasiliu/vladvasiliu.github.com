@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.2 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.58.2 with theme even" />
 
 
 <link rel="canonical" href="https://vladvasiliu.com/" />
@@ -45,8 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://vladvasiliu.com/" />
 
-<meta property="og:updated_time" content="2018-08-27T09:22:00&#43;02:00"/>
-
+<meta property="og:updated_time" content="2018-08-27T09:22:00+02:00" />
 <meta itemprop="name" content="vBlog">
 <meta itemprop="description" content="Notes from a systems engineer.">
 
@@ -130,7 +129,7 @@
 The idea is to identify the slave for zone transfer purposes using something else that its IP address.
     </div>
     <div class="read-more">
-      <a href="/post/20141208-1007-bind_split_view_zone_synchronization/" class="read-more-link">Read more..</a>
+      <a href="/post/20141208-1007-bind_split_view_zone_synchronization/" class="read-more-link">Read more...</a>
     </div>
   </div>
 </article>
@@ -153,7 +152,7 @@ However, it does not offer a way to backup the configuration, so if for some rea
 There is however a way to get to this informaiton. It requires however the phone to be &ldquo;rooted&rdquo;.
     </div>
     <div class="read-more">
-      <a href="/post/20140822-1428-backup-duo-security-android/" class="read-more-link">Read more..</a>
+      <a href="/post/20140822-1428-backup-duo-security-android/" class="read-more-link">Read more...</a>
     </div>
   </div>
 </article>
@@ -175,7 +174,7 @@ There is however a way to get to this informaiton. It requires however the phone
 1 2 3 4 5 6 7 8 9 10 11 12 13  conn myconn type=tunnel left=[local_ip_address] leftsubnet=[local_subnet_to_be_accessed_through_tunnel] right=[remote_ip_address] rightsubnet=[remote_subnet_to_be_accessed_through_tunnel] keyexchange=ike ikelifetime=28800s ike=aes256-sha1-modp1536 authby=secret keylife=1800s esp=aes256-sha1 auto=start   This configures the forwarding policy. If you want to access the remote end of the tunnel from the gateway, set up a virtual interface and configure it with an address within the local_subnet.
     </div>
     <div class="read-more">
-      <a href="/post/20140619-1735-linux_to_fortigate_ipsec_tunnel/" class="read-more-link">Read more..</a>
+      <a href="/post/20140619-1735-linux_to_fortigate_ipsec_tunnel/" class="read-more-link">Read more...</a>
     </div>
   </div>
 </article>
@@ -186,17 +185,20 @@ There is however a way to get to this informaiton. It requires however the phone
     <div class="post-meta">
       <span class="post-time"> 2014-05-09 </span>
       
-        <span class="more-meta"> 0 words </span>
-        <span class="more-meta"> 0 mins read </span>
+        <span class="more-meta"> 129 words </span>
+        <span class="more-meta"> 1 min read </span>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      
+      Some hosting providers, like Online in France provide IPv6 access via prefix delegation. You get a DUID that has to be sent to their DHCP server. The IP address is configured by the client.
+The recommended method is using Dibbler, but this solution is pretty buggy.
+On Ubuntu or Debian, you can use the provided dhclient to obtain the prefix delegation.
+Below are samples of dhclient6.conf and interfaces. Note that in this configuration everything is configured by the client, but you could request a name server from the DHCP server.
     </div>
     <div class="read-more">
-      <a href="/post/20140509-ipv6_prefix_delegation_with_dhclient_and_static_ip/" class="read-more-link">Read more..</a>
+      <a href="/post/20140509-ipv6_prefix_delegation_with_dhclient_and_static_ip/" class="read-more-link">Read more...</a>
     </div>
   </div>
 </article>
@@ -219,7 +221,7 @@ The have this configuration working again, set accept_ra 2 in /etc/network/inter
 Source
     </div>
     <div class="read-more">
-      <a href="/post/20140514-ipv6_routing_with_router_advertisment/" class="read-more-link">Read more..</a>
+      <a href="/post/20140514-ipv6_routing_with_router_advertisment/" class="read-more-link">Read more...</a>
     </div>
   </div>
 </article>
