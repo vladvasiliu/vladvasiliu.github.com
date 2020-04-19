@@ -1,163 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>IPv6 prefix delegation on FreeBSD router - vBlog</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="Vlad Vasiliu" /><meta name="description" content="Goal I&amp;rsquo;m attempting to set up a router box in to replace my SFR router on a home network. As my SFR plan has native IPv6, this box will request a prefix delegation and set up IPv6 routing for the computers on the home network. It will also handle NAT for IPv4.
-This is supposed to be a drop-in replacement for the SFR provided box, so it will have to:" /><meta name="keywords" content="linux, syadmin, unix, howto" />
-
-
-
-
-
-
-<meta name="generator" content="Hugo 0.68.3 with theme even" />
-
-
-<link rel="canonical" href="https://vladvasiliu.com/post/20180827-0922-ipv6_prefix_delegation_freebsd/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-<link href="https://vladvasiliu.com/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
-
-
-<meta property="og:title" content="IPv6 prefix delegation on FreeBSD router" />
-<meta property="og:description" content="Goal I&rsquo;m attempting to set up a router box in to replace my SFR router on a home network. As my SFR plan has native IPv6, this box will request a prefix delegation and set up IPv6 routing for the computers on the home network. It will also handle NAT for IPv4.
-This is supposed to be a drop-in replacement for the SFR provided box, so it will have to:" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://vladvasiliu.com/post/20180827-0922-ipv6_prefix_delegation_freebsd/" />
-<meta property="article:published_time" content="2018-08-27T09:22:00+02:00" />
-<meta property="article:modified_time" content="2019-06-19T06:37:37+02:00" />
-<meta itemprop="name" content="IPv6 prefix delegation on FreeBSD router">
-<meta itemprop="description" content="Goal I&rsquo;m attempting to set up a router box in to replace my SFR router on a home network. As my SFR plan has native IPv6, this box will request a prefix delegation and set up IPv6 routing for the computers on the home network. It will also handle NAT for IPv4.
-This is supposed to be a drop-in replacement for the SFR provided box, so it will have to:">
-<meta itemprop="datePublished" content="2018-08-27T09:22:00&#43;02:00" />
-<meta itemprop="dateModified" content="2019-06-19T06:37:37&#43;02:00" />
-<meta itemprop="wordCount" content="852">
-
-
-
-<meta itemprop="keywords" content="sys,bsd,freebsd,ipv6,dhcp,dhcpv6,pd,prefix delegation,sfr,routing,SLAAC," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="IPv6 prefix delegation on FreeBSD router"/>
-<meta name="twitter:description" content="Goal I&rsquo;m attempting to set up a router box in to replace my SFR router on a home network. As my SFR plan has native IPv6, this box will request a prefix delegation and set up IPv6 routing for the computers on the home network. It will also handle NAT for IPv4.
-This is supposed to be a drop-in replacement for the SFR provided box, so it will have to:"/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">vBlog</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">Home</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">Archives</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">Tags</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">Categories</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">vBlog</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">Home</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">Archives</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">Categories</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">IPv6 prefix delegation on FreeBSD router</h1>
-
-      <div class="post-meta">
-        <span class="post-time"> 2018-08-27 </span>
-        
-          <span class="more-meta"> 852 words </span>
-          <span class="more-meta"> 4 mins read </span>
-        
-      </div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">Contents</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#system">System</a></li>
-    <li><a href="#dhcpv6-client">DHCPv6 client</a></li>
-    <li><a href="#rtadvd">rtadvd</a></li>
-    <li><a href="#firewall">Firewall</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#manual-pages">Manual pages</a></li>
-    <li><a href="#forums-and-blogs">Forums and blogs</a></li>
-  </ul>
-</nav>
-  </div>
-</div>
-  <div class="post-outdated">
-    <div class="hint">
-      <p>[NOTE] Updated <span class="timeago" datetime="2019-06-19T06:37:37" title="June 19, 2019">June 19, 2019</span>. This article may have outdated content or subject matter.</p>
-    </div>
-  </div>
-    <div class="post-content">
-      <h1 id="goal">Goal</h1>
+<html lang="en"><meta charset="utf-8"><meta name="generator" content="Hugo 0.68.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark"><title>IPv6 prefix delegation on FreeBSD router&nbsp;&ndash;&nbsp;vBlog</title><link rel="stylesheet" href="/css/core.min.0517cd3a6c90efa991a9347ac6ac02a114fe606cdad3dd496f4cbb199cc5fae9525f248ee6febff2d5a961b5b89610f1.css" integrity="sha384-BRfNOmyQ76mRqTR6xqwCoRT&#43;YGza091Jb0y7GZzF&#43;ulSXySO5v6/8tWpYbW4lhDx"><meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="IPv6 prefix delegation on FreeBSD router" /><body>
+    <div class="base-body"><section id="header" class="site header">
+    <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">vBlog</span></a></span>
+        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/about">About</a></nav></div></span></div></section><div id="content"><div class="article-container"><section class="article header">
+    <h1 class="article title">IPv6 prefix delegation on FreeBSD router</h1><p class="article date">Monday, August 27, 2018</p></section><article class="article markdown-body"><h1 id="goal">Goal</h1>
 <p>I&rsquo;m attempting to set up a router box in to replace my SFR router on a home network. As my SFR plan has native IPv6, this box will request a prefix delegation and set up IPv6 routing for the computers on the home network. It will also handle NAT for IPv4.</p>
 <p>This is supposed to be a drop-in replacement for the SFR provided box, so it will have to:</p>
 <ul>
@@ -188,92 +37,28 @@ This is supposed to be a drop-in replacement for the SFR provided box, so it wil
 </ul>
 <h2 id="system">System</h2>
 <p>Set the following sysctls in <code>/etc/sysctl.conf</code>:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">net.inet6.ip6.rfc6204w3=1
-</code></pre></td></tr></table>
-</div>
-</div><p>This is not strictly necessary, as it is handled by <code>ipv6_cpe_wanif</code> in <code>rc.conf</code>.</p>
-<p>Set up interfaces and enable routing in <code>rc.conf</code> (<a href="https://www.freebsd.org/cgi/man.cgi?query=rc.conf&amp;apropos=0&amp;sektion=0&amp;manpath=FreeBSD+11.2-RELEASE+and+Ports&amp;arch=default&amp;format=html" title="rc.conf">see manual</a>):</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">ipv6_cpe_wanif=&#34;re0&#34;
-ipv6_activate_all_interfaces=&#34;YES&#34;
-ipv6_gateway_enable=&#34;YES&#34;
+<pre><code class="language-rc.conf" data-lang="rc.conf">net.inet6.ip6.rfc6204w3=1
+</code></pre><p>This is not strictly necessary, as it is handled by <code>ipv6_cpe_wanif</code> in <code>rc.conf</code>.</p>
+<p>Set up interfaces and enable routing in <code>rc.conf</code> (<a href="https://www.freebsd.org/cgi/man.cgi?query=rc.conf&amp;apropos=0&amp;sektion=0&amp;manpath=FreeBSD&#43;11.2-RELEASE&#43;and&#43;Ports&amp;arch=default&amp;format=html"title="rc.conf"target="_blank">see manual</a>):</p>
+<pre><code class="language-rc.conf" data-lang="rc.conf">ipv6_cpe_wanif=&quot;re0&quot;
+ipv6_activate_all_interfaces=&quot;YES&quot;
+ipv6_gateway_enable=&quot;YES&quot;
 
-ifconfig_re0_ipv6=&#34;inet6 accept_rtadv up&#34;
-ifconfig_re1_ipv6=&#34;inet6 -accept_rtadv up&#34;
+ifconfig_re0_ipv6=&quot;inet6 accept_rtadv up&quot;
+ifconfig_re1_ipv6=&quot;inet6 -accept_rtadv up&quot;
 
-rtadvd_enable=&#34;YES&#34;
-rtadvd_interfaces=&#34;re1 bridge0&#34;
+rtadvd_enable=&quot;YES&quot;
+rtadvd_interfaces=&quot;re1 bridge0&quot;
 
-dhcp6c_enable=&#34;YES&#34;
-dhcp6c_interfaces=&#34;re0&#34;
+dhcp6c_enable=&quot;YES&quot;
+dhcp6c_interfaces=&quot;re0&quot;
 
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="dhcpv6-client">DHCPv6 client</h2>
+</code></pre><h2 id="dhcpv6-client">DHCPv6 client</h2>
 <p>This is required to request a prefix delegation from the ISP. Note that this won&rsquo;t setup a routable address on the wan interface. As this is supposed to be a router, it&rsquo;s not required. IPv6 communication to the router is done via link local addresses.</p>
 <p>Install KAME/WIDE dhcp6c client with pkg (or from <em>net/dhcp6</em> in ports):</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">pkg install dhcp6
-</code></pre></td></tr></table>
-</div>
-</div><p>Add to <code>/usr/local/etc/dhcp6c.conf</code> (<a href="https://www.freebsd.org/cgi/man.cgi?query=dhcp6c.conf&amp;apropos=0&amp;sektion=0&amp;manpath=FreeBSD+11.2-RELEASE+and+Ports&amp;arch=default&amp;format=html" title="dhcp6c.conf">see manual</a>):</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback"># Request a prefix delegation on re0
+<pre><code>pkg install dhcp6
+</code></pre><p>Add to <code>/usr/local/etc/dhcp6c.conf</code> (<a href="https://www.freebsd.org/cgi/man.cgi?query=dhcp6c.conf&amp;apropos=0&amp;sektion=0&amp;manpath=FreeBSD&#43;11.2-RELEASE&#43;and&#43;Ports&amp;arch=default&amp;format=html"title="dhcp6c.conf"target="_blank">see manual</a>):</p>
+<pre><code class="language-rc.conf" data-lang="rc.conf"># Request a prefix delegation on re0
 interface re0 {
         send    ia-na 1;
         send    ia-pd 1;
@@ -300,9 +85,7 @@ id-assoc pd 1 {
 
 id-assoc na 1 {
 };
-</code></pre></td></tr></table>
-</div>
-</div><p>My ISP delegates me a /56. If I want to obtain a /64, I have to cut 8 bits from it. This is what the <code>sla-len 8</code> statement does.</p>
+</code></pre><p>My ISP delegates me a /56. If I want to obtain a /64, I have to cut 8 bits from it. This is what the <code>sla-len 8</code> statement does.</p>
 <p>What basically happens is it builds an IPv6 of the following form: <code>prefix:sla:local_addr</code>. This is then configured on the interface corresponding to the <code>prefix-interface</code> statement. This is on the client side.</p>
 <p>The <em>sla</em> becomes part of the prefix as advertised to the client subnets.</p>
 <h2 id="rtadvd">rtadvd</h2>
@@ -311,37 +94,15 @@ id-assoc na 1 {
 <li>It announces the prefix of the interface to the hosts connected to that interface by periodically sending router advertisements and responding to router solicitations.</li>
 <li>It announces itself as the router for the segment by replying to neighbour solicitations and sending gratuitious neighbour advertisments.</li>
 </ul>
-<p>rtadvd is part of the FreeBSD base system. It expects its configuration in <code>/etc/rtadvd.conf</code> (<a href="https://www.freebsd.org/cgi/man.cgi?query=rtadvd.conf&amp;apropos=0&amp;sektion=0&amp;manpath=FreeBSD+11.2-RELEASE+and+Ports&amp;arch=default&amp;format=html" title="rtadvd.conf">see manual</a>):</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">default:\
+<p>rtadvd is part of the FreeBSD base system. It expects its configuration in <code>/etc/rtadvd.conf</code> (<a href="https://www.freebsd.org/cgi/man.cgi?query=rtadvd.conf&amp;apropos=0&amp;sektion=0&amp;manpath=FreeBSD&#43;11.2-RELEASE&#43;and&#43;Ports&amp;arch=default&amp;format=html"title="rtadvd.conf"target="_blank">see manual</a>):</p>
+<pre><code class="language-rc.conf" data-lang="rc.conf">default:\
        :prefixlen#64:\
-</code></pre></td></tr></table>
-</div>
-</div><p>If the prefixes on the client side are dynamic, as is the case when handled via dhcp6c, there is no need to specify them in the configuration file. rtadvd will use the ones configured on the interface and handle prefix changes.</p>
+</code></pre><p>If the prefixes on the client side are dynamic, as is the case when handled via dhcp6c, there is no need to specify them in the configuration file. rtadvd will use the ones configured on the interface and handle prefix changes.</p>
 <p>If you need different settings per interface, you can specify the interface name instead of <em>default</em> in the config file.</p>
 <h2 id="firewall">Firewall</h2>
 <p>If you&rsquo;re using PF, be sure to only NAT IPv4 packets. The below configuration shows what&rsquo;s required to allow IPv6 autoconfiguration.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">wan = &#34;re0&#34;
-lan = &#34;re1&#34;
+<pre><code class="language-pf.conf" data-lang="pf.conf">wan = &quot;re0&quot;
+lan = &quot;re1&quot;
 
 nat log on $wan inet from ! $wan to any -&gt; ($wan)
 
@@ -350,163 +111,58 @@ pass in log on $wan inet6 proto udp from any to ( $wan ) port dhcpv6-client keep
 pass out log on $wan inet6 proto udp from self to any port dhcpv6-server keep state
 
 pass log inet6 proto icmp6 all icmp6-type {neighbradv, neighbrsol, routersol, routeradv}
-</code></pre></td></tr></table>
-</div>
-</div><p>As dhcp6c doesn&rsquo;t get a route, it&rsquo;s necessary that the router be able to send router solicitations and receive advertisments on the wan interface (see entry for <code>ipv6_cpe_wanif</code> in <a href="https://www.freebsd.org/cgi/man.cgi?query=rc.conf&amp;apropos=0&amp;sektion=0&amp;manpath=FreeBSD+11.2-RELEASE+and+Ports&amp;arch=default&amp;format=html" title="rc.conf">rc.conf manual</a>).</p>
+</code></pre><p>As dhcp6c doesn&rsquo;t get a route, it&rsquo;s necessary that the router be able to send router solicitations and receive advertisments on the wan interface (see entry for <code>ipv6_cpe_wanif</code> in <a href="https://www.freebsd.org/cgi/man.cgi?query=rc.conf&amp;apropos=0&amp;sektion=0&amp;manpath=FreeBSD&#43;11.2-RELEASE&#43;and&#43;Ports&amp;arch=default&amp;format=html"title="rc.conf"target="_blank">rc.conf manual</a>).</p>
 <p>Add other firewall rules as necessary. The above rules won&rsquo;t allow ping for example.</p>
 <h1 id="references">References</h1>
 <p>Resources that have helped me along the way:</p>
 <h2 id="manual-pages">Manual pages</h2>
 <ul>
-<li><a href="https://www.freebsd.org/cgi/man.cgi?query=rc.conf&amp;apropos=0&amp;sektion=0&amp;manpath=FreeBSD+11.2-RELEASE+and+Ports&amp;arch=default&amp;format=html" title="rc.conf">rc.conf manual</a></li>
-<li><a href="https://www.freebsd.org/cgi/man.cgi?query=rtadvd.conf&amp;apropos=0&amp;sektion=0&amp;manpath=FreeBSD+11.2-RELEASE+and+Ports&amp;arch=default&amp;format=html" title="rtadvd.conf">rtadvd.conf manual</a></li>
-<li><a href="https://www.freebsd.org/cgi/man.cgi?query=dhcp6c.conf&amp;apropos=0&amp;sektion=0&amp;manpath=FreeBSD+11.2-RELEASE+and+Ports&amp;arch=default&amp;format=html" title="dhcp6c.conf">dhcp6c.conf manual</a></li>
+<li><a href="https://www.freebsd.org/cgi/man.cgi?query=rc.conf&amp;apropos=0&amp;sektion=0&amp;manpath=FreeBSD&#43;11.2-RELEASE&#43;and&#43;Ports&amp;arch=default&amp;format=html"title="rc.conf"target="_blank">rc.conf manual</a></li>
+<li><a href="https://www.freebsd.org/cgi/man.cgi?query=rtadvd.conf&amp;apropos=0&amp;sektion=0&amp;manpath=FreeBSD&#43;11.2-RELEASE&#43;and&#43;Ports&amp;arch=default&amp;format=html"title="rtadvd.conf"target="_blank">rtadvd.conf manual</a></li>
+<li><a href="https://www.freebsd.org/cgi/man.cgi?query=dhcp6c.conf&amp;apropos=0&amp;sektion=0&amp;manpath=FreeBSD&#43;11.2-RELEASE&#43;and&#43;Ports&amp;arch=default&amp;format=html"title="dhcp6c.conf"target="_blank">dhcp6c.conf manual</a></li>
 </ul>
 <h2 id="forums-and-blogs">Forums and blogs</h2>
 <ul>
-<li><a href="https://blog.crashed.org/setting-up-freebsd-with-comcast-ipv6/">Setting up FreeBSD with Comcast IPv6</a></li>
-<li><a href="https://forums.freebsd.org/threads/ipv6-gateway.53522/">FreeBSD Forums - IPv6 Gateway</a></li>
-<li><a href="https://www.systemajik.com/providing-ipv6-dns-resolver-data-using-radvd">Providing IPv6 DNS resolver data with radvd</a></li>
+<li><a href="https://blog.crashed.org/setting-up-freebsd-with-comcast-ipv6/"target="_blank">Setting up FreeBSD with Comcast IPv6</a></li>
+<li><a href="https://forums.freebsd.org/threads/ipv6-gateway.53522/"target="_blank">FreeBSD Forums - IPv6 Gateway</a></li>
+<li><a href="https://www.systemajik.com/providing-ipv6-dns-resolver-data-using-radvd"target="_blank">Providing IPv6 DNS resolver data with radvd</a></li>
 </ul>
-
-    </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">Author</span>
-    <span class="item-content">Vlad Vasiliu</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">LastMod</span>
-    <span class="item-content">
-        2019-06-19
-        <a href="/commit/b3a711e31f64c70ccbaaaaf0c8f22a11b2fec7b6" title="Initial commit.">(b3a711e)</a>
-    </span>
-  </p>
-  
-  
-</div>
-<footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/sys/">sys</a>
-          <a href="/tags/bsd/">bsd</a>
-          <a href="/tags/freebsd/">freebsd</a>
-          <a href="/tags/ipv6/">ipv6</a>
-          <a href="/tags/dhcp/">dhcp</a>
-          <a href="/tags/dhcpv6/">dhcpv6</a>
-          <a href="/tags/pd/">pd</a>
-          <a href="/tags/prefix-delegation/">prefix delegation</a>
-          <a href="/tags/sfr/">sfr</a>
-          <a href="/tags/routing/">routing</a>
-          <a href="/tags/slaac/">SLAAC</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/post/20200419-1046-mac-intl-layout-in-gnome/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Mac International keyboard layout in Gnome</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/post/20180807-1626-dual_screen_kiosk_ubuntu/">
-            <span class="next-text nav-default">Running Chrome in dual screen kiosk mode on Ubuntu</span>
-            <span class="next-text nav-mobile">Next</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
+</article><section class="article labels"><a class="tag" href=/tags/sys/>sys</a><a class="tag" href=/tags/bsd/>bsd</a><a class="tag" href=/tags/freebsd/>freebsd</a><a class="tag" href=/tags/ipv6/>ipv6</a><a class="tag" href=/tags/dhcp/>dhcp</a><a class="tag" href=/tags/dhcpv6/>dhcpv6</a><a class="tag" href=/tags/pd/>pd</a><a class="tag" href=/tags/prefix-delegation/>prefix delegation</a><a class="tag" href=/tags/sfr/>sfr</a><a class="tag" href=/tags/routing/>routing</a><a class="tag" href=/tags/slaac/>SLAAC</a></section></div><section class="article navigation"><p><a class="link" href="/post/20200419-1046-mac-intl-layout-in-gnome/"><span class="li">&larr;</span>Mac International keyboard layout in Gnome</a></p><p><a class="link" href="/post/20180807-1626-dual_screen_kiosk_ubuntu/"><span class="li">&rarr;</span>Running Chrome in dual screen kiosk mode on Ubuntu</a></p></section><section class="article discussion"><div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
     (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'vladvasiliu';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "vladvasiliu" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
     })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="https://stackoverflow.com/users/837862/" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
-      <a href="https://twitter.com/vvasiliu" class="iconfont icon-twitter" title="twitter"></a>
-      <a href="https://www.linkedin.com/in/vlad-vasiliu-460b2b18" class="iconfont icon-linkedin" title="linkedin"></a>
-      <a href="https://github.com/vladvasiliu" class="iconfont icon-github" title="github"></a>
-  <a href="https://vladvasiliu.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    Theme - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  
-
-  <span class="copyright-year">
-    &copy; 
-    2013 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">Vlad Vasiliu; all rights reserved.</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
-  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
-    var languageCode = "en".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
-    timeago().render(document.querySelectorAll('.timeago'), languageCode);
-    timeago.cancel();  
-  </script>
-
-
-
-<script type="text/javascript" src="https://vladvasiliu.com/js/main.cddea96674a99fd8cea50d36fb19d9c91f497feea4af5ce4596afd2dbaab9202.js"></script>
-
-
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></section></div><section id="footer" class="footer"><div class="footer-wrap">
+    <p class="copyright">© 2020 Vlad Vasiliu</p>
+    <p class="powerby"><span>Powered by </span><a href="https://gohugo.io" 
+        target="_blank">Hugo</a><span> and the </span><a href="https://themes.gohugo.io/hugo-notepadium/" 
+        target="_blank">Notepadium</a></p>
+</div></section>
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
 	ga('create', 'UA-37751901-1', 'auto');
-	ga('set', 'anonymizeIp', true);
+	
 	ga('send', 'pageview');
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-
-
-
-
-
+</div>
 </body>
+
 </html>

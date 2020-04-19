@@ -1,316 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>vBlog</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="Vlad Vasiliu" /><meta name="description" content="Notes from a systems engineer." /><meta name="keywords" content="linux, syadmin, unix, howto" />
-
-
-
-
-
-
-<meta name="generator" content="Hugo 0.68.3 with theme even" />
-
-
-<link rel="canonical" href="https://vladvasiliu.com/" />
-  <link href="https://vladvasiliu.com/index.xml" rel="alternate" type="application/rss+xml" title="vBlog" />
-  <link href="https://vladvasiliu.com/index.xml" rel="feed" type="application/rss+xml" title="vBlog" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-<link href="https://vladvasiliu.com/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
-
-
-<meta property="og:title" content="vBlog" />
-<meta property="og:description" content="Notes from a systems engineer." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://vladvasiliu.com/" />
-<meta property="og:updated_time" content="2016-12-31T12:02:49+01:00" />
-<meta itemprop="name" content="vBlog">
-<meta itemprop="description" content="Notes from a systems engineer."><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="vBlog"/>
-<meta name="twitter:description" content="Notes from a systems engineer."/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">vBlog</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">Home</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">Archives</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">Tags</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">Categories</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">vBlog</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">Home</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">Archives</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">Categories</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <section id="posts" class="posts">
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/20150204-1737-drac_custom_ssl_cert/">Custom SSL certificate for iDrac 7 without CSR</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2015-02-04 </span>
-      
-        <span class="more-meta"> 138 words </span>
-        <span class="more-meta"> 1 min read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      If you want to use the Dell iDrac with a certificate signed by your CA, the web gui allows you to create a CSR, and upload the signed certificate. But if for some reason you want to generate the certificate and key outside of iDrac, the gui doesn&rsquo;t offer a way to upload the key.
-There is a way to use fully custom certificates, but it requires the racadm command line utility.
-    </div>
-    <div class="read-more">
-      <a href="/post/20150204-1737-drac_custom_ssl_cert/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/20141208-1007-bind_split_view_zone_synchronization/">Zone transfer setup for BIND with split horizon on the same zone</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-12-08 </span>
-      
-        <span class="more-meta"> 352 words </span>
-        <span class="more-meta"> 2 mins read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      With the default configuration, a zone transfer from a master to a slave of BIND with split horizon has the slave transfer only the view of that zone that is available to its IP address. The documentation is a bit vague on the subject, but it turns out it is possible for the slave to transfer the zone definitions corresponding to all (or a subset) of the views.
-The idea is to identify the slave for zone transfer purposes using something else that its IP address.
-    </div>
-    <div class="read-more">
-      <a href="/post/20141208-1007-bind_split_view_zone_synchronization/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/20140822-1428-backup-duo-security-android/">How to transfer Duo Security installation to a new phone on Android</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-08-22 </span>
-      
-        <span class="more-meta"> 123 words </span>
-        <span class="more-meta"> 1 min read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      The Duo Security application can be used to generate one time passwords for online services, as an alternative to Google Authenticator.
-However, it does not offer a way to backup the configuration, so if for some reason it becomes unusable (say if your phone is stolen or broken) you will have to reinitialise all the accounts.
-There is however a way to get to this informaiton. It requires however the phone to be &ldquo;rooted&rdquo;.
-    </div>
-    <div class="read-more">
-      <a href="/post/20140822-1428-backup-duo-security-android/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/20140619-1735-linux_to_fortigate_ipsec_tunnel/">Establishing IPSec tunnel between Linux and Fortigate</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-06-19 </span>
-      
-        <span class="more-meta"> 62 words </span>
-        <span class="more-meta"> 1 min read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      Here is an example of a tunnel setup beetween Linux and Fortigate. It uses StrongSwan.
-conn myconn type=tunnel left=[local_ip_address] leftsubnet=[local_subnet_to_be_accessed_through_tunnel] right=[remote_ip_address] rightsubnet=[remote_subnet_to_be_accessed_through_tunnel] keyexchange=ike ikelifetime=28800s ike=aes256-sha1-modp1536 authby=secret keylife=1800s esp=aes256-sha1 auto=start  This configures the forwarding policy. If you want to access the remote end of the tunnel from the gateway, set up a virtual interface and configure it with an address within the local_subnet.
-    </div>
-    <div class="read-more">
-      <a href="/post/20140619-1735-linux_to_fortigate_ipsec_tunnel/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/20140509-ipv6_prefix_delegation_with_dhclient_and_static_ip/">IPv6 prefix delegation with static address and dhclient on Ubuntu / Debian</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-05-09 </span>
-      
-        <span class="more-meta"> 119 words </span>
-        <span class="more-meta"> 1 min read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      Some hosting providers, like Online in France provide IPv6 access via prefix delegation. You get a DUID that has to be sent to their DHCP server. The IP address is configured by the client.
-The recommended method is using Dibbler, but this solution is pretty buggy.
-On Ubuntu or Debian, you can use the provided dhclient to obtain the prefix delegation.
-Below are samples of dhclient6.conf and interfaces. Note that in this configuration everything is configured by the client, but you could request a name server from the DHCP server.
-    </div>
-    <div class="read-more">
-      <a href="/post/20140509-ipv6_prefix_delegation_with_dhclient_and_static_ip/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    </section>
-  
-  <nav class="pagination">
-    <a class="prev" href="/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text">Prev</span>
-      </a>
-    <a class="next" href="/page/3/">
-        <span class="next-text">Next</span>
-        <i class="iconfont icon-right"></i>
-      </a>
-  </nav>
-        </div>
-        
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="https://stackoverflow.com/users/837862/" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
-      <a href="https://twitter.com/vvasiliu" class="iconfont icon-twitter" title="twitter"></a>
-      <a href="https://www.linkedin.com/in/vlad-vasiliu-460b2b18" class="iconfont icon-linkedin" title="linkedin"></a>
-      <a href="https://github.com/vladvasiliu" class="iconfont icon-github" title="github"></a>
-  <a href="https://vladvasiliu.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    Theme - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  
-
-  <span class="copyright-year">
-    &copy; 
-    2013 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">Vlad Vasiliu; all rights reserved.</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
-  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
-    var languageCode = "en".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
-    timeago().render(document.querySelectorAll('.timeago'), languageCode);
-    timeago.cancel();  
-  </script>
-
-
-
-<script type="text/javascript" src="https://vladvasiliu.com/js/main.cddea96674a99fd8cea50d36fb19d9c91f497feea4af5ce4596afd2dbaab9202.js"></script>
-
-
+<html lang="en"><meta charset="utf-8"><meta name="generator" content="Hugo 0.68.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark"><title>vBlog</title><link rel="stylesheet" href="/css/core.min.0517cd3a6c90efa991a9347ac6ac02a114fe606cdad3dd496f4cbb199cc5fae9525f248ee6febff2d5a961b5b89610f1.css" integrity="sha384-BRfNOmyQ76mRqTR6xqwCoRT&#43;YGza091Jb0y7GZzF&#43;ulSXySO5v6/8tWpYbW4lhDx"><link rel="alternate" type="application/rss+xml" href="/index.xml" title="vBlog" /><meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="vBlog" /><body>
+    <div class="base-body"><section id="header" class="site header">
+    <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">vBlog</span></a></span>
+        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/about">About</a></nav></div></span></div></section><div id="content"><ul class="note list"><li class="item"><a class="note" href="/post/20140514-ipv6_routing_with_router_advertisment/">
+            <p class="note title">IPv6 routing and router advertisments on Ubuntu / Debian</p><p class="note date">Friday, May 9, 2014</p><p class="note content">If your Linux box gets its IPv6 routing information via router advertisments, you may have noticed that upon enabling forwarding, it disregards those advertisments and it loses the configured gateways.
+The have this configuration working again, set accept_ra 2 in /etc/network/interfaces. This value is not documented in the interfaces manual, but since kernel version 2.6.37 it allows the interface to both do forwarding and accept router advertisments.
+Source</p></a><p class="note labels"><a class="tag" href="/tags/ipv6/">IPv6</a><a class="tag" href="/tags/dhcpv6/">DHCPv6</a></p></li><li class="item"><a class="note" href="/post/20140425-running_rabbitmqctl_as_root/">
+            <p class="note title">Running rabbitmqctl as root</p><p class="note date">Friday, April 25, 2014</p><p class="note content">On some Linux distributions, running rabbitmqctl as root may fail with the following error:
+ Error: unable to connect to node rabbit@host: nodedown DIAGNOSTICS =========== attempted to contact: [rabbit@host] rabbit@host: * found rabbit (port 25672) * TCP connection succeeded * suggestion: hostname mismatch? * suggestion: is the cookie set correctly? current node details: - node name: rabbitmqctl19092@localhost - home dir: /root - cookie hash: B+onVMMDnR1uRT2nuD24VA== Assuming that the hostname is correct and running rabbitmqctl as the rabbitmq user works, this is a cookie mismatch problem.<span class="mldr">&mldr;more</span></p></a><p class="note labels"><a class="tag" href="/tags/rabbitmq/">RabbitMQ</a></p></li><li class="item"><a class="note" href="/post/20130819-1225-powerline_on_mac_os_x/">
+            <p class="note title">Installing Powerline on Mac OS X</p><p class="note date">Monday, August 19, 2013</p><p class="note content">While installing Powerline on MacOS X following the documentation, there are some import problems.
+It turns out that running python setup.py install installs everything into /path/to/site-packages/Powerline-beta-py2.7.egg/. This folder should be named powerline instead.
+Symlinking the included powerline folder to site-packages/powerline seems to fix this.</p></a><p class="note labels"><a class="tag" href="/tags/macos-x/">MacOS X</a><a class="tag" href="/tags/powerline/">Powerline</a></p></li><li class="item"><a class="note" href="/post/20130819-1218-zsh_with_python_module_on_mac_os_x/">
+            <p class="note title">Building ZSH with zpython module on MacOS X</p><p class="note date">Monday, August 19, 2013</p><p class="note content">There is a fork of ZSH that has a Python module. It is able to run Powerline smoothly.
+However, on MacOS X, it doesn&rsquo;t correctly detect the Python libs upon compilation. There seems to be a similar problem for Vim with python support: http://stackoverflow.com/questions/6490513/vim-failing-to-compile-with-python-on-os-x
+The workaround is the same. Editing the Makefile in the config directory of the Python installation fixes this. The modification is PYTHONFRAMEWORKINSTALLDIR instead of PYTHONFRAMEWORKDIR on the line beginning with LINKFORSHARED</p></a><p class="note labels"><a class="tag" href="/tags/macos-x/">MacOS X</a><a class="tag" href="/tags/zsh/">ZSH</a><a class="tag" href="/tags/python/">Python</a></p></li><li class="item"><a class="note" href="/post/2013-08-17_03-setting_default_nfsv4_acls_on_freebsd/">
+            <p class="note title">Setting default NFSv4 ACLs on FreeBSD</p><p class="note date">Saturday, August 17, 2013</p><p class="note content">On FreeBSD with ZFS, only NFSv4 ACLs are supported. At the time of this writing, the FreeBSD documentation regarding ACLs is a bit vague. Specifically, it doesn’t talk about inheritable attributes.
+The -d argument, used to define default POSIX ACLs is not supported. Instead, there are some flags one can set in order to define how ACLs are inherited. For an explanation, look in the manual for setfacl, section ACL inheritance flags.<span class="mldr">&mldr;more</span></p></a><p class="note labels"><a class="tag" href="/tags/freebsd/">FreeBSD</a><a class="tag" href="/tags/zfs/">ZFS</a><a class="tag" href="/tags/acl/">ACL</a><a class="tag" href="/tags/sysadmin/">sysadmin</a></p></li><li class="item"><a class="note" href="/post/2013-08-17_02-mysql_replication_io_error_code_1045/">
+            <p class="note title">MySQL Replication - I/O Error Code 1045</p><p class="note date">Saturday, August 17, 2013</p><p class="note content">Setting up replication on MySQL may yield the following error:
+[ERROR] Slave I/O: error connecting to master, Error code 1045 The MySQL troubleshooting page gives a few hints, talking about credentials for the replication user. However, attempting a connection via the command line client works, so the password is OK and the slave can reach the master. As it turns out, for replication purposes, the maximum password length is 32 characters.<span class="mldr">&mldr;more</span></p></a><p class="note labels"><a class="tag" href="/tags/mysql/">MySQL</a></p></li></ul><div class="pagination">
+    <ul><li><a class="" href="/">1</a></li><li><a class="active" href="/page/2/">2</a></li></ul>
+</div></div><section id="footer" class="footer"><div class="footer-wrap">
+    <p class="copyright">© 2020 Vlad Vasiliu</p>
+    <p class="powerby"><span>Powered by </span><a href="https://gohugo.io" 
+        target="_blank">Hugo</a><span> and the </span><a href="https://themes.gohugo.io/hugo-notepadium/" 
+        target="_blank">Notepadium</a></p>
+</div></section>
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
 	ga('create', 'UA-37751901-1', 'auto');
-	ga('set', 'anonymizeIp', true);
+	
 	ga('send', 'pageview');
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-
-
-
-
-
+</div>
 </body>
+
 </html>

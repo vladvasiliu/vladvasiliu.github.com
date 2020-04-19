@@ -1,156 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Running Chrome in dual screen kiosk mode on Ubuntu - vBlog</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="Vlad Vasiliu" /><meta name="description" content="Background At work we have to large TV screens used for displaying Grafana dashboards. They are both connected to the same PC.
-The PC was running Windows so anytime the PC would reboot, we would have to manually conenct to it via VNC and move the browsers around and set them in full screen mode.
-As we are in the office only during work hours, the PC would be shut down and restarted everyday." /><meta name="keywords" content="linux, syadmin, unix, howto" />
-
-
-
-
-
-
-<meta name="generator" content="Hugo 0.68.3 with theme even" />
-
-
-<link rel="canonical" href="https://vladvasiliu.com/post/20180807-1626-dual_screen_kiosk_ubuntu/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-<link href="https://vladvasiliu.com/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
-
-
-<meta property="og:title" content="Running Chrome in dual screen kiosk mode on Ubuntu" />
-<meta property="og:description" content="Background At work we have to large TV screens used for displaying Grafana dashboards. They are both connected to the same PC.
-The PC was running Windows so anytime the PC would reboot, we would have to manually conenct to it via VNC and move the browsers around and set them in full screen mode.
-As we are in the office only during work hours, the PC would be shut down and restarted everyday." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://vladvasiliu.com/post/20180807-1626-dual_screen_kiosk_ubuntu/" />
-<meta property="article:published_time" content="2018-08-07T16:27:00+02:00" />
-<meta property="article:modified_time" content="2018-08-27T09:36:42+02:00" />
-<meta itemprop="name" content="Running Chrome in dual screen kiosk mode on Ubuntu">
-<meta itemprop="description" content="Background At work we have to large TV screens used for displaying Grafana dashboards. They are both connected to the same PC.
-The PC was running Windows so anytime the PC would reboot, we would have to manually conenct to it via VNC and move the browsers around and set them in full screen mode.
-As we are in the office only during work hours, the PC would be shut down and restarted everyday.">
-<meta itemprop="datePublished" content="2018-08-07T16:27:00&#43;02:00" />
-<meta itemprop="dateModified" content="2018-08-27T09:36:42&#43;02:00" />
-<meta itemprop="wordCount" content="723">
-
-
-
-<meta itemprop="keywords" content="sys,linux,chrome,kiosk," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Running Chrome in dual screen kiosk mode on Ubuntu"/>
-<meta name="twitter:description" content="Background At work we have to large TV screens used for displaying Grafana dashboards. They are both connected to the same PC.
-The PC was running Windows so anytime the PC would reboot, we would have to manually conenct to it via VNC and move the browsers around and set them in full screen mode.
-As we are in the office only during work hours, the PC would be shut down and restarted everyday."/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">vBlog</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">Home</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">Archives</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">Tags</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">Categories</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">vBlog</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">Home</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">Archives</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">Categories</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">Running Chrome in dual screen kiosk mode on Ubuntu</h1>
-
-      <div class="post-meta">
-        <span class="post-time"> 2018-08-07 </span>
-        
-          <span class="more-meta"> 723 words </span>
-          <span class="more-meta"> 4 mins read </span>
-        
-      </div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">Contents</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents"></nav>
-  </div>
-</div>
-  <div class="post-outdated">
-    <div class="warn">
-      <p>[NOTE] Updated <span class="timeago" datetime="2018-08-27T09:36:42" title="August 27, 2018">August 27, 2018</span>. This article may have outdated content or subject matter.</p>
-    </div>
-  </div>
-    <div class="post-content">
-      <h1 id="background">Background</h1>
-<p>At work we have to large TV screens used for displaying <a href="http://grafana.com">Grafana</a> dashboards. They are both connected to the same PC.</p>
+<html lang="en"><meta charset="utf-8"><meta name="generator" content="Hugo 0.68.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark"><title>Running Chrome in dual screen kiosk mode on Ubuntu&nbsp;&ndash;&nbsp;vBlog</title><link rel="stylesheet" href="/css/core.min.0517cd3a6c90efa991a9347ac6ac02a114fe606cdad3dd496f4cbb199cc5fae9525f248ee6febff2d5a961b5b89610f1.css" integrity="sha384-BRfNOmyQ76mRqTR6xqwCoRT&#43;YGza091Jb0y7GZzF&#43;ulSXySO5v6/8tWpYbW4lhDx"><meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Running Chrome in dual screen kiosk mode on Ubuntu" /><body>
+    <div class="base-body"><section id="header" class="site header">
+    <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">vBlog</span></a></span>
+        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/about">About</a></nav></div></span></div></section><div id="content"><div class="article-container"><section class="article header">
+    <h1 class="article title">Running Chrome in dual screen kiosk mode on Ubuntu</h1><p class="article date">Tuesday, August 7, 2018</p></section><article class="article markdown-body"><h1 id="background">Background</h1>
+<p>At work we have to large TV screens used for displaying <a href="http://grafana.com"target="_blank">Grafana</a> dashboards. They are both connected to the same PC.</p>
 <p>The PC was running Windows so anytime the PC would reboot, we would have to manually conenct to it via VNC and move the browsers around and set them in full screen mode.</p>
 <p>As we are in the office only during work hours, the PC would be shut down and restarted everyday.</p>
 <p>I&rsquo;ve been looking around, and there&rsquo;s a Windows Kiosk mode, in which it only starts whatever applicatoin you want automatically. This mode, however, doesn&rsquo;t work well with multiple screens.</p>
@@ -178,175 +35,75 @@ As we are in the office only during work hours, the PC would be shut down and re
 <ul>
 <li>
 <p>Add <code>universe</code> repository in <code>/etc/apt/sources.list</code>:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text"></code></pre></td></tr></table>
-</div>
-</div></li>
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text"></code></pre></div></li>
 </ul>
 <p>deb <a href="http://archive.ubuntu.com/ubuntu">http://archive.ubuntu.com/ubuntu</a> bionic main universe
 deb <a href="http://archive.ubuntu.com/ubuntu">http://archive.ubuntu.com/ubuntu</a> bionic-security main universe
 deb <a href="http://archive.ubuntu.com/ubuntu">http://archive.ubuntu.com/ubuntu</a> bionic-updates main universe</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">
+<pre><code>
 * Add i3 repositories ([see doc here](https://i3wm.org/docs/repositories.html)) :
 
-</code></pre></td></tr></table>
-</div>
-</div><p>/usr/lib/apt/apt-helper download-file <a href="http://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2018.01.30_all.deb">http://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2018.01.30_all.deb</a> keyring.deb SHA256:baa43dbbd7232ea2b5444cae238d53bebb9d34601cc000e82f11111b1889078a
+</code></pre><p>/usr/lib/apt/apt-helper download-file <a href="http://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2018.01.30_all.deb">http://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2018.01.30_all.deb</a> keyring.deb SHA256:baa43dbbd7232ea2b5444cae238d53bebb9d34601cc000e82f11111b1889078a
 sudo dpkg -i ./keyring.deb
 sudo echo &ldquo;deb <a href="http://debian.sur5r.net/i3/">http://debian.sur5r.net/i3/</a> $(grep &lsquo;^DISTRIB_CODENAME=&rsquo; /etc/lsb-release | cut -f2 -d=) universe&rdquo; &raquo; /etc/apt/sources.list.d/sur5r-i3.list</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">
+<pre><code>
 
 # Packages
 
-</code></pre></td></tr></table>
-</div>
-</div><p>sudo apt-get update
+</code></pre><p>sudo apt-get update
 sudo apt-get install xinit i3-wm chromium-browser unclutter</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">
+<pre><code>
 # Automatic Login
 
-No Display Manager will be used. It&#39;s not particularly useful and this allows a very lightweight install.
+No Display Manager will be used. It's not particularly useful and this allows a very lightweight install.
 
 Automatic login will be done on TTY1.
 
 Create an override for systemd TTY1 service by editting `/etc/systemd/system/getty@tty1.service.d/override.conf`
 
-</code></pre></td></tr></table>
-</div>
-</div><p>[Service]
+</code></pre><p>[Service]
 ExecStart=
 ExecStart=-/sbin/agetty &ndash;autologin display &ndash;noclear %I $TERM</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">
-To test automatic login, make sure you&#39;re connected to a different TTY and run
+<pre><code>
+To test automatic login, make sure you're connected to a different TTY and run
 
-</code></pre></td></tr></table>
-</div>
-</div><p>sudo systemctl daemon-reload
+</code></pre><p>sudo systemctl daemon-reload
 sudo systemctl restart <a href="mailto:getty@tty1.service">getty@tty1.service</a></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">
+<pre><code>
 TTY1 should be logged in to *display* user.
 
 # VNC configuration
 
 Set up a password for vnc connection. Read up the man, there are some useful options. I only present the most basic useful ones here.
 
-</code></pre></td></tr></table>
-</div>
-</div><p>x11vnc -storepasswd &ldquo;t0p53cr37&rdquo; ~/.vnc_passwd</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">
-I prefer running separate instances of Chrome, so I&#39;ll create their directories.
+</code></pre><p>x11vnc -storepasswd &ldquo;t0p53cr37&rdquo; ~/.vnc_passwd</p>
+<pre><code>
+I prefer running separate instances of Chrome, so I'll create their directories.
 
-</code></pre></td></tr></table>
-</div>
-</div><p>mkdir ~/browser1
+</code></pre><p>mkdir ~/browser1
 mkdir ~/browser2</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">
+<pre><code>
 # X configuration
 
-We&#39;ll start X automatically upon login, so edit `~/.profile`
+We'll start X automatically upon login, so edit `~/.profile`
 
-</code></pre></td></tr></table>
-</div>
-</div><p>[&hellip;]</p>
+</code></pre><p>[&hellip;]</p>
 <p>if [[ ! $DISPLAY &amp;&amp; $XDG_VTNR -eq 1 ]]; then
 exec startx
 fi</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">
+<pre><code>
 Tell X to start i3 and x11vnc by creating `.xinitrc` as follows
 
-</code></pre></td></tr></table>
-</div>
-</div><p>xset s off
+</code></pre><p>xset s off
 xset -dpms</p>
 <h1 id="start-vnc-server">start VNC server</h1>
 <p>exec x11vnc -find -forever -rfbauth ~/.vnc_passwd&amp;</p>
 <h1 id="start-window-manager">start window-manager</h1>
 <p>i3</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">
+<pre><code>
 Configure i3 to show each browser on its own display. We do this by attributing each browser a class in `~/.config/i3/config`
 
-</code></pre></td></tr></table>
-</div>
-</div><p>[&hellip;]</p>
+</code></pre><p>[&hellip;]</p>
 <h1 id="comment-out-if-i3bar-is-not-installed-useless-it-will-be-covered-by-chrome">Comment out if i3bar is not installed (useless, it will be covered by Chrome)</h1>
 <h1 id="bar-">bar {</h1>
 <h1 id="status_command-i3status">status_command i3status</h1>
@@ -358,19 +115,10 @@ workspace 2 output DP-2</p>
 <p>for_window [class=&quot;^chromium-left$&rdquo;] move workspace number 1
 for_window [class=&quot;^chromium-right$&rdquo;] move workspace number 2</p>
 <p>exec ~/start-browsers.sh</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">
-Define a script to launch the two browsers in `~/start-browsers.sh` (don&#39;t forget to `chmod +x` it)
+<pre><code>
+Define a script to launch the two browsers in `~/start-browsers.sh` (don't forget to `chmod +x` it)
 
-</code></pre></td></tr></table>
-</div>
-</div><p>#!/bin/bash</p>
+</code></pre><p>#!/bin/bash</p>
 <p>left_url=&quot;https://your.monitor.url.com/dashboard-1&rdquo;
 right_url=&quot;https://https://your.monitor.url.com/dashboard-2&rdquo;</p>
 <p>tmpdir1=~/browser1
@@ -406,173 +154,54 @@ $left_target &amp;</p>
 $right_target &amp;</p>
 <h1 id="hide-mouse-pointer">hide mouse pointer</h1>
 <p>unclutter &amp;</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">
+<pre><code>
 # Set up automatic shutdown via cron
 
-Run `sudo crontab -e` and add the folowing line for shutdown at 19:00. Don&#39;t forget to configure your BIOS / EFI to start the PC in the morning.
+Run `sudo crontab -e` and add the folowing line for shutdown at 19:00. Don't forget to configure your BIOS / EFI to start the PC in the morning.
 
-</code></pre></td></tr></table>
-</div>
-</div><p>0   19  *   *   *     /sbin/halt -p</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">
+</code></pre><p>0   19  *   *   *     /sbin/halt -p</p>
+<pre><code>
 # References
 * [Stack Overflow question which inspired this](https://unix.stackexchange.com/questions/364649/i3wm-two-monitors-one-browser-per-monitor-dual-head-kiosk)
 * [Arch Linux documentation on automatic login](https://wiki.archlinux.org/index.php/Getty#Automatic_login_to_virtual_console)
 
 
-</code></pre></td></tr></table>
-</div>
-</div>
-    </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">Author</span>
-    <span class="item-content">Vlad Vasiliu</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">LastMod</span>
-    <span class="item-content">
-        2018-08-27
-        <a href="/commit/648ab037a9fd613f5ba9466bab234b8070fbbbac" title="Added draft for FreeBSD IPv6.">(648ab03)</a>
-    </span>
-  </p>
-  
-  
-</div>
-<footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/sys/">sys</a>
-          <a href="/tags/linux/">linux</a>
-          <a href="/tags/chrome/">chrome</a>
-          <a href="/tags/kiosk/">kiosk</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/post/20180827-0922-ipv6_prefix_delegation_freebsd/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">IPv6 prefix delegation on FreeBSD router</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/post/20161231-1210-using_python_in_saltstack_reactor/">
-            <span class="next-text nav-default">Using Python in SaltStack reactor</span>
-            <span class="next-text nav-mobile">Next</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
+</code></pre></article><section class="article labels"><a class="tag" href=/tags/sys/>sys</a><a class="tag" href=/tags/linux/>linux</a><a class="tag" href=/tags/chrome/>chrome</a><a class="tag" href=/tags/kiosk/>kiosk</a></section></div><section class="article navigation"><p><a class="link" href="/post/20180827-0922-ipv6_prefix_delegation_freebsd/"><span class="li">&larr;</span>IPv6 prefix delegation on FreeBSD router</a></p><p><a class="link" href="/post/20161231-1210-using_python_in_saltstack_reactor/"><span class="li">&rarr;</span>Using Python in SaltStack reactor</a></p></section><section class="article discussion"><div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
     (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'vladvasiliu';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "vladvasiliu" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
     })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="https://stackoverflow.com/users/837862/" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
-      <a href="https://twitter.com/vvasiliu" class="iconfont icon-twitter" title="twitter"></a>
-      <a href="https://www.linkedin.com/in/vlad-vasiliu-460b2b18" class="iconfont icon-linkedin" title="linkedin"></a>
-      <a href="https://github.com/vladvasiliu" class="iconfont icon-github" title="github"></a>
-  <a href="https://vladvasiliu.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    Theme - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  
-
-  <span class="copyright-year">
-    &copy; 
-    2013 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">Vlad Vasiliu; all rights reserved.</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
-  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
-    var languageCode = "en".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
-    timeago().render(document.querySelectorAll('.timeago'), languageCode);
-    timeago.cancel();  
-  </script>
-
-
-
-<script type="text/javascript" src="https://vladvasiliu.com/js/main.cddea96674a99fd8cea50d36fb19d9c91f497feea4af5ce4596afd2dbaab9202.js"></script>
-
-
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></section></div><section id="footer" class="footer"><div class="footer-wrap">
+    <p class="copyright">© 2020 Vlad Vasiliu</p>
+    <p class="powerby"><span>Powered by </span><a href="https://gohugo.io" 
+        target="_blank">Hugo</a><span> and the </span><a href="https://themes.gohugo.io/hugo-notepadium/" 
+        target="_blank">Notepadium</a></p>
+</div></section>
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
 	ga('create', 'UA-37751901-1', 'auto');
-	ga('set', 'anonymizeIp', true);
+	
 	ga('send', 'pageview');
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-
-
-
-
-
+</div>
 </body>
+
 </html>

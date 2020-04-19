@@ -1,25 +1,26 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>BIND on vBlog</title>
-    <link>https://vladvasiliu.com/tags/bind/</link>
+    <link>/tags/bind/</link>
     <description>Recent content in BIND on vBlog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>Vlad Vasiliu; all rights reserved.</copyright>
+    <copyright>© 2020 Vlad Vasiliu</copyright>
     <lastBuildDate>Mon, 08 Dec 2014 10:09:00 +0200</lastBuildDate>
     
-	<atom:link href="https://vladvasiliu.com/tags/bind/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="/tags/bind/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Zone transfer setup for BIND with split horizon on the same zone</title>
-      <link>https://vladvasiliu.com/post/20141208-1007-bind_split_view_zone_synchronization/</link>
+      <link>/post/20141208-1007-bind_split_view_zone_synchronization/</link>
       <pubDate>Mon, 08 Dec 2014 10:09:00 +0200</pubDate>
       
-      <guid>https://vladvasiliu.com/post/20141208-1007-bind_split_view_zone_synchronization/</guid>
+      <guid>/post/20141208-1007-bind_split_view_zone_synchronization/</guid>
       <description>With the default configuration, a zone transfer from a master to a slave of BIND with split horizon has the slave transfer only the view of that zone that is available to its IP address. The documentation is a bit vague on the subject, but it turns out it is possible for the slave to transfer the zone definitions corresponding to all (or a subset) of the views.
 The idea is to identify the slave for zone transfer purposes using something else that its IP address.</description>
+      
     </item>
     
   </channel>
