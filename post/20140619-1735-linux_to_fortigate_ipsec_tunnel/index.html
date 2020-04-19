@@ -1,13 +1,83 @@
 <!DOCTYPE html>
-<html lang="en"><meta charset="utf-8"><meta name="generator" content="Hugo 0.68.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="color-scheme" content="light dark">
-<meta name="supported-color-schemes" content="light dark"><title>Establishing IPSec tunnel between Linux and Fortigate&nbsp;&ndash;&nbsp;vBlog</title><link rel="stylesheet" href="/css/core.min.0517cd3a6c90efa991a9347ac6ac02a114fe606cdad3dd496f4cbb199cc5fae9525f248ee6febff2d5a961b5b89610f1.css" integrity="sha384-BRfNOmyQ76mRqTR6xqwCoRT&#43;YGza091Jb0y7GZzF&#43;ulSXySO5v6/8tWpYbW4lhDx"><meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Establishing IPSec tunnel between Linux and Fortigate" /><body>
-    <div class="base-body"><section id="header" class="site header">
-    <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">vBlog</span></a></span>
-        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/about">About</a></nav></div></span></div></section><div id="content"><div class="article-container"><section class="article header">
-    <h1 class="article title">Establishing IPSec tunnel between Linux and Fortigate</h1><p class="article date">Thursday, June 19, 2014</p></section><article class="article markdown-body"><p>Here is an example of a tunnel setup beetween Linux and Fortigate. It uses StrongSwan.</p>
-<pre><code>conn myconn
+<html lang="en"><head>
+
+  <meta name="generator" content="Hugo 0.68.3" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="keywords" content="IPSec,VPN,Tunneling"><meta property="og:title" content="Establishing IPSec tunnel between Linux and Fortigate" />
+<meta property="og:description" content="Here is an example of a tunnel setup beetween Linux and Fortigate. It uses StrongSwan.
+1 2 3 4 5 6 7 8 9 10 11 12 13  conn myconn type=tunnel left=[local_ip_address] leftsubnet=[local_subnet_to_be_accessed_through_tunnel] right=[remote_ip_address] rightsubnet=[remote_subnet_to_be_accessed_through_tunnel] keyexchange=ike ikelifetime=28800s ike=aes256-sha1-modp1536 authby=secret keylife=1800s esp=aes256-sha1 auto=start   This configures the forwarding policy. If you want to access the remote end of the tunnel from the gateway, set up a virtual interface and configure it with an address within the local_subnet." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://vladvasiliu.com/post/20140619-1735-linux_to_fortigate_ipsec_tunnel/" />
+<meta property="article:published_time" content="2014-06-19T17:37:00+02:00" />
+<meta property="article:modified_time" content="2014-06-19T17:37:00+02:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Establishing IPSec tunnel between Linux and Fortigate"/>
+<meta name="twitter:description" content="Here is an example of a tunnel setup beetween Linux and Fortigate. It uses StrongSwan.
+1 2 3 4 5 6 7 8 9 10 11 12 13  conn myconn type=tunnel left=[local_ip_address] leftsubnet=[local_subnet_to_be_accessed_through_tunnel] right=[remote_ip_address] rightsubnet=[remote_subnet_to_be_accessed_through_tunnel] keyexchange=ike ikelifetime=28800s ike=aes256-sha1-modp1536 authby=secret keylife=1800s esp=aes256-sha1 auto=start   This configures the forwarding policy. If you want to access the remote end of the tunnel from the gateway, set up a virtual interface and configure it with an address within the local_subnet."/>
+
+  <link rel="stylesheet" type="text/css" media="screen" href="https://vladvasiliu.com/css/normalize.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="https://vladvasiliu.com/css/main.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="https://vladvasiliu.com/css/all.css" />
+<title>Establishing IPSec tunnel between Linux and Fortigate | vBlog</title></head>
+<body><header id="withoutavatar"><div id="titletext"><h2 id="title"><a href="https://vladvasiliu.com/">vBlog</a></h2><p id="subtitle">Useful tips and snippets</p></div>
+  <div id=social>
+    <nav>
+      <ul><li><a href="https://github.com/vladvasiliu"><i title="Github" class="icons fab fa-github"></i></a></li></ul>
+    </nav>
+  </div>
+  <div id="mainmenu">
+    <nav>
+      <ul>
+        
+        <li><a href="/">Home</a></li>
+        
+        <li><a href="/post">All posts</a></li>
+        
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+<main><div class="post">
+<div class="author">
+
+</div>
+<div class="post-header">
+
+<div class="meta">
+<div class="date">
+<span class="day">19</span>
+<span class="rest">Jun 2014</span>
+</div>
+</div>
+
+<div class="matter">
+<h1 class="title">Establishing IPSec tunnel between Linux and Fortigate</h1>
+</div>
+</div>
+<div class="markdown">
+<p>Here is an example of a tunnel setup beetween Linux and Fortigate. It uses StrongSwan.</p>
+<div class="highlight"><div style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">conn myconn
     type=tunnel
     left=[local_ip_address]
     leftsubnet=[local_subnet_to_be_accessed_through_tunnel]
@@ -20,33 +90,240 @@
     keylife=1800s
     esp=aes256-sha1
     auto=start
-</code></pre>
-<p>This configures the forwarding policy. If you want to access the remote end of the tunnel from the gateway, set up a virtual interface and configure it with an address within the local_subnet.</p>
-</article><section class="article labels"><a class="tag" href=/tags/ipsec/>IPSec</a><a class="tag" href=/tags/vpn/>VPN</a><a class="tag" href=/tags/tunneling/>Tunneling</a></section></div><section class="article navigation"><p><a class="link" href="/post/20140822-1428-backup-duo-security-android/"><span class="li">&larr;</span>How to transfer Duo Security installation to a new phone on Android</a></p><p><a class="link" href="/post/20140509-ipv6_prefix_delegation_with_dhclient_and_static_ip/"><span class="li">&rarr;</span>IPv6 prefix delegation with static address and dhclient on Ubuntu / Debian</a></p></section><section class="article discussion"><div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "vladvasiliu" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
+</code></pre></td></tr></table>
+</div>
+</div><p>This configures the forwarding policy. If you want to access the remote end of the tunnel from the gateway, set up a virtual interface and configure it with an address within the local_subnet.</p>
+
+</div>
+<div class="tags">
+
+
+
+
+
+
+
+
+
+<div class="taxosfloating_left">
+<p>Tags</p>
+</div>
+<div class="termsfloating_right">
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a href="/tags/ipsec/"> ipsec </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a href="/tags/tunneling/"> tunneling </a>
+
+
+
+
+
+
+
+
+
+<a href="/tags/vpn/"> vpn </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<div class="clearit"></div>
+
+
+
+
+
+</div><script type="text/javascript">
+(function () {
+
+
+if (window.location.hostname == "localhost")
+return;
+
+var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+var disqus_shortname = 'vladvasiliu';
+dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></section></div><section id="footer" class="footer"><div class="footer-wrap">
-    <p class="copyright">© 2020 Vlad Vasiliu</p>
-    <p class="powerby"><span>Powered by </span><a href="https://gohugo.io" 
-        target="_blank">Hugo</a><span> and the </span><a href="https://themes.gohugo.io/hugo-notepadium/" 
-        target="_blank">Notepadium</a></p>
-</div></section>
+<noscript>Please enable JavaScript to view the</a></noscript>
+<a href="http://disqus.com/">comments powered by <span>Disqus</span></a>
+</div>
+</div>
+
+</main><footer>
+ © 2020 Vlad Vasiliu 
+
+
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -57,7 +334,7 @@ if (!doNotTrack) {
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
-</div>
-</body>
 
+</footer>
+</body>
 </html>

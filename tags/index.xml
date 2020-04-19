@@ -1,415 +1,375 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on vBlog</title>
-    <link>/tags/</link>
+    <link>https://vladvasiliu.com/tags/</link>
     <description>Recent content in Tags on vBlog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2020 Vlad Vasiliu</copyright>
     <lastBuildDate>Sun, 19 Apr 2020 10:50:52 +0200</lastBuildDate>
     
-        <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vladvasiliu.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>gnome</title>
-      <link>/tags/gnome/</link>
+      <link>https://vladvasiliu.com/tags/gnome/</link>
       <pubDate>Sun, 19 Apr 2020 10:50:52 +0200</pubDate>
       
-      <guid>/tags/gnome/</guid>
+      <guid>https://vladvasiliu.com/tags/gnome/</guid>
       <description></description>
-      
     </item>
     
     <item>
       <title>ubuntu</title>
-      <link>/tags/ubuntu/</link>
+      <link>https://vladvasiliu.com/tags/ubuntu/</link>
       <pubDate>Sun, 19 Apr 2020 10:50:52 +0200</pubDate>
       
-      <guid>/tags/ubuntu/</guid>
+      <guid>https://vladvasiliu.com/tags/ubuntu/</guid>
       <description></description>
-      
     </item>
     
     <item>
       <title>xkbd</title>
-      <link>/tags/xkbd/</link>
+      <link>https://vladvasiliu.com/tags/xkbd/</link>
       <pubDate>Sun, 19 Apr 2020 10:50:52 +0200</pubDate>
       
-      <guid>/tags/xkbd/</guid>
+      <guid>https://vladvasiliu.com/tags/xkbd/</guid>
       <description></description>
-      
     </item>
     
     <item>
       <title>bsd</title>
-      <link>/tags/bsd/</link>
+      <link>https://vladvasiliu.com/tags/bsd/</link>
       <pubDate>Mon, 27 Aug 2018 09:22:00 +0200</pubDate>
       
-      <guid>/tags/bsd/</guid>
+      <guid>https://vladvasiliu.com/tags/bsd/</guid>
       <description></description>
-      
     </item>
     
     <item>
       <title>dhcp</title>
-      <link>/tags/dhcp/</link>
+      <link>https://vladvasiliu.com/tags/dhcp/</link>
       <pubDate>Mon, 27 Aug 2018 09:22:00 +0200</pubDate>
       
-      <guid>/tags/dhcp/</guid>
+      <guid>https://vladvasiliu.com/tags/dhcp/</guid>
       <description></description>
-      
     </item>
     
     <item>
       <title>DHCPv6</title>
-      <link>/tags/dhcpv6/</link>
+      <link>https://vladvasiliu.com/tags/dhcpv6/</link>
       <pubDate>Mon, 27 Aug 2018 09:22:00 +0200</pubDate>
       
-      <guid>/tags/dhcpv6/</guid>
+      <guid>https://vladvasiliu.com/tags/dhcpv6/</guid>
       <description></description>
-      
     </item>
     
     <item>
       <title>FreeBSD</title>
-      <link>/tags/freebsd/</link>
+      <link>https://vladvasiliu.com/tags/freebsd/</link>
       <pubDate>Mon, 27 Aug 2018 09:22:00 +0200</pubDate>
       
-      <guid>/tags/freebsd/</guid>
+      <guid>https://vladvasiliu.com/tags/freebsd/</guid>
       <description></description>
-      
     </item>
     
     <item>
       <title>IPv6</title>
-      <link>/tags/ipv6/</link>
+      <link>https://vladvasiliu.com/tags/ipv6/</link>
       <pubDate>Mon, 27 Aug 2018 09:22:00 +0200</pubDate>
       
-      <guid>/tags/ipv6/</guid>
+      <guid>https://vladvasiliu.com/tags/ipv6/</guid>
       <description></description>
-      
     </item>
     
     <item>
       <title>pd</title>
-      <link>/tags/pd/</link>
+      <link>https://vladvasiliu.com/tags/pd/</link>
       <pubDate>Mon, 27 Aug 2018 09:22:00 +0200</pubDate>
       
-      <guid>/tags/pd/</guid>
+      <guid>https://vladvasiliu.com/tags/pd/</guid>
       <description></description>
-      
     </item>
     
     <item>
       <title>prefix delegation</title>
-      <link>/tags/prefix-delegation/</link>
+      <link>https://vladvasiliu.com/tags/prefix-delegation/</link>
       <pubDate>Mon, 27 Aug 2018 09:22:00 +0200</pubDate>
       
-      <guid>/tags/prefix-delegation/</guid>
+      <guid>https://vladvasiliu.com/tags/prefix-delegation/</guid>
       <description></description>
-      
     </item>
     
     <item>
       <title>routing</title>
-      <link>/tags/routing/</link>
+      <link>https://vladvasiliu.com/tags/routing/</link>
       <pubDate>Mon, 27 Aug 2018 09:22:00 +0200</pubDate>
       
-      <guid>/tags/routing/</guid>
+      <guid>https://vladvasiliu.com/tags/routing/</guid>
       <description></description>
-      
     </item>
     
     <item>
       <title>sfr</title>
-      <link>/tags/sfr/</link>
+      <link>https://vladvasiliu.com/tags/sfr/</link>
       <pubDate>Mon, 27 Aug 2018 09:22:00 +0200</pubDate>
       
-      <guid>/tags/sfr/</guid>
+      <guid>https://vladvasiliu.com/tags/sfr/</guid>
       <description></description>
-      
     </item>
     
     <item>
       <title>SLAAC</title>
-      <link>/tags/slaac/</link>
+      <link>https://vladvasiliu.com/tags/slaac/</link>
       <pubDate>Mon, 27 Aug 2018 09:22:00 +0200</pubDate>
       
-      <guid>/tags/slaac/</guid>
+      <guid>https://vladvasiliu.com/tags/slaac/</guid>
       <description></description>
-      
     </item>
     
     <item>
       <title>Sys</title>
-      <link>/tags/sys/</link>
+      <link>https://vladvasiliu.com/tags/sys/</link>
       <pubDate>Mon, 27 Aug 2018 09:22:00 +0200</pubDate>
       
-      <guid>/tags/sys/</guid>
+      <guid>https://vladvasiliu.com/tags/sys/</guid>
       <description></description>
-      
     </item>
     
     <item>
       <title>chrome</title>
-      <link>/tags/chrome/</link>
+      <link>https://vladvasiliu.com/tags/chrome/</link>
       <pubDate>Tue, 07 Aug 2018 16:27:00 +0200</pubDate>
       
-      <guid>/tags/chrome/</guid>
+      <guid>https://vladvasiliu.com/tags/chrome/</guid>
       <description></description>
-      
     </item>
     
     <item>
       <title>kiosk</title>
-      <link>/tags/kiosk/</link>
+      <link>https://vladvasiliu.com/tags/kiosk/</link>
       <pubDate>Tue, 07 Aug 2018 16:27:00 +0200</pubDate>
       
-      <guid>/tags/kiosk/</guid>
+      <guid>https://vladvasiliu.com/tags/kiosk/</guid>
       <description></description>
-      
     </item>
     
     <item>
       <title>linux</title>
-      <link>/tags/linux/</link>
+      <link>https://vladvasiliu.com/tags/linux/</link>
       <pubDate>Tue, 07 Aug 2018 16:27:00 +0200</pubDate>
       
-      <guid>/tags/linux/</guid>
+      <guid>https://vladvasiliu.com/tags/linux/</guid>
       <description></description>
-      
     </item>
     
     <item>
       <title>salt</title>
-      <link>/tags/salt/</link>
+      <link>https://vladvasiliu.com/tags/salt/</link>
       <pubDate>Sat, 31 Dec 2016 12:11:00 +0200</pubDate>
       
-      <guid>/tags/salt/</guid>
+      <guid>https://vladvasiliu.com/tags/salt/</guid>
       <description></description>
-      
     </item>
     
     <item>
       <title>Net</title>
-      <link>/tags/net/</link>
+      <link>https://vladvasiliu.com/tags/net/</link>
       <pubDate>Wed, 11 Mar 2015 20:32:00 +0200</pubDate>
       
-      <guid>/tags/net/</guid>
+      <guid>https://vladvasiliu.com/tags/net/</guid>
       <description></description>
-      
     </item>
     
     <item>
       <title>PFSense</title>
-      <link>/tags/pfsense/</link>
+      <link>https://vladvasiliu.com/tags/pfsense/</link>
       <pubDate>Wed, 11 Mar 2015 20:32:00 +0200</pubDate>
       
-      <guid>/tags/pfsense/</guid>
+      <guid>https://vladvasiliu.com/tags/pfsense/</guid>
       <description></description>
-      
     </item>
     
     <item>
       <title>cert</title>
-      <link>/tags/cert/</link>
+      <link>https://vladvasiliu.com/tags/cert/</link>
       <pubDate>Wed, 04 Feb 2015 17:38:00 +0200</pubDate>
       
-      <guid>/tags/cert/</guid>
+      <guid>https://vladvasiliu.com/tags/cert/</guid>
       <description></description>
-      
     </item>
     
     <item>
       <title>Dell</title>
-      <link>/tags/dell/</link>
+      <link>https://vladvasiliu.com/tags/dell/</link>
       <pubDate>Wed, 04 Feb 2015 17:38:00 +0200</pubDate>
       
-      <guid>/tags/dell/</guid>
+      <guid>https://vladvasiliu.com/tags/dell/</guid>
       <description></description>
-      
     </item>
     
     <item>
       <title>drac</title>
-      <link>/tags/drac/</link>
+      <link>https://vladvasiliu.com/tags/drac/</link>
       <pubDate>Wed, 04 Feb 2015 17:38:00 +0200</pubDate>
       
-      <guid>/tags/drac/</guid>
+      <guid>https://vladvasiliu.com/tags/drac/</guid>
       <description></description>
-      
     </item>
     
     <item>
       <title>ssl</title>
-      <link>/tags/ssl/</link>
+      <link>https://vladvasiliu.com/tags/ssl/</link>
       <pubDate>Wed, 04 Feb 2015 17:38:00 +0200</pubDate>
       
-      <guid>/tags/ssl/</guid>
+      <guid>https://vladvasiliu.com/tags/ssl/</guid>
       <description></description>
-      
     </item>
     
     <item>
       <title>BIND</title>
-      <link>/tags/bind/</link>
+      <link>https://vladvasiliu.com/tags/bind/</link>
       <pubDate>Mon, 08 Dec 2014 10:09:00 +0200</pubDate>
       
-      <guid>/tags/bind/</guid>
+      <guid>https://vladvasiliu.com/tags/bind/</guid>
       <description></description>
-      
     </item>
     
     <item>
       <title>DNS</title>
-      <link>/tags/dns/</link>
+      <link>https://vladvasiliu.com/tags/dns/</link>
       <pubDate>Mon, 08 Dec 2014 10:09:00 +0200</pubDate>
       
-      <guid>/tags/dns/</guid>
+      <guid>https://vladvasiliu.com/tags/dns/</guid>
       <description></description>
-      
     </item>
     
     <item>
       <title>Android</title>
-      <link>/tags/android/</link>
+      <link>https://vladvasiliu.com/tags/android/</link>
       <pubDate>Fri, 22 Aug 2014 14:31:00 +0200</pubDate>
       
-      <guid>/tags/android/</guid>
+      <guid>https://vladvasiliu.com/tags/android/</guid>
       <description></description>
-      
     </item>
     
     <item>
       <title>Backup</title>
-      <link>/tags/backup/</link>
+      <link>https://vladvasiliu.com/tags/backup/</link>
       <pubDate>Fri, 22 Aug 2014 14:31:00 +0200</pubDate>
       
-      <guid>/tags/backup/</guid>
+      <guid>https://vladvasiliu.com/tags/backup/</guid>
       <description></description>
-      
     </item>
     
     <item>
       <title>IPSec</title>
-      <link>/tags/ipsec/</link>
+      <link>https://vladvasiliu.com/tags/ipsec/</link>
       <pubDate>Thu, 19 Jun 2014 17:37:00 +0200</pubDate>
       
-      <guid>/tags/ipsec/</guid>
+      <guid>https://vladvasiliu.com/tags/ipsec/</guid>
       <description></description>
-      
     </item>
     
     <item>
       <title>Tunneling</title>
-      <link>/tags/tunneling/</link>
+      <link>https://vladvasiliu.com/tags/tunneling/</link>
       <pubDate>Thu, 19 Jun 2014 17:37:00 +0200</pubDate>
       
-      <guid>/tags/tunneling/</guid>
+      <guid>https://vladvasiliu.com/tags/tunneling/</guid>
       <description></description>
-      
     </item>
     
     <item>
       <title>VPN</title>
-      <link>/tags/vpn/</link>
+      <link>https://vladvasiliu.com/tags/vpn/</link>
       <pubDate>Thu, 19 Jun 2014 17:37:00 +0200</pubDate>
       
-      <guid>/tags/vpn/</guid>
+      <guid>https://vladvasiliu.com/tags/vpn/</guid>
       <description></description>
-      
     </item>
     
     <item>
       <title>RabbitMQ</title>
-      <link>/tags/rabbitmq/</link>
+      <link>https://vladvasiliu.com/tags/rabbitmq/</link>
       <pubDate>Fri, 25 Apr 2014 11:42:00 +0200</pubDate>
       
-      <guid>/tags/rabbitmq/</guid>
+      <guid>https://vladvasiliu.com/tags/rabbitmq/</guid>
       <description></description>
-      
     </item>
     
     <item>
       <title>MacOS X</title>
-      <link>/tags/macos-x/</link>
+      <link>https://vladvasiliu.com/tags/macos-x/</link>
       <pubDate>Mon, 19 Aug 2013 12:25:00 +0200</pubDate>
       
-      <guid>/tags/macos-x/</guid>
+      <guid>https://vladvasiliu.com/tags/macos-x/</guid>
       <description></description>
-      
     </item>
     
     <item>
       <title>Powerline</title>
-      <link>/tags/powerline/</link>
+      <link>https://vladvasiliu.com/tags/powerline/</link>
       <pubDate>Mon, 19 Aug 2013 12:25:00 +0200</pubDate>
       
-      <guid>/tags/powerline/</guid>
+      <guid>https://vladvasiliu.com/tags/powerline/</guid>
       <description></description>
-      
     </item>
     
     <item>
       <title>Python</title>
-      <link>/tags/python/</link>
+      <link>https://vladvasiliu.com/tags/python/</link>
       <pubDate>Mon, 19 Aug 2013 12:19:00 +0200</pubDate>
       
-      <guid>/tags/python/</guid>
+      <guid>https://vladvasiliu.com/tags/python/</guid>
       <description></description>
-      
     </item>
     
     <item>
       <title>ZSH</title>
-      <link>/tags/zsh/</link>
+      <link>https://vladvasiliu.com/tags/zsh/</link>
       <pubDate>Mon, 19 Aug 2013 12:19:00 +0200</pubDate>
       
-      <guid>/tags/zsh/</guid>
+      <guid>https://vladvasiliu.com/tags/zsh/</guid>
       <description></description>
-      
     </item>
     
     <item>
       <title>ACL</title>
-      <link>/tags/acl/</link>
+      <link>https://vladvasiliu.com/tags/acl/</link>
       <pubDate>Sat, 17 Aug 2013 21:11:00 +0200</pubDate>
       
-      <guid>/tags/acl/</guid>
+      <guid>https://vladvasiliu.com/tags/acl/</guid>
       <description></description>
-      
     </item>
     
     <item>
       <title>sysadmin</title>
-      <link>/tags/sysadmin/</link>
+      <link>https://vladvasiliu.com/tags/sysadmin/</link>
       <pubDate>Sat, 17 Aug 2013 21:11:00 +0200</pubDate>
       
-      <guid>/tags/sysadmin/</guid>
+      <guid>https://vladvasiliu.com/tags/sysadmin/</guid>
       <description></description>
-      
     </item>
     
     <item>
       <title>ZFS</title>
-      <link>/tags/zfs/</link>
+      <link>https://vladvasiliu.com/tags/zfs/</link>
       <pubDate>Sat, 17 Aug 2013 21:11:00 +0200</pubDate>
       
-      <guid>/tags/zfs/</guid>
+      <guid>https://vladvasiliu.com/tags/zfs/</guid>
       <description></description>
-      
     </item>
     
     <item>
       <title>MySQL</title>
-      <link>/tags/mysql/</link>
+      <link>https://vladvasiliu.com/tags/mysql/</link>
       <pubDate>Sat, 17 Aug 2013 21:05:00 +0200</pubDate>
       
-      <guid>/tags/mysql/</guid>
+      <guid>https://vladvasiliu.com/tags/mysql/</guid>
       <description></description>
-      
     </item>
     
   </channel>

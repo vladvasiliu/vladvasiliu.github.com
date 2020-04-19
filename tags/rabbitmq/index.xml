@@ -1,26 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>RabbitMQ on vBlog</title>
-    <link>/tags/rabbitmq/</link>
+    <link>https://vladvasiliu.com/tags/rabbitmq/</link>
     <description>Recent content in RabbitMQ on vBlog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2020 Vlad Vasiliu</copyright>
     <lastBuildDate>Fri, 25 Apr 2014 11:42:00 +0200</lastBuildDate>
     
-        <atom:link href="/tags/rabbitmq/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vladvasiliu.com/tags/rabbitmq/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Running rabbitmqctl as root</title>
-      <link>/post/20140425-running_rabbitmqctl_as_root/</link>
+      <link>https://vladvasiliu.com/post/20140425-running_rabbitmqctl_as_root/</link>
       <pubDate>Fri, 25 Apr 2014 11:42:00 +0200</pubDate>
       
-      <guid>/post/20140425-running_rabbitmqctl_as_root/</guid>
+      <guid>https://vladvasiliu.com/post/20140425-running_rabbitmqctl_as_root/</guid>
       <description>On some Linux distributions, running rabbitmqctl as root may fail with the following error:
- Error: unable to connect to node rabbit@host: nodedown DIAGNOSTICS =========== attempted to contact: [rabbit@host] rabbit@host: * found rabbit (port 25672) * TCP connection succeeded * suggestion: hostname mismatch? * suggestion: is the cookie set correctly? current node details: - node name: rabbitmqctl19092@localhost - home dir: /root - cookie hash: B+onVMMDnR1uRT2nuD24VA== Assuming that the hostname is correct and running rabbitmqctl as the rabbitmq user works, this is a cookie mismatch problem.</description>
-      
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33  Error: unable to connect to node rabbit@host: nodedown DIAGNOSTICS =========== attempted to contact: [rabbit@host] rabbit@host: * found rabbit (port 25672) * TCP connection succeeded * suggestion: hostname mismatch?</description>
     </item>
     
   </channel>

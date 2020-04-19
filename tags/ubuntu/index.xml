@@ -1,25 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ubuntu on vBlog</title>
-    <link>/tags/ubuntu/</link>
+    <link>https://vladvasiliu.com/tags/ubuntu/</link>
     <description>Recent content in ubuntu on vBlog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2020 Vlad Vasiliu</copyright>
     <lastBuildDate>Sun, 19 Apr 2020 10:50:52 +0200</lastBuildDate>
     
-        <atom:link href="/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vladvasiliu.com/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Mac International keyboard layout in Gnome</title>
-      <link>/post/20200419-1046-mac-intl-layout-in-gnome/</link>
+      <link>https://vladvasiliu.com/post/20200419-1046-mac-intl-layout-in-gnome/</link>
       <pubDate>Sun, 19 Apr 2020 10:50:52 +0200</pubDate>
       
-      <guid>/post/20200419-1046-mac-intl-layout-in-gnome/</guid>
+      <guid>https://vladvasiliu.com/post/20200419-1046-mac-intl-layout-in-gnome/</guid>
       <description>&lt;p&gt;For international users the MacOS layout allows using a QWERTY keyboard but also entering local symbols. This is not directly available on Gnome.&lt;/p&gt;</description>
-      
     </item>
     
   </channel>

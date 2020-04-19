@@ -1,51 +1,48 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>IPv6 on vBlog</title>
-    <link>/tags/ipv6/</link>
+    <link>https://vladvasiliu.com/tags/ipv6/</link>
     <description>Recent content in IPv6 on vBlog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2020 Vlad Vasiliu</copyright>
     <lastBuildDate>Mon, 27 Aug 2018 09:22:00 +0200</lastBuildDate>
     
-        <atom:link href="/tags/ipv6/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vladvasiliu.com/tags/ipv6/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>IPv6 prefix delegation on FreeBSD router</title>
-      <link>/post/20180827-0922-ipv6_prefix_delegation_freebsd/</link>
+      <link>https://vladvasiliu.com/post/20180827-0922-ipv6_prefix_delegation_freebsd/</link>
       <pubDate>Mon, 27 Aug 2018 09:22:00 +0200</pubDate>
       
-      <guid>/post/20180827-0922-ipv6_prefix_delegation_freebsd/</guid>
-      <description>Goal I&amp;rsquo;m attempting to set up a router box in to replace my SFR router on a home network. As my SFR plan has native IPv6, this box will request a prefix delegation and set up IPv6 routing for the computers on the home network. It will also handle NAT for IPv4.
+      <guid>https://vladvasiliu.com/post/20180827-0922-ipv6_prefix_delegation_freebsd/</guid>
+      <description>Goal I&amp;rsquo;m attempting to set up a router box in order to replace my SFR router on a home network. As my SFR plan has native IPv6, this box will request a prefix delegation and set up IPv6 routing for the computers on the home network. It will also handle NAT for IPv4.
 This is supposed to be a drop-in replacement for the SFR provided box, so it will have to:</description>
-      
     </item>
     
     <item>
       <title>IPv6 prefix delegation with static address and dhclient on Ubuntu / Debian</title>
-      <link>/post/20140509-ipv6_prefix_delegation_with_dhclient_and_static_ip/</link>
+      <link>https://vladvasiliu.com/post/20140509-ipv6_prefix_delegation_with_dhclient_and_static_ip/</link>
       <pubDate>Fri, 09 May 2014 10:47:00 +0200</pubDate>
       
-      <guid>/post/20140509-ipv6_prefix_delegation_with_dhclient_and_static_ip/</guid>
+      <guid>https://vladvasiliu.com/post/20140509-ipv6_prefix_delegation_with_dhclient_and_static_ip/</guid>
       <description>Some hosting providers, like Online in France provide IPv6 access via prefix delegation. You get a DUID that has to be sent to their DHCP server. The IP address is configured by the client.
 The recommended method is using Dibbler, but this solution is pretty buggy.
 On Ubuntu or Debian, you can use the provided dhclient to obtain the prefix delegation.
 Below are samples of dhclient6.conf and interfaces. Note that in this configuration everything is configured by the client, but you could request a name server from the DHCP server.</description>
-      
     </item>
     
     <item>
       <title>IPv6 routing and router advertisments on Ubuntu / Debian</title>
-      <link>/post/20140514-ipv6_routing_with_router_advertisment/</link>
+      <link>https://vladvasiliu.com/post/20140514-ipv6_routing_with_router_advertisment/</link>
       <pubDate>Fri, 09 May 2014 10:47:00 +0200</pubDate>
       
-      <guid>/post/20140514-ipv6_routing_with_router_advertisment/</guid>
+      <guid>https://vladvasiliu.com/post/20140514-ipv6_routing_with_router_advertisment/</guid>
       <description>If your Linux box gets its IPv6 routing information via router advertisments, you may have noticed that upon enabling forwarding, it disregards those advertisments and it loses the configured gateways.
 The have this configuration working again, set accept_ra 2 in /etc/network/interfaces. This value is not documented in the interfaces manual, but since kernel version 2.6.37 it allows the interface to both do forwarding and accept router advertisments.
 Source</description>
-      
     </item>
     
   </channel>

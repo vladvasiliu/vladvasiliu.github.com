@@ -1,24 +1,79 @@
 <!DOCTYPE html>
-<html lang="en"><meta charset="utf-8"><meta name="generator" content="Hugo 0.68.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="color-scheme" content="light dark">
-<meta name="supported-color-schemes" content="light dark"><title>Running Chrome in dual screen kiosk mode on Ubuntu&nbsp;&ndash;&nbsp;vBlog</title><link rel="stylesheet" href="/css/core.min.0517cd3a6c90efa991a9347ac6ac02a114fe606cdad3dd496f4cbb199cc5fae9525f248ee6febff2d5a961b5b89610f1.css" integrity="sha384-BRfNOmyQ76mRqTR6xqwCoRT&#43;YGza091Jb0y7GZzF&#43;ulSXySO5v6/8tWpYbW4lhDx"><meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Running Chrome in dual screen kiosk mode on Ubuntu" /><body>
-    <div class="base-body"><section id="header" class="site header">
-    <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">vBlog</span></a></span>
-        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/about">About</a></nav></div></span></div></section><div id="content"><div class="article-container"><section class="article header">
-    <h1 class="article title">Running Chrome in dual screen kiosk mode on Ubuntu</h1><p class="article date">Tuesday, August 7, 2018</p></section><article class="article markdown-body"><h1 id="background">Background</h1>
-<p>At work we have to large TV screens used for displaying <a href="http://grafana.com"target="_blank">Grafana</a> dashboards. They are both connected to the same PC.</p>
+<html lang="en"><head>
+
+  <meta name="generator" content="Hugo 0.68.3" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="keywords" content="sys,linux,chrome,kiosk"><meta property="og:title" content="Running Chrome in dual screen kiosk mode on Ubuntu" />
+<meta property="og:description" content="Background At work we have to large TV screens used for displaying Grafana dashboards. They are both connected to the same PC.
+The PC was running Windows so anytime the PC would reboot, we would have to manually conenct to it via VNC and move the browsers around and set them in full screen mode.
+As we are in the office only during work hours, the PC would be shut down and restarted everyday." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://vladvasiliu.com/post/20180807-1626-dual_screen_kiosk_ubuntu/" />
+<meta property="article:published_time" content="2018-08-07T16:27:00+02:00" />
+<meta property="article:modified_time" content="2018-08-07T16:27:00+02:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Running Chrome in dual screen kiosk mode on Ubuntu"/>
+<meta name="twitter:description" content="Background At work we have to large TV screens used for displaying Grafana dashboards. They are both connected to the same PC.
+The PC was running Windows so anytime the PC would reboot, we would have to manually conenct to it via VNC and move the browsers around and set them in full screen mode.
+As we are in the office only during work hours, the PC would be shut down and restarted everyday."/>
+
+  <link rel="stylesheet" type="text/css" media="screen" href="https://vladvasiliu.com/css/normalize.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="https://vladvasiliu.com/css/main.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="https://vladvasiliu.com/css/all.css" />
+<title>Running Chrome in dual screen kiosk mode on Ubuntu | vBlog</title></head>
+<body><header id="withoutavatar"><div id="titletext"><h2 id="title"><a href="https://vladvasiliu.com/">vBlog</a></h2><p id="subtitle">Useful tips and snippets</p></div>
+  <div id=social>
+    <nav>
+      <ul><li><a href="https://github.com/vladvasiliu"><i title="Github" class="icons fab fa-github"></i></a></li></ul>
+    </nav>
+  </div>
+  <div id="mainmenu">
+    <nav>
+      <ul>
+        
+        <li><a href="/">Home</a></li>
+        
+        <li><a href="/post">All posts</a></li>
+        
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+<main><div class="post">
+<div class="author">
+
+</div>
+<div class="post-header">
+
+<div class="meta">
+<div class="date">
+<span class="day">07</span>
+<span class="rest">Aug 2018</span>
+</div>
+</div>
+
+<div class="matter">
+<h1 class="title">Running Chrome in dual screen kiosk mode on Ubuntu</h1>
+</div>
+</div>
+<div class="markdown">
+<h2 id="background">Background</h2>
+<p>At work we have to large TV screens used for displaying <a href="http://grafana.com">Grafana</a> dashboards. They are both connected to the same PC.</p>
 <p>The PC was running Windows so anytime the PC would reboot, we would have to manually conenct to it via VNC and move the browsers around and set them in full screen mode.</p>
 <p>As we are in the office only during work hours, the PC would be shut down and restarted everyday.</p>
 <p>I&rsquo;ve been looking around, and there&rsquo;s a Windows Kiosk mode, in which it only starts whatever applicatoin you want automatically. This mode, however, doesn&rsquo;t work well with multiple screens.</p>
 <p>After digging around a bit, I figured I should be able to set this up with a programmable window manager on Linux, such as i3.</p>
-<h1 id="where-were-going">Where we&rsquo;re going</h1>
+<h2 id="where-were-going">Where we&rsquo;re going</h2>
 <ul>
 <li>The PC boots up alone at a set time (via bios / efi config)</li>
 <li>The system logs the default user in automatically</li>
 <li>The system starts up two browser windows, each full screen on its own screen and goes to the predefined URL</li>
 </ul>
-<h1 id="assumptions">Assumptions</h1>
+<h2 id="assumptions">Assumptions</h2>
 <ul>
 <li>Distribution: Ubuntu Server 18.04</li>
 <li>Window manager: i3</li>
@@ -28,169 +83,519 @@
 <li>User: display</li>
 <li>Display outputs: DP-1 and DP-2 (find yours with <code>xrandr</code>)</li>
 </ul>
-<h1 id="installation">Installation</h1>
+<h2 id="installation">Installation</h2>
 <p>Get your linux distro, create an install media and install it.</p>
-<h1 id="ubuntu-specific-pre-configuration">Ubuntu specific pre-configuration</h1>
+<h3 id="ubuntu-specific-pre-configuration">Ubuntu specific pre-configuration</h3>
 <p>For Ubuntu server, there is some configuration to be done:</p>
 <ul>
-<li>
-<p>Add <code>universe</code> repository in <code>/etc/apt/sources.list</code>:</p>
-<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text"></code></pre></div></li>
+<li>Add <code>universe</code> repository in <code>/etc/apt/sources.list</code>:</li>
 </ul>
-<p>deb <a href="http://archive.ubuntu.com/ubuntu">http://archive.ubuntu.com/ubuntu</a> bionic main universe
-deb <a href="http://archive.ubuntu.com/ubuntu">http://archive.ubuntu.com/ubuntu</a> bionic-security main universe
-deb <a href="http://archive.ubuntu.com/ubuntu">http://archive.ubuntu.com/ubuntu</a> bionic-updates main universe</p>
-<pre><code>
-* Add i3 repositories ([see doc here](https://i3wm.org/docs/repositories.html)) :
-
-</code></pre><p>/usr/lib/apt/apt-helper download-file <a href="http://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2018.01.30_all.deb">http://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2018.01.30_all.deb</a> keyring.deb SHA256:baa43dbbd7232ea2b5444cae238d53bebb9d34601cc000e82f11111b1889078a
+<div class="highlight"><div style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">deb http://archive.ubuntu.com/ubuntu bionic main universe
+deb http://archive.ubuntu.com/ubuntu bionic-security main universe
+deb http://archive.ubuntu.com/ubuntu bionic-updates main universe
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Add i3 repositories (<a href="https://i3wm.org/docs/repositories.html">see doc here</a>) :</li>
+</ul>
+<div class="highlight"><div style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/usr/lib/apt/apt-helper download-file http://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2018.01.30_all.deb keyring.deb SHA256:baa43dbbd7232ea2b5444cae238d53bebb9d34601cc000e82f11111b1889078a
 sudo dpkg -i ./keyring.deb
-sudo echo &ldquo;deb <a href="http://debian.sur5r.net/i3/">http://debian.sur5r.net/i3/</a> $(grep &lsquo;^DISTRIB_CODENAME=&rsquo; /etc/lsb-release | cut -f2 -d=) universe&rdquo; &raquo; /etc/apt/sources.list.d/sur5r-i3.list</p>
-<pre><code>
-
-# Packages
-
-</code></pre><p>sudo apt-get update
-sudo apt-get install xinit i3-wm chromium-browser unclutter</p>
-<pre><code>
-# Automatic Login
-
-No Display Manager will be used. It's not particularly useful and this allows a very lightweight install.
-
-Automatic login will be done on TTY1.
-
-Create an override for systemd TTY1 service by editting `/etc/systemd/system/getty@tty1.service.d/override.conf`
-
-</code></pre><p>[Service]
+sudo <span style="color:#366">echo</span> <span style="color:#c30">&#34;deb http://debian.sur5r.net/i3/ </span><span style="color:#069;font-weight:bold">$(</span>grep <span style="color:#c30">&#39;^DISTRIB_CODENAME=&#39;</span> /etc/lsb-release | cut -f2 -d<span style="color:#555">=</span><span style="color:#069;font-weight:bold">)</span><span style="color:#c30"> universe&#34;</span> &gt;&gt; /etc/apt/sources.list.d/sur5r-i3.list
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="packages">Packages</h2>
+<div class="highlight"><div style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">sudo apt-get update
+sudo apt-get install xinit i3-wm chromium-browser unclutter
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="automatic-login">Automatic Login</h2>
+<p>No Display Manager will be used. It&rsquo;s not particularly useful and this allows a very lightweight install.</p>
+<p>Automatic login will be done on TTY1.</p>
+<p>Create an override for systemd TTY1 service by editting <code>/etc/systemd/system/getty@tty1.service.d/override.conf</code></p>
+<div class="highlight"><div style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">[Service]
 ExecStart=
-ExecStart=-/sbin/agetty &ndash;autologin display &ndash;noclear %I $TERM</p>
-<pre><code>
-To test automatic login, make sure you're connected to a different TTY and run
+ExecStart=-/sbin/agetty --autologin display --noclear %I $TERM
+</code></pre></td></tr></table>
+</div>
+</div><p>To test automatic login, make sure you&rsquo;re connected to a different TTY and run</p>
+<div class="highlight"><div style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">sudo systemctl daemon-reload
+sudo systemctl restart getty@tty1.service
+</code></pre></td></tr></table>
+</div>
+</div><p>TTY1 should be logged in to <em>display</em> user.</p>
+<h2 id="vnc-configuration">VNC configuration</h2>
+<p>Set up a password for vnc connection. Read up the man, there are some useful options. I only present the most basic useful ones here.</p>
+<div class="highlight"><div style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">x11vnc -storepasswd &#34;t0p53cr37&#34; ~/.vnc_passwd
+</code></pre></td></tr></table>
+</div>
+</div><p>I prefer running separate instances of Chrome, so I&rsquo;ll create their directories.</p>
+<div class="highlight"><div style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">mkdir ~/browser1
+mkdir ~/browser2
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="x-configuration">X configuration</h2>
+<p>We&rsquo;ll start X automatically upon login, so edit <code>~/.profile</code></p>
+<div class="highlight"><div style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">[...]
+ 
+if [[ ! $DISPLAY &amp;&amp; $XDG_VTNR -eq 1 ]]; then
+  exec startx
+fi
+</code></pre></td></tr></table>
+</div>
+</div><p>Tell X to start i3 and x11vnc by creating <code>.xinitrc</code> as follows</p>
+<div class="highlight"><div style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">xset s off
+xset -dpms
 
-</code></pre><p>sudo systemctl daemon-reload
-sudo systemctl restart <a href="mailto:getty@tty1.service">getty@tty1.service</a></p>
-<pre><code>
-TTY1 should be logged in to *display* user.
+# start VNC server
+exec x11vnc -find -forever -rfbauth ~/.vnc_passwd&amp;
 
-# VNC configuration
+# start window-manager
+i3
+</code></pre></td></tr></table>
+</div>
+</div><p>Configure i3 to show each browser on its own display. We do this by attributing each browser a class in <code>~/.config/i3/config</code></p>
+<div class="highlight"><div style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">[...]
 
-Set up a password for vnc connection. Read up the man, there are some useful options. I only present the most basic useful ones here.
+# Comment out if i3bar is not installed (useless, it will be covered by Chrome)
+# bar {
+#        status_command i3status
+# }
 
-</code></pre><p>x11vnc -storepasswd &ldquo;t0p53cr37&rdquo; ~/.vnc_passwd</p>
-<pre><code>
-I prefer running separate instances of Chrome, so I'll create their directories.
+# Setting workspace to monitors
+workspace 1 output DP-1
+workspace 2 output DP-2
 
-</code></pre><p>mkdir ~/browser1
-mkdir ~/browser2</p>
-<pre><code>
-# X configuration
+# tie each browser to each monitor
+for_window [class=&#34;^chromium-left$&#34;] move workspace number 1
+for_window [class=&#34;^chromium-right$&#34;] move workspace number 2
 
-We'll start X automatically upon login, so edit `~/.profile`
+exec ~/start-browsers.sh
+</code></pre></td></tr></table>
+</div>
+</div><p>Define a script to launch the two browsers in <code>~/start-browsers.sh</code> (don&rsquo;t forget to <code>chmod +x</code> it)</p>
+<div class="highlight"><div style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#099">#!/bin/bash
+</span><span style="color:#099"></span>
+<span style="color:#033">left_url</span><span style="color:#555">=</span><span style="color:#c30">&#34;https://your.monitor.url.com/dashboard-1&#34;</span>
+<span style="color:#033">right_url</span><span style="color:#555">=</span><span style="color:#c30">&#34;https://https://your.monitor.url.com/dashboard-2&#34;</span>
 
-</code></pre><p>[&hellip;]</p>
-<p>if [[ ! $DISPLAY &amp;&amp; $XDG_VTNR -eq 1 ]]; then
-exec startx
-fi</p>
-<pre><code>
-Tell X to start i3 and x11vnc by creating `.xinitrc` as follows
+<span style="color:#033">tmpdir1</span><span style="color:#555">=</span>~/browser1
+<span style="color:#033">tmpdir2</span><span style="color:#555">=</span>~/browser2
 
-</code></pre><p>xset s off
-xset -dpms</p>
-<h1 id="start-vnc-server">start VNC server</h1>
-<p>exec x11vnc -find -forever -rfbauth ~/.vnc_passwd&amp;</p>
-<h1 id="start-window-manager">start window-manager</h1>
-<p>i3</p>
-<pre><code>
-Configure i3 to show each browser on its own display. We do this by attributing each browser a class in `~/.config/i3/config`
+<span style="color:#033">left_target</span><span style="color:#555">=</span><span style="color:#c30">&#34;chromium-browser --new-window </span><span style="color:#033">$left_url</span><span style="color:#c30"> \
+</span><span style="color:#c30">--user-data-dir=</span><span style="color:#033">$tmpdir1</span><span style="color:#c30"> \
+</span><span style="color:#c30">--class=chromium-left \
+</span><span style="color:#c30">--no-first-run \
+</span><span style="color:#c30">--disable-restore-session-state \
+</span><span style="color:#c30">--no-default-browser-check \
+</span><span style="color:#c30">--disable-java \
+</span><span style="color:#c30">--disable-translate \
+</span><span style="color:#c30">--disable-infobars \
+</span><span style="color:#c30">--disable-suggestions-service \
+</span><span style="color:#c30">--disable-save-password-bubble \
+</span><span style="color:#c30">--start-fullscreen&#34;</span>
+<span style="color:#033">right_target</span><span style="color:#555">=</span><span style="color:#c30">&#34;chromium-browser --new-window </span><span style="color:#033">$right_url</span><span style="color:#c30"> \
+</span><span style="color:#c30">--disable-java --user-data-dir=</span><span style="color:#033">$tmpdir2</span><span style="color:#c30"> \
+</span><span style="color:#c30">--class=chromium-right \
+</span><span style="color:#c30">--no-first-run \
+</span><span style="color:#c30">--disable-restore-session-state \
+</span><span style="color:#c30">--no-default-browser-check \
+</span><span style="color:#c30">--disable-translate \
+</span><span style="color:#c30">--disable-infobars \
+</span><span style="color:#c30">--disable-suggestions-service \
+</span><span style="color:#c30">--disable-save-password-bubble \
+</span><span style="color:#c30">--start-fullscreen&#34;</span>
 
-</code></pre><p>[&hellip;]</p>
-<h1 id="comment-out-if-i3bar-is-not-installed-useless-it-will-be-covered-by-chrome">Comment out if i3bar is not installed (useless, it will be covered by Chrome)</h1>
-<h1 id="bar-">bar {</h1>
-<h1 id="status_command-i3status">status_command i3status</h1>
-<h1 id="heading">}</h1>
-<h1 id="setting-workspace-to-monitors">Setting workspace to monitors</h1>
-<p>workspace 1 output DP-1
-workspace 2 output DP-2</p>
-<h1 id="tie-each-browser-to-each-monitor">tie each browser to each monitor</h1>
-<p>for_window [class=&quot;^chromium-left$&rdquo;] move workspace number 1
-for_window [class=&quot;^chromium-right$&rdquo;] move workspace number 2</p>
-<p>exec ~/start-browsers.sh</p>
-<pre><code>
-Define a script to launch the two browsers in `~/start-browsers.sh` (don't forget to `chmod +x` it)
+<span style="color:#09f;font-style:italic"># start app for left screen</span>
+i3-msg <span style="color:#c30">&#39;workspace 1&#39;</span>
+<span style="color:#033">$left_target</span> &amp;
 
-</code></pre><p>#!/bin/bash</p>
-<p>left_url=&quot;https://your.monitor.url.com/dashboard-1&rdquo;
-right_url=&quot;https://https://your.monitor.url.com/dashboard-2&rdquo;</p>
-<p>tmpdir1=~/browser1
-tmpdir2=~/browser2</p>
-<p>left_target=&quot;chromium-browser &ndash;new-window $left_url<br>
-&ndash;user-data-dir=$tmpdir1<br>
-&ndash;class=chromium-left<br>
-&ndash;no-first-run<br>
-&ndash;disable-restore-session-state<br>
-&ndash;no-default-browser-check<br>
-&ndash;disable-java<br>
-&ndash;disable-translate<br>
-&ndash;disable-infobars<br>
-&ndash;disable-suggestions-service<br>
-&ndash;disable-save-password-bubble<br>
-&ndash;start-fullscreen&rdquo;
-right_target=&quot;chromium-browser &ndash;new-window $right_url<br>
-&ndash;disable-java &ndash;user-data-dir=$tmpdir2<br>
-&ndash;class=chromium-right<br>
-&ndash;no-first-run<br>
-&ndash;disable-restore-session-state<br>
-&ndash;no-default-browser-check<br>
-&ndash;disable-translate<br>
-&ndash;disable-infobars<br>
-&ndash;disable-suggestions-service<br>
-&ndash;disable-save-password-bubble<br>
-&ndash;start-fullscreen&rdquo;</p>
-<h1 id="start-app-for-left-screen">start app for left screen</h1>
-<p>i3-msg &lsquo;workspace 1&rsquo;
-$left_target &amp;</p>
-<h1 id="start-app-for-right-screen">start app for right screen</h1>
-<p>i3-msg &lsquo;workspace 2&rsquo;
-$right_target &amp;</p>
-<h1 id="hide-mouse-pointer">hide mouse pointer</h1>
-<p>unclutter &amp;</p>
-<pre><code>
-# Set up automatic shutdown via cron
+<span style="color:#09f;font-style:italic"># start app for right screen</span>
+i3-msg <span style="color:#c30">&#39;workspace 2&#39;</span>
+<span style="color:#033">$right_target</span> &amp;
 
-Run `sudo crontab -e` and add the folowing line for shutdown at 19:00. Don't forget to configure your BIOS / EFI to start the PC in the morning.
+<span style="color:#09f;font-style:italic"># hide mouse pointer</span>
+unclutter &amp;
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="set-up-automatic-shutdown-via-cron">Set up automatic shutdown via cron</h2>
+<p>Run <code>sudo crontab -e</code> and add the folowing line for shutdown at 19:00. Don&rsquo;t forget to configure your BIOS / EFI to start the PC in the morning.</p>
+<div class="highlight"><div style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">0   19  *   *   *     /sbin/halt -p
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="references">References</h2>
+<ul>
+<li><a href="https://unix.stackexchange.com/questions/364649/i3wm-two-monitors-one-browser-per-monitor-dual-head-kiosk">Stack Overflow question which inspired this</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/Getty#Automatic_login_to_virtual_console">Arch Linux documentation on automatic login</a></li>
+</ul>
 
-</code></pre><p>0   19  *   *   *     /sbin/halt -p</p>
-<pre><code>
-# References
-* [Stack Overflow question which inspired this](https://unix.stackexchange.com/questions/364649/i3wm-two-monitors-one-browser-per-monitor-dual-head-kiosk)
-* [Arch Linux documentation on automatic login](https://wiki.archlinux.org/index.php/Getty#Automatic_login_to_virtual_console)
+</div>
+<div class="tags">
 
 
-</code></pre></article><section class="article labels"><a class="tag" href=/tags/sys/>sys</a><a class="tag" href=/tags/linux/>linux</a><a class="tag" href=/tags/chrome/>chrome</a><a class="tag" href=/tags/kiosk/>kiosk</a></section></div><section class="article navigation"><p><a class="link" href="/post/20180827-0922-ipv6_prefix_delegation_freebsd/"><span class="li">&larr;</span>IPv6 prefix delegation on FreeBSD router</a></p><p><a class="link" href="/post/20161231-1210-using_python_in_saltstack_reactor/"><span class="li">&rarr;</span>Using Python in SaltStack reactor</a></p></section><section class="article discussion"><div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "vladvasiliu" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
+
+
+
+
+
+
+
+<div class="taxosfloating_left">
+<p>Tags</p>
+</div>
+<div class="termsfloating_right">
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a href="/tags/chrome/"> chrome </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a href="/tags/kiosk/"> kiosk </a>
+
+
+
+
+
+<a href="/tags/linux/"> linux </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a href="/tags/sys/"> sys </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<div class="clearit"></div>
+
+
+
+
+
+</div><script type="text/javascript">
+(function () {
+
+
+if (window.location.hostname == "localhost")
+return;
+
+var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+var disqus_shortname = 'vladvasiliu';
+dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></section></div><section id="footer" class="footer"><div class="footer-wrap">
-    <p class="copyright">© 2020 Vlad Vasiliu</p>
-    <p class="powerby"><span>Powered by </span><a href="https://gohugo.io" 
-        target="_blank">Hugo</a><span> and the </span><a href="https://themes.gohugo.io/hugo-notepadium/" 
-        target="_blank">Notepadium</a></p>
-</div></section>
+<noscript>Please enable JavaScript to view the</a></noscript>
+<a href="http://disqus.com/">comments powered by <span>Disqus</span></a>
+</div>
+</div>
+
+</main><footer>
+ © 2020 Vlad Vasiliu 
+
+
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -201,7 +606,7 @@ if (!doNotTrack) {
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
-</div>
-</body>
 
+</footer>
+</body>
 </html>

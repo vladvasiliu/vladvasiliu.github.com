@@ -1,27 +1,26 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>linux on vBlog</title>
-    <link>/tags/linux/</link>
+    <link>https://vladvasiliu.com/tags/linux/</link>
     <description>Recent content in linux on vBlog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2020 Vlad Vasiliu</copyright>
     <lastBuildDate>Tue, 07 Aug 2018 16:27:00 +0200</lastBuildDate>
     
-        <atom:link href="/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vladvasiliu.com/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Running Chrome in dual screen kiosk mode on Ubuntu</title>
-      <link>/post/20180807-1626-dual_screen_kiosk_ubuntu/</link>
+      <link>https://vladvasiliu.com/post/20180807-1626-dual_screen_kiosk_ubuntu/</link>
       <pubDate>Tue, 07 Aug 2018 16:27:00 +0200</pubDate>
       
-      <guid>/post/20180807-1626-dual_screen_kiosk_ubuntu/</guid>
+      <guid>https://vladvasiliu.com/post/20180807-1626-dual_screen_kiosk_ubuntu/</guid>
       <description>Background At work we have to large TV screens used for displaying Grafana dashboards. They are both connected to the same PC.
 The PC was running Windows so anytime the PC would reboot, we would have to manually conenct to it via VNC and move the browsers around and set them in full screen mode.
 As we are in the office only during work hours, the PC would be shut down and restarted everyday.</description>
-      
     </item>
     
   </channel>

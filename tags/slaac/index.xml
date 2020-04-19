@@ -1,26 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>SLAAC on vBlog</title>
-    <link>/tags/slaac/</link>
+    <link>https://vladvasiliu.com/tags/slaac/</link>
     <description>Recent content in SLAAC on vBlog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2020 Vlad Vasiliu</copyright>
     <lastBuildDate>Mon, 27 Aug 2018 09:22:00 +0200</lastBuildDate>
     
-        <atom:link href="/tags/slaac/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vladvasiliu.com/tags/slaac/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>IPv6 prefix delegation on FreeBSD router</title>
-      <link>/post/20180827-0922-ipv6_prefix_delegation_freebsd/</link>
+      <link>https://vladvasiliu.com/post/20180827-0922-ipv6_prefix_delegation_freebsd/</link>
       <pubDate>Mon, 27 Aug 2018 09:22:00 +0200</pubDate>
       
-      <guid>/post/20180827-0922-ipv6_prefix_delegation_freebsd/</guid>
-      <description>Goal I&amp;rsquo;m attempting to set up a router box in to replace my SFR router on a home network. As my SFR plan has native IPv6, this box will request a prefix delegation and set up IPv6 routing for the computers on the home network. It will also handle NAT for IPv4.
+      <guid>https://vladvasiliu.com/post/20180827-0922-ipv6_prefix_delegation_freebsd/</guid>
+      <description>Goal I&amp;rsquo;m attempting to set up a router box in order to replace my SFR router on a home network. As my SFR plan has native IPv6, this box will request a prefix delegation and set up IPv6 routing for the computers on the home network. It will also handle NAT for IPv4.
 This is supposed to be a drop-in replacement for the SFR provided box, so it will have to:</description>
-      
     </item>
     
   </channel>
