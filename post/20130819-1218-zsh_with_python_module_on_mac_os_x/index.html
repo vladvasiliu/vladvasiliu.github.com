@@ -25,7 +25,7 @@ The workaround is the same. Editing the Makefile in the config directory of the 
 
 
 
-<meta name="generator" content="Hugo 0.58.2 with theme even" />
+<meta name="generator" content="Hugo 0.68.3 with theme even" />
 
 
 <link rel="canonical" href="https://vladvasiliu.com/post/20130819-1218-zsh_with_python_module_on_mac_os_x/" />
@@ -36,7 +36,8 @@ The workaround is the same. Editing the Makefile in the config directory of the 
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+
+<link href="https://vladvasiliu.com/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -47,21 +48,18 @@ The workaround is the same. Editing the Makefile in the config directory of the 
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://vladvasiliu.com/post/20130819-1218-zsh_with_python_module_on_mac_os_x/" />
 <meta property="article:published_time" content="2013-08-19T12:19:00+02:00" />
-<meta property="article:modified_time" content="2013-08-19T12:19:00+02:00" />
+<meta property="article:modified_time" content="2016-12-31T11:57:06+01:00" />
 <meta itemprop="name" content="Building ZSH with zpython module on MacOS X">
 <meta itemprop="description" content="There is a fork of ZSH that has a Python module. It is able to run Powerline smoothly.
 However, on MacOS X, it doesn&rsquo;t correctly detect the Python libs upon compilation. There seems to be a similar problem for Vim with python support: http://stackoverflow.com/questions/6490513/vim-failing-to-compile-with-python-on-os-x
 The workaround is the same. Editing the Makefile in the config directory of the Python installation fixes this. The modification is PYTHONFRAMEWORKINSTALLDIR instead of PYTHONFRAMEWORKDIR on the line beginning with LINKFORSHARED">
-
-
 <meta itemprop="datePublished" content="2013-08-19T12:19:00&#43;02:00" />
-<meta itemprop="dateModified" content="2013-08-19T12:19:00&#43;02:00" />
+<meta itemprop="dateModified" content="2016-12-31T11:57:06&#43;01:00" />
 <meta itemprop="wordCount" content="75">
 
 
 
-<meta itemprop="keywords" content="MacOS X,ZSH,Python," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="MacOS X,ZSH,Python," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Building ZSH with zpython module on MacOS X"/>
 <meta name="twitter:description" content="There is a fork of ZSH that has a Python module. It is able to run Powerline smoothly.
 However, on MacOS X, it doesn&rsquo;t correctly detect the Python libs upon compilation. There seems to be a similar problem for Vim with python support: http://stackoverflow.com/questions/6490513/vim-failing-to-compile-with-python-on-os-x
@@ -142,19 +140,17 @@ The workaround is the same. Editing the Makefile in the config directory of the 
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Contents</h2>
   <div class="post-toc-content">
-    
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
   <div class="post-outdated">
     <div class="warn">
-      <p>[NOTE] Updated <span class="timeago" datetime="2013-08-19T12:19:00" title="August 19, 2013">August 19, 2013</span>. This article may have outdated content or subject matter.</p>
+      <p>[NOTE] Updated <span class="timeago" datetime="2016-12-31T11:57:06" title="December 31, 2016">December 31, 2016</span>. This article may have outdated content or subject matter.</p>
     </div>
   </div>
     <div class="post-content">
       <p>There is a fork of ZSH that has a Python module. It is able to run <a href="https://github.com/Lokaltog/powerline">Powerline</a> smoothly.</p>
-
 <p>However, on MacOS X, it doesn&rsquo;t correctly detect the Python libs upon compilation. There seems to be a similar problem for Vim with python support: <a href="http://stackoverflow.com/questions/6490513/vim-failing-to-compile-with-python-on-os-x">http://stackoverflow.com/questions/6490513/vim-failing-to-compile-with-python-on-os-x</a></p>
-
 <p>The workaround is the same. Editing the <code>Makefile</code> in the <code>config</code> directory of the Python installation fixes this. The modification is <code>PYTHONFRAMEWORKINSTALLDIR</code> instead of <code>PYTHONFRAMEWORKDIR</code> on the line beginning with <code>LINKFORSHARED</code></p>
 
     </div>
@@ -167,8 +163,8 @@ The workaround is the same. Editing the Makefile in the config directory of the 
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2013-08-19
-        
+        2016-12-31
+        <a href="/commit/3c05c86ba3f621a6ed73ab30a1fbc48b1aeec586" title="Initial hugo commit.">(3c05c86)</a>
     </span>
   </p>
   
@@ -241,11 +237,11 @@ The workaround is the same. Editing the Makefile in the config directory of the 
   <span class="copyright-year">
     &copy; 
     2013 - 
-    2019
+    2020
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
-    <span class="author">Copyright © 2019 Vlad Vasiliu; all rights reserved.</span>
+    <span class="author">Vlad Vasiliu; all rights reserved.</span>
   </span>
 </div>
     </footer>
@@ -265,7 +261,10 @@ The workaround is the same. Editing the Makefile in the config directory of the 
     timeago().render(document.querySelectorAll('.timeago'), languageCode);
     timeago.cancel();  
   </script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+<script type="text/javascript" src="https://vladvasiliu.com/js/main.cddea96674a99fd8cea50d36fb19d9c91f497feea4af5ce4596afd2dbaab9202.js"></script>
 
 
 <script type="application/javascript">

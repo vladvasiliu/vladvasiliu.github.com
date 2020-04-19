@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.2 with theme even" />
+<meta name="generator" content="Hugo 0.68.3 with theme even" />
 
 
 <link rel="canonical" href="https://vladvasiliu.com/" />
@@ -36,7 +36,8 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+
+<link href="https://vladvasiliu.com/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -44,12 +45,9 @@
 <meta property="og:description" content="Notes from a systems engineer." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://vladvasiliu.com/" />
-
-<meta property="og:updated_time" content="2018-08-27T09:22:00+02:00" />
+<meta property="og:updated_time" content="2016-12-31T12:02:49+01:00" />
 <meta itemprop="name" content="vBlog">
-<meta itemprop="description" content="Notes from a systems engineer.">
-
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="Notes from a systems engineer."><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="vBlog"/>
 <meta name="twitter:description" content="Notes from a systems engineer."/>
 
@@ -112,6 +110,29 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/20140514-ipv6_routing_with_router_advertisment/">IPv6 routing and router advertisments on Ubuntu / Debian</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2014-05-09 </span>
+      
+        <span class="more-meta"> 68 words </span>
+        <span class="more-meta"> 1 min read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      If your Linux box gets its IPv6 routing information via router advertisments, you may have noticed that upon enabling forwarding, it disregards those advertisments and it loses the configured gateways.
+The have this configuration working again, set accept_ra 2 in /etc/network/interfaces. This value is not documented in the interfaces manual, but since kernel version 2.6.37 it allows the interface to both do forwarding and accept router advertisments.
+Source
+    </div>
+    <div class="read-more">
+      <a href="/post/20140514-ipv6_routing_with_router_advertisment/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/20140425-running_rabbitmqctl_as_root/">Running rabbitmqctl as root</a></h1>
@@ -202,28 +223,6 @@ The -d argument, used to define default POSIX ACLs is not supported. Instead, th
   </div>
 </article>
 
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2013-08-17_02-mysql_replication_io_error_code_1045/">MySQL Replication - I/O Error Code 1045</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2013-08-17 </span>
-      
-        <span class="more-meta"> 72 words </span>
-        <span class="more-meta"> 1 min read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      Setting up replication on MySQL may yield the following error:
-1  [ERROR] Slave I/O: error connecting to master, Error code 1045   The MySQL troubleshooting page gives a few hints, talking about credentials for the replication user. However, attempting a connection via the command line client works, so the password is OK and the slave can reach the master. As it turns out, for replication purposes, the maximum password length is 32 characters.
-    </div>
-    <div class="read-more">
-      <a href="/post/2013-08-17_02-mysql_replication_io_error_code_1045/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
     </section>
   
   <nav class="pagination">
@@ -231,7 +230,10 @@ The -d argument, used to define default POSIX ACLs is not supported. Instead, th
         <i class="iconfont icon-left"></i>
         <span class="prev-text">Prev</span>
       </a>
-    
+    <a class="next" href="/page/4/">
+        <span class="next-text">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
   </nav>
         </div>
         
@@ -263,11 +265,11 @@ The -d argument, used to define default POSIX ACLs is not supported. Instead, th
   <span class="copyright-year">
     &copy; 
     2013 - 
-    2019
+    2020
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
-    <span class="author">Copyright © 2019 Vlad Vasiliu; all rights reserved.</span>
+    <span class="author">Vlad Vasiliu; all rights reserved.</span>
   </span>
 </div>
     </footer>
@@ -287,7 +289,10 @@ The -d argument, used to define default POSIX ACLs is not supported. Instead, th
     timeago().render(document.querySelectorAll('.timeago'), languageCode);
     timeago.cancel();  
   </script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+<script type="text/javascript" src="https://vladvasiliu.com/js/main.cddea96674a99fd8cea50d36fb19d9c91f497feea4af5ce4596afd2dbaab9202.js"></script>
 
 
 <script type="application/javascript">

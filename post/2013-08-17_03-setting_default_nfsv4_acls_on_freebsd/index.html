@@ -24,7 +24,7 @@ The -d argument, used to define default POSIX ACLs is not supported. Instead, th
 
 
 
-<meta name="generator" content="Hugo 0.58.2 with theme even" />
+<meta name="generator" content="Hugo 0.68.3 with theme even" />
 
 
 <link rel="canonical" href="https://vladvasiliu.com/post/2013-08-17_03-setting_default_nfsv4_acls_on_freebsd/" />
@@ -35,7 +35,8 @@ The -d argument, used to define default POSIX ACLs is not supported. Instead, th
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+
+<link href="https://vladvasiliu.com/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -45,20 +46,17 @@ The -d argument, used to define default POSIX ACLs is not supported. Instead, th
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://vladvasiliu.com/post/2013-08-17_03-setting_default_nfsv4_acls_on_freebsd/" />
 <meta property="article:published_time" content="2013-08-17T21:11:00+02:00" />
-<meta property="article:modified_time" content="2013-08-17T21:11:00+02:00" />
+<meta property="article:modified_time" content="2016-12-31T11:57:06+01:00" />
 <meta itemprop="name" content="Setting default NFSv4 ACLs on FreeBSD">
 <meta itemprop="description" content="On FreeBSD with ZFS, only NFSv4 ACLs are supported. At the time of this writing, the FreeBSD documentation regarding ACLs is a bit vague. Specifically, it doesn’t talk about inheritable attributes.
 The -d argument, used to define default POSIX ACLs is not supported. Instead, there are some flags one can set in order to define how ACLs are inherited. For an explanation, look in the manual for setfacl, section ACL inheritance flags.">
-
-
 <meta itemprop="datePublished" content="2013-08-17T21:11:00&#43;02:00" />
-<meta itemprop="dateModified" content="2013-08-17T21:11:00&#43;02:00" />
+<meta itemprop="dateModified" content="2016-12-31T11:57:06&#43;01:00" />
 <meta itemprop="wordCount" content="226">
 
 
 
-<meta itemprop="keywords" content="FreeBSD,ZFS,ACL,sysadmin," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="FreeBSD,ZFS,ACL,sysadmin," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Setting default NFSv4 ACLs on FreeBSD"/>
 <meta name="twitter:description" content="On FreeBSD with ZFS, only NFSv4 ACLs are supported. At the time of this writing, the FreeBSD documentation regarding ACLs is a bit vague. Specifically, it doesn’t talk about inheritable attributes.
 The -d argument, used to define default POSIX ACLs is not supported. Instead, there are some flags one can set in order to define how ACLs are inherited. For an explanation, look in the manual for setfacl, section ACL inheritance flags."/>
@@ -138,43 +136,39 @@ The -d argument, used to define default POSIX ACLs is not supported. Instead, th
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Contents</h2>
   <div class="post-toc-content">
-    
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
   <div class="post-outdated">
     <div class="warn">
-      <p>[NOTE] Updated <span class="timeago" datetime="2013-08-17T21:11:00" title="August 17, 2013">August 17, 2013</span>. This article may have outdated content or subject matter.</p>
+      <p>[NOTE] Updated <span class="timeago" datetime="2016-12-31T11:57:06" title="December 31, 2016">December 31, 2016</span>. This article may have outdated content or subject matter.</p>
     </div>
   </div>
     <div class="post-content">
       <p>On FreeBSD with ZFS, only NFSv4 ACLs are supported. At the time of this writing, the <a href="https://wiki.freebsd.org/NFSv4_ACLs">FreeBSD documentation regarding ACLs</a> is a bit vague. Specifically, it doesn’t talk about inheritable attributes.</p>
-
 <p>The <code>-d</code> argument, used to define default POSIX ACLs is not supported. Instead, there are some flags one can set in order to define how ACLs are inherited. For an explanation, look in the manual for <code>setfacl</code>, section <em>ACL inheritance flags</em>.</p>
-
 <p>Let’s say you want all the files and directories inside <code>somedir</code> to be readable by the users in the group <code>somegroup</code>. You would do the following:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">setfacl -m g:somegroup:rx:fd:allow somedir</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">setfacl -m g:somegroup:rx:fd:allow somedir
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>This sets <code>somedir</code> to be readable and executable by <code>somegroup</code> and those properties will be inherited by all new files (the <code>f</code> flag) and directories (<code>d</code> flag).</p>
-
+</div><p>This sets <code>somedir</code> to be readable and executable by <code>somegroup</code> and those properties will be inherited by all new files (the <code>f</code> flag) and directories (<code>d</code> flag).</p>
 <p>Note, however, that this only applies to newly created files. In the FreeBSD implementation of <code>setfacl</code> there is no recursive option. One way of applying the changes to the subtree is:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">find . -type d -exec setfacl -m g:somegroup:rx:fd:allow {} \;
-find . -type f -exec setfacl -m g:somegroup:r::allow {} \;</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">find . -type d -exec setfacl -m g:somegroup:rx:fd:allow {} \;
+find . -type f -exec setfacl -m g:somegroup:r::allow {} \;
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>The first line sets the previous ACLs on all the subdirectories, while the second sets the ACL on all the files.</p>
-
+</div><p>The first line sets the previous ACLs on all the subdirectories, while the second sets the ACL on all the files.</p>
 <p>In order for this to work, some ZFS attributes must be set: <code>aclinherit=passthrough-x</code> and <code>aclmode=passthrough</code>.
 See <a href="http://docs.oracle.com/cd/E19082-01/817-2271/gbaaz/index.html">here</a> for the ZFS properties documentation.</p>
 
@@ -188,8 +182,8 @@ See <a href="http://docs.oracle.com/cd/E19082-01/817-2271/gbaaz/index.html">here
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2013-08-17
-        
+        2016-12-31
+        <a href="/commit/3c05c86ba3f621a6ed73ab30a1fbc48b1aeec586" title="Initial hugo commit.">(3c05c86)</a>
     </span>
   </p>
   
@@ -263,11 +257,11 @@ See <a href="http://docs.oracle.com/cd/E19082-01/817-2271/gbaaz/index.html">here
   <span class="copyright-year">
     &copy; 
     2013 - 
-    2019
+    2020
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
-    <span class="author">Copyright © 2019 Vlad Vasiliu; all rights reserved.</span>
+    <span class="author">Vlad Vasiliu; all rights reserved.</span>
   </span>
 </div>
     </footer>
@@ -287,7 +281,10 @@ See <a href="http://docs.oracle.com/cd/E19082-01/817-2271/gbaaz/index.html">here
     timeago().render(document.querySelectorAll('.timeago'), languageCode);
     timeago.cancel();  
   </script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+<script type="text/javascript" src="https://vladvasiliu.com/js/main.cddea96674a99fd8cea50d36fb19d9c91f497feea4af5ce4596afd2dbaab9202.js"></script>
 
 
 <script type="application/javascript">

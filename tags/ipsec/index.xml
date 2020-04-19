@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>IPSec on vBlog</title>
@@ -6,7 +6,7 @@
     <description>Recent content in IPSec on vBlog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>Copyright © 2019 Vlad Vasiliu; all rights reserved.</copyright>
+    <copyright>Vlad Vasiliu; all rights reserved.</copyright>
     <lastBuildDate>Thu, 19 Jun 2014 17:37:00 +0200</lastBuildDate>
     
 	<atom:link href="https://vladvasiliu.com/tags/ipsec/index.xml" rel="self" type="application/rss+xml" />
@@ -19,7 +19,7 @@
       
       <guid>https://vladvasiliu.com/post/20140619-1735-linux_to_fortigate_ipsec_tunnel/</guid>
       <description>Here is an example of a tunnel setup beetween Linux and Fortigate. It uses StrongSwan.
-1 2 3 4 5 6 7 8 9 10 11 12 13  conn myconn type=tunnel left=[local_ip_address] leftsubnet=[local_subnet_to_be_accessed_through_tunnel] right=[remote_ip_address] rightsubnet=[remote_subnet_to_be_accessed_through_tunnel] keyexchange=ike ikelifetime=28800s ike=aes256-sha1-modp1536 authby=secret keylife=1800s esp=aes256-sha1 auto=start   This configures the forwarding policy. If you want to access the remote end of the tunnel from the gateway, set up a virtual interface and configure it with an address within the local_subnet.</description>
+conn myconn type=tunnel left=[local_ip_address] leftsubnet=[local_subnet_to_be_accessed_through_tunnel] right=[remote_ip_address] rightsubnet=[remote_subnet_to_be_accessed_through_tunnel] keyexchange=ike ikelifetime=28800s ike=aes256-sha1-modp1536 authby=secret keylife=1800s esp=aes256-sha1 auto=start  This configures the forwarding policy. If you want to access the remote end of the tunnel from the gateway, set up a virtual interface and configure it with an address within the local_subnet.</description>
     </item>
     
   </channel>

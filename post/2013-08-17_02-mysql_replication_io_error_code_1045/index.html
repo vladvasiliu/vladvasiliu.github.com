@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.2 with theme even" />
+<meta name="generator" content="Hugo 0.68.3 with theme even" />
 
 
 <link rel="canonical" href="https://vladvasiliu.com/post/2013-08-17_02-mysql_replication_io_error_code_1045/" />
@@ -35,7 +35,8 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+
+<link href="https://vladvasiliu.com/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -45,20 +46,17 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://vladvasiliu.com/post/2013-08-17_02-mysql_replication_io_error_code_1045/" />
 <meta property="article:published_time" content="2013-08-17T21:05:00+02:00" />
-<meta property="article:modified_time" content="2013-08-17T21:05:00+02:00" />
+<meta property="article:modified_time" content="2016-12-31T11:57:06+01:00" />
 <meta itemprop="name" content="MySQL Replication - I/O Error Code 1045">
 <meta itemprop="description" content="Setting up replication on MySQL may yield the following error:
 1  [ERROR] Slave I/O: error connecting to master, Error code 1045   The MySQL troubleshooting page gives a few hints, talking about credentials for the replication user. However, attempting a connection via the command line client works, so the password is OK and the slave can reach the master. As it turns out, for replication purposes, the maximum password length is 32 characters.">
-
-
 <meta itemprop="datePublished" content="2013-08-17T21:05:00&#43;02:00" />
-<meta itemprop="dateModified" content="2013-08-17T21:05:00&#43;02:00" />
+<meta itemprop="dateModified" content="2016-12-31T11:57:06&#43;01:00" />
 <meta itemprop="wordCount" content="72">
 
 
 
-<meta itemprop="keywords" content="MySQL," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="MySQL," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="MySQL Replication - I/O Error Code 1045"/>
 <meta name="twitter:description" content="Setting up replication on MySQL may yield the following error:
 1  [ERROR] Slave I/O: error connecting to master, Error code 1045   The MySQL troubleshooting page gives a few hints, talking about credentials for the replication user. However, attempting a connection via the command line client works, so the password is OK and the slave can reach the master. As it turns out, for replication purposes, the maximum password length is 32 characters."/>
@@ -138,25 +136,25 @@
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Contents</h2>
   <div class="post-toc-content">
-    
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
   <div class="post-outdated">
     <div class="warn">
-      <p>[NOTE] Updated <span class="timeago" datetime="2013-08-17T21:05:00" title="August 17, 2013">August 17, 2013</span>. This article may have outdated content or subject matter.</p>
+      <p>[NOTE] Updated <span class="timeago" datetime="2016-12-31T11:57:06" title="December 31, 2016">December 31, 2016</span>. This article may have outdated content or subject matter.</p>
     </div>
   </div>
     <div class="post-content">
       <p>Setting up replication on MySQL may yield the following error:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">[ERROR] Slave I/O: error connecting to master, Error code 1045</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[ERROR] Slave I/O: error connecting to master, Error code 1045
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>The MySQL troubleshooting page gives a few hints, talking about credentials for the replication user. However, attempting a connection via the command line client works, so the password is OK and the slave can reach the master. As it turns out, for replication purposes, the maximum password length is 32 characters.</p>
+</div><p>The MySQL troubleshooting page gives a few hints, talking about credentials for the replication user. However, attempting a connection via the command line client works, so the password is OK and the slave can reach the master. As it turns out, for replication purposes, the maximum password length is 32 characters.</p>
 
     </div>
 
@@ -168,8 +166,8 @@
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2013-08-17
-        
+        2016-12-31
+        <a href="/commit/3c05c86ba3f621a6ed73ab30a1fbc48b1aeec586" title="Initial hugo commit.">(3c05c86)</a>
     </span>
   </p>
   
@@ -236,11 +234,11 @@
   <span class="copyright-year">
     &copy; 
     2013 - 
-    2019
+    2020
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
-    <span class="author">Copyright © 2019 Vlad Vasiliu; all rights reserved.</span>
+    <span class="author">Vlad Vasiliu; all rights reserved.</span>
   </span>
 </div>
     </footer>
@@ -260,7 +258,10 @@
     timeago().render(document.querySelectorAll('.timeago'), languageCode);
     timeago.cancel();  
   </script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+<script type="text/javascript" src="https://vladvasiliu.com/js/main.cddea96674a99fd8cea50d36fb19d9c91f497feea4af5ce4596afd2dbaab9202.js"></script>
 
 
 <script type="application/javascript">

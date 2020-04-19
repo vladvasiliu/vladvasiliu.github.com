@@ -17,14 +17,14 @@
 
 
 <meta name="author" content="Vlad Vasiliu" /><meta name="description" content="Here is an example of a tunnel setup beetween Linux and Fortigate. It uses StrongSwan.
-1 2 3 4 5 6 7 8 9 10 11 12 13  conn myconn type=tunnel left=[local_ip_address] leftsubnet=[local_subnet_to_be_accessed_through_tunnel] right=[remote_ip_address] rightsubnet=[remote_subnet_to_be_accessed_through_tunnel] keyexchange=ike ikelifetime=28800s ike=aes256-sha1-modp1536 authby=secret keylife=1800s esp=aes256-sha1 auto=start   This configures the forwarding policy. If you want to access the remote end of the tunnel from the gateway, set up a virtual interface and configure it with an address within the local_subnet." /><meta name="keywords" content="linux, syadmin, unix, howto" />
+conn myconn type=tunnel left=[local_ip_address] leftsubnet=[local_subnet_to_be_accessed_through_tunnel] right=[remote_ip_address] rightsubnet=[remote_subnet_to_be_accessed_through_tunnel] keyexchange=ike ikelifetime=28800s ike=aes256-sha1-modp1536 authby=secret keylife=1800s esp=aes256-sha1 auto=start  This configures the forwarding policy. If you want to access the remote end of the tunnel from the gateway, set up a virtual interface and configure it with an address within the local_subnet." /><meta name="keywords" content="linux, syadmin, unix, howto" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.58.2 with theme even" />
+<meta name="generator" content="Hugo 0.68.3 with theme even" />
 
 
 <link rel="canonical" href="https://vladvasiliu.com/post/20140619-1735-linux_to_fortigate_ipsec_tunnel/" />
@@ -35,33 +35,31 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+
+<link href="https://vladvasiliu.com/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="Establishing IPSec tunnel between Linux and Fortigate" />
 <meta property="og:description" content="Here is an example of a tunnel setup beetween Linux and Fortigate. It uses StrongSwan.
-1 2 3 4 5 6 7 8 9 10 11 12 13  conn myconn type=tunnel left=[local_ip_address] leftsubnet=[local_subnet_to_be_accessed_through_tunnel] right=[remote_ip_address] rightsubnet=[remote_subnet_to_be_accessed_through_tunnel] keyexchange=ike ikelifetime=28800s ike=aes256-sha1-modp1536 authby=secret keylife=1800s esp=aes256-sha1 auto=start   This configures the forwarding policy. If you want to access the remote end of the tunnel from the gateway, set up a virtual interface and configure it with an address within the local_subnet." />
+conn myconn type=tunnel left=[local_ip_address] leftsubnet=[local_subnet_to_be_accessed_through_tunnel] right=[remote_ip_address] rightsubnet=[remote_subnet_to_be_accessed_through_tunnel] keyexchange=ike ikelifetime=28800s ike=aes256-sha1-modp1536 authby=secret keylife=1800s esp=aes256-sha1 auto=start  This configures the forwarding policy. If you want to access the remote end of the tunnel from the gateway, set up a virtual interface and configure it with an address within the local_subnet." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://vladvasiliu.com/post/20140619-1735-linux_to_fortigate_ipsec_tunnel/" />
 <meta property="article:published_time" content="2014-06-19T17:37:00+02:00" />
-<meta property="article:modified_time" content="2014-06-19T17:37:00+02:00" />
+<meta property="article:modified_time" content="2016-12-31T11:57:06+01:00" />
 <meta itemprop="name" content="Establishing IPSec tunnel between Linux and Fortigate">
 <meta itemprop="description" content="Here is an example of a tunnel setup beetween Linux and Fortigate. It uses StrongSwan.
-1 2 3 4 5 6 7 8 9 10 11 12 13  conn myconn type=tunnel left=[local_ip_address] leftsubnet=[local_subnet_to_be_accessed_through_tunnel] right=[remote_ip_address] rightsubnet=[remote_subnet_to_be_accessed_through_tunnel] keyexchange=ike ikelifetime=28800s ike=aes256-sha1-modp1536 authby=secret keylife=1800s esp=aes256-sha1 auto=start   This configures the forwarding policy. If you want to access the remote end of the tunnel from the gateway, set up a virtual interface and configure it with an address within the local_subnet.">
-
-
+conn myconn type=tunnel left=[local_ip_address] leftsubnet=[local_subnet_to_be_accessed_through_tunnel] right=[remote_ip_address] rightsubnet=[remote_subnet_to_be_accessed_through_tunnel] keyexchange=ike ikelifetime=28800s ike=aes256-sha1-modp1536 authby=secret keylife=1800s esp=aes256-sha1 auto=start  This configures the forwarding policy. If you want to access the remote end of the tunnel from the gateway, set up a virtual interface and configure it with an address within the local_subnet.">
 <meta itemprop="datePublished" content="2014-06-19T17:37:00&#43;02:00" />
-<meta itemprop="dateModified" content="2014-06-19T17:37:00&#43;02:00" />
-<meta itemprop="wordCount" content="75">
+<meta itemprop="dateModified" content="2016-12-31T11:57:06&#43;01:00" />
+<meta itemprop="wordCount" content="62">
 
 
 
-<meta itemprop="keywords" content="IPSec,VPN,Tunneling," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="IPSec,VPN,Tunneling," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Establishing IPSec tunnel between Linux and Fortigate"/>
 <meta name="twitter:description" content="Here is an example of a tunnel setup beetween Linux and Fortigate. It uses StrongSwan.
-1 2 3 4 5 6 7 8 9 10 11 12 13  conn myconn type=tunnel left=[local_ip_address] leftsubnet=[local_subnet_to_be_accessed_through_tunnel] right=[remote_ip_address] rightsubnet=[remote_subnet_to_be_accessed_through_tunnel] keyexchange=ike ikelifetime=28800s ike=aes256-sha1-modp1536 authby=secret keylife=1800s esp=aes256-sha1 auto=start   This configures the forwarding policy. If you want to access the remote end of the tunnel from the gateway, set up a virtual interface and configure it with an address within the local_subnet."/>
+conn myconn type=tunnel left=[local_ip_address] leftsubnet=[local_subnet_to_be_accessed_through_tunnel] right=[remote_ip_address] rightsubnet=[remote_subnet_to_be_accessed_through_tunnel] keyexchange=ike ikelifetime=28800s ike=aes256-sha1-modp1536 authby=secret keylife=1800s esp=aes256-sha1 auto=start  This configures the forwarding policy. If you want to access the remote end of the tunnel from the gateway, set up a virtual interface and configure it with an address within the local_subnet."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -129,7 +127,7 @@
       <div class="post-meta">
         <span class="post-time"> 2014-06-19 </span>
         
-          <span class="more-meta"> 75 words </span>
+          <span class="more-meta"> 62 words </span>
           <span class="more-meta"> 1 min read </span>
         
       </div>
@@ -138,34 +136,17 @@
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Contents</h2>
   <div class="post-toc-content">
-    
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
   <div class="post-outdated">
     <div class="warn">
-      <p>[NOTE] Updated <span class="timeago" datetime="2014-06-19T17:37:00" title="June 19, 2014">June 19, 2014</span>. This article may have outdated content or subject matter.</p>
+      <p>[NOTE] Updated <span class="timeago" datetime="2016-12-31T11:57:06" title="December 31, 2016">December 31, 2016</span>. This article may have outdated content or subject matter.</p>
     </div>
   </div>
     <div class="post-content">
       <p>Here is an example of a tunnel setup beetween Linux and Fortigate. It uses StrongSwan.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">conn myconn
+<pre><code>conn myconn
     type=tunnel
     left=[local_ip_address]
     leftsubnet=[local_subnet_to_be_accessed_through_tunnel]
@@ -177,9 +158,8 @@
     authby=secret
     keylife=1800s
     esp=aes256-sha1
-    auto=start</pre></td></tr></table>
-</div>
-</div>
+    auto=start
+</code></pre>
 <p>This configures the forwarding policy. If you want to access the remote end of the tunnel from the gateway, set up a virtual interface and configure it with an address within the local_subnet.</p>
 
     </div>
@@ -192,8 +172,8 @@
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2014-06-19
-        
+        2016-12-31
+        <a href="/commit/3c05c86ba3f621a6ed73ab30a1fbc48b1aeec586" title="Initial hugo commit.">(3c05c86)</a>
     </span>
   </p>
   
@@ -266,11 +246,11 @@
   <span class="copyright-year">
     &copy; 
     2013 - 
-    2019
+    2020
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
-    <span class="author">Copyright © 2019 Vlad Vasiliu; all rights reserved.</span>
+    <span class="author">Vlad Vasiliu; all rights reserved.</span>
   </span>
 </div>
     </footer>
@@ -290,7 +270,10 @@
     timeago().render(document.querySelectorAll('.timeago'), languageCode);
     timeago.cancel();  
   </script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+<script type="text/javascript" src="https://vladvasiliu.com/js/main.cddea96674a99fd8cea50d36fb19d9c91f497feea4af5ce4596afd2dbaab9202.js"></script>
 
 
 <script type="application/javascript">

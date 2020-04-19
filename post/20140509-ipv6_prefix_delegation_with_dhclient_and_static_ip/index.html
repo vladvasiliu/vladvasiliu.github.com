@@ -26,7 +26,7 @@ Below are samples of dhclient6.conf and interfaces. Note that in this configurat
 
 
 
-<meta name="generator" content="Hugo 0.58.2 with theme even" />
+<meta name="generator" content="Hugo 0.68.3 with theme even" />
 
 
 <link rel="canonical" href="https://vladvasiliu.com/post/20140509-ipv6_prefix_delegation_with_dhclient_and_static_ip/" />
@@ -37,7 +37,8 @@ Below are samples of dhclient6.conf and interfaces. Note that in this configurat
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+
+<link href="https://vladvasiliu.com/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -49,22 +50,19 @@ Below are samples of dhclient6.conf and interfaces. Note that in this configurat
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://vladvasiliu.com/post/20140509-ipv6_prefix_delegation_with_dhclient_and_static_ip/" />
 <meta property="article:published_time" content="2014-05-09T10:47:00+02:00" />
-<meta property="article:modified_time" content="2014-05-09T10:47:00+02:00" />
+<meta property="article:modified_time" content="2016-12-31T11:57:06+01:00" />
 <meta itemprop="name" content="IPv6 prefix delegation with static address and dhclient on Ubuntu / Debian">
 <meta itemprop="description" content="Some hosting providers, like Online in France provide IPv6 access via prefix delegation. You get a DUID that has to be sent to their DHCP server. The IP address is configured by the client.
 The recommended method is using Dibbler, but this solution is pretty buggy.
 On Ubuntu or Debian, you can use the provided dhclient to obtain the prefix delegation.
 Below are samples of dhclient6.conf and interfaces. Note that in this configuration everything is configured by the client, but you could request a name server from the DHCP server.">
-
-
 <meta itemprop="datePublished" content="2014-05-09T10:47:00&#43;02:00" />
-<meta itemprop="dateModified" content="2014-05-09T10:47:00&#43;02:00" />
-<meta itemprop="wordCount" content="129">
+<meta itemprop="dateModified" content="2016-12-31T11:57:06&#43;01:00" />
+<meta itemprop="wordCount" content="119">
 
 
 
-<meta itemprop="keywords" content="IPv6,DHCPv6," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="IPv6,DHCPv6," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="IPv6 prefix delegation with static address and dhclient on Ubuntu / Debian"/>
 <meta name="twitter:description" content="Some hosting providers, like Online in France provide IPv6 access via prefix delegation. You get a DUID that has to be sent to their DHCP server. The IP address is configured by the client.
 The recommended method is using Dibbler, but this solution is pretty buggy.
@@ -137,7 +135,7 @@ Below are samples of dhclient6.conf and interfaces. Note that in this configurat
       <div class="post-meta">
         <span class="post-time"> 2014-05-09 </span>
         
-          <span class="more-meta"> 129 words </span>
+          <span class="more-meta"> 119 words </span>
           <span class="more-meta"> 1 min read </span>
         
       </div>
@@ -146,57 +144,34 @@ Below are samples of dhclient6.conf and interfaces. Note that in this configurat
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Contents</h2>
   <div class="post-toc-content">
-    
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
   <div class="post-outdated">
     <div class="warn">
-      <p>[NOTE] Updated <span class="timeago" datetime="2014-05-09T10:47:00" title="May 9, 2014">May 9, 2014</span>. This article may have outdated content or subject matter.</p>
+      <p>[NOTE] Updated <span class="timeago" datetime="2016-12-31T11:57:06" title="December 31, 2016">December 31, 2016</span>. This article may have outdated content or subject matter.</p>
     </div>
   </div>
     <div class="post-content">
       <p>Some hosting providers, like <a href="http://online.net">Online</a> in France provide IPv6 access via prefix delegation. You get a DUID that has to be sent to their DHCP server. The IP address is configured by the client.</p>
-
 <p>The recommended method is using Dibbler, but this solution is pretty buggy.</p>
-
 <p>On Ubuntu or Debian, you can use the provided dhclient to obtain the prefix delegation.</p>
-
 <p>Below are samples of <code>dhclient6.conf</code> and <code>interfaces</code>. Note that in this configuration everything is configured by the client, but you could request a name server from the DHCP server.</p>
-
 <p><code>/etc/dhcp/dhclient6.conf</code>:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">interface &#34;em1&#34; {
+<pre><code>interface &quot;em1&quot; {
     send dhcp6.client-id your:duid;
     request;
-}</pre></td></tr></table>
-</div>
-</div>
+}
+</code></pre>
 <p><code>/etc/network/interfaces</code>:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">auto em1
+<pre><code>auto em1
 iface em1 inet6 static
     address your:ip:v6:address
     netmask your_nemask
     accept_ra 1
-    pre-up /sbin/dhclient -cf /etc/dhcp/dhclient6.conf -6 -P em1</pre></td></tr></table>
-</div>
-</div>
+    pre-up /sbin/dhclient -cf /etc/dhcp/dhclient6.conf -6 -P em1
+</code></pre>
+
     </div>
 
     <div class="post-copyright">
@@ -207,8 +182,8 @@ iface em1 inet6 static
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2014-05-09
-        
+        2016-12-31
+        <a href="/commit/3c05c86ba3f621a6ed73ab30a1fbc48b1aeec586" title="Initial hugo commit.">(3c05c86)</a>
     </span>
   </p>
   
@@ -280,11 +255,11 @@ iface em1 inet6 static
   <span class="copyright-year">
     &copy; 
     2013 - 
-    2019
+    2020
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
-    <span class="author">Copyright © 2019 Vlad Vasiliu; all rights reserved.</span>
+    <span class="author">Vlad Vasiliu; all rights reserved.</span>
   </span>
 </div>
     </footer>
@@ -304,7 +279,10 @@ iface em1 inet6 static
     timeago().render(document.querySelectorAll('.timeago'), languageCode);
     timeago.cancel();  
   </script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+<script type="text/javascript" src="https://vladvasiliu.com/js/main.cddea96674a99fd8cea50d36fb19d9c91f497feea4af5ce4596afd2dbaab9202.js"></script>
 
 
 <script type="application/javascript">

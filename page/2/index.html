@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.2 with theme even" />
+<meta name="generator" content="Hugo 0.68.3 with theme even" />
 
 
 <link rel="canonical" href="https://vladvasiliu.com/" />
@@ -36,7 +36,8 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+
+<link href="https://vladvasiliu.com/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -44,12 +45,9 @@
 <meta property="og:description" content="Notes from a systems engineer." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://vladvasiliu.com/" />
-
-<meta property="og:updated_time" content="2018-08-27T09:22:00+02:00" />
+<meta property="og:updated_time" content="2016-12-31T12:02:49+01:00" />
 <meta itemprop="name" content="vBlog">
-<meta itemprop="description" content="Notes from a systems engineer.">
-
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="Notes from a systems engineer."><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="vBlog"/>
 <meta name="twitter:description" content="Notes from a systems engineer."/>
 
@@ -114,12 +112,34 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/20150204-1737-drac_custom_ssl_cert/">Custom SSL certificate for iDrac 7 without CSR</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-02-04 </span>
+      
+        <span class="more-meta"> 138 words </span>
+        <span class="more-meta"> 1 min read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      If you want to use the Dell iDrac with a certificate signed by your CA, the web gui allows you to create a CSR, and upload the signed certificate. But if for some reason you want to generate the certificate and key outside of iDrac, the gui doesn&rsquo;t offer a way to upload the key.
+There is a way to use fully custom certificates, but it requires the racadm command line utility.
+    </div>
+    <div class="read-more">
+      <a href="/post/20150204-1737-drac_custom_ssl_cert/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/20141208-1007-bind_split_view_zone_synchronization/">Zone transfer setup for BIND with split horizon on the same zone</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2014-12-08 </span>
       
-        <span class="more-meta"> 436 words </span>
-        <span class="more-meta"> 3 mins read </span>
+        <span class="more-meta"> 352 words </span>
+        <span class="more-meta"> 2 mins read </span>
     </div>
   </header>
   
@@ -163,7 +183,7 @@ There is however a way to get to this informaiton. It requires however the phone
     <div class="post-meta">
       <span class="post-time"> 2014-06-19 </span>
       
-        <span class="more-meta"> 75 words </span>
+        <span class="more-meta"> 62 words </span>
         <span class="more-meta"> 1 min read </span>
     </div>
   </header>
@@ -171,7 +191,7 @@ There is however a way to get to this informaiton. It requires however the phone
   <div class="post-content">
     <div class="post-summary">
       Here is an example of a tunnel setup beetween Linux and Fortigate. It uses StrongSwan.
-1 2 3 4 5 6 7 8 9 10 11 12 13  conn myconn type=tunnel left=[local_ip_address] leftsubnet=[local_subnet_to_be_accessed_through_tunnel] right=[remote_ip_address] rightsubnet=[remote_subnet_to_be_accessed_through_tunnel] keyexchange=ike ikelifetime=28800s ike=aes256-sha1-modp1536 authby=secret keylife=1800s esp=aes256-sha1 auto=start   This configures the forwarding policy. If you want to access the remote end of the tunnel from the gateway, set up a virtual interface and configure it with an address within the local_subnet.
+conn myconn type=tunnel left=[local_ip_address] leftsubnet=[local_subnet_to_be_accessed_through_tunnel] right=[remote_ip_address] rightsubnet=[remote_subnet_to_be_accessed_through_tunnel] keyexchange=ike ikelifetime=28800s ike=aes256-sha1-modp1536 authby=secret keylife=1800s esp=aes256-sha1 auto=start  This configures the forwarding policy. If you want to access the remote end of the tunnel from the gateway, set up a virtual interface and configure it with an address within the local_subnet.
     </div>
     <div class="read-more">
       <a href="/post/20140619-1735-linux_to_fortigate_ipsec_tunnel/" class="read-more-link">Read more...</a>
@@ -185,7 +205,7 @@ There is however a way to get to this informaiton. It requires however the phone
     <div class="post-meta">
       <span class="post-time"> 2014-05-09 </span>
       
-        <span class="more-meta"> 129 words </span>
+        <span class="more-meta"> 119 words </span>
         <span class="more-meta"> 1 min read </span>
     </div>
   </header>
@@ -199,29 +219,6 @@ Below are samples of dhclient6.conf and interfaces. Note that in this configurat
     </div>
     <div class="read-more">
       <a href="/post/20140509-ipv6_prefix_delegation_with_dhclient_and_static_ip/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/20140514-ipv6_routing_with_router_advertisment/">IPv6 routing and router advertisments on Ubuntu / Debian</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-05-09 </span>
-      
-        <span class="more-meta"> 68 words </span>
-        <span class="more-meta"> 1 min read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      If your Linux box gets its IPv6 routing information via router advertisments, you may have noticed that upon enabling forwarding, it disregards those advertisments and it loses the configured gateways.
-The have this configuration working again, set accept_ra 2 in /etc/network/interfaces. This value is not documented in the interfaces manual, but since kernel version 2.6.37 it allows the interface to both do forwarding and accept router advertisments.
-Source
-    </div>
-    <div class="read-more">
-      <a href="/post/20140514-ipv6_routing_with_router_advertisment/" class="read-more-link">Read more...</a>
     </div>
   </div>
 </article>
@@ -268,11 +265,11 @@ Source
   <span class="copyright-year">
     &copy; 
     2013 - 
-    2019
+    2020
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
-    <span class="author">Copyright © 2019 Vlad Vasiliu; all rights reserved.</span>
+    <span class="author">Vlad Vasiliu; all rights reserved.</span>
   </span>
 </div>
     </footer>
@@ -292,7 +289,10 @@ Source
     timeago().render(document.querySelectorAll('.timeago'), languageCode);
     timeago.cancel();  
   </script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+<script type="text/javascript" src="https://vladvasiliu.com/js/main.cddea96674a99fd8cea50d36fb19d9c91f497feea4af5ce4596afd2dbaab9202.js"></script>
 
 
 <script type="application/javascript">

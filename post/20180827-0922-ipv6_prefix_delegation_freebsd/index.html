@@ -24,7 +24,7 @@ This is supposed to be a drop-in replacement for the SFR provided box, so it wil
 
 
 
-<meta name="generator" content="Hugo 0.58.2 with theme even" />
+<meta name="generator" content="Hugo 0.68.3 with theme even" />
 
 
 <link rel="canonical" href="https://vladvasiliu.com/post/20180827-0922-ipv6_prefix_delegation_freebsd/" />
@@ -35,7 +35,8 @@ This is supposed to be a drop-in replacement for the SFR provided box, so it wil
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+
+<link href="https://vladvasiliu.com/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -45,20 +46,17 @@ This is supposed to be a drop-in replacement for the SFR provided box, so it wil
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://vladvasiliu.com/post/20180827-0922-ipv6_prefix_delegation_freebsd/" />
 <meta property="article:published_time" content="2018-08-27T09:22:00+02:00" />
-<meta property="article:modified_time" content="2018-08-27T09:22:00+02:00" />
+<meta property="article:modified_time" content="2019-06-19T06:37:37+02:00" />
 <meta itemprop="name" content="IPv6 prefix delegation on FreeBSD router">
 <meta itemprop="description" content="Goal I&rsquo;m attempting to set up a router box in to replace my SFR router on a home network. As my SFR plan has native IPv6, this box will request a prefix delegation and set up IPv6 routing for the computers on the home network. It will also handle NAT for IPv4.
 This is supposed to be a drop-in replacement for the SFR provided box, so it will have to:">
-
-
 <meta itemprop="datePublished" content="2018-08-27T09:22:00&#43;02:00" />
-<meta itemprop="dateModified" content="2018-08-27T09:22:00&#43;02:00" />
-<meta itemprop="wordCount" content="851">
+<meta itemprop="dateModified" content="2019-06-19T06:37:37&#43;02:00" />
+<meta itemprop="wordCount" content="852">
 
 
 
-<meta itemprop="keywords" content="sys,bsd,freebsd,ipv6,dhcp,dhcpv6,pd,prefix delegation,sfr,routing,SLAAC," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="sys,bsd,freebsd,ipv6,dhcp,dhcpv6,pd,prefix delegation,sfr,routing,SLAAC," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="IPv6 prefix delegation on FreeBSD router"/>
 <meta name="twitter:description" content="Goal I&rsquo;m attempting to set up a router box in to replace my SFR router on a home network. As my SFR plan has native IPv6, this box will request a prefix delegation and set up IPv6 routing for the computers on the home network. It will also handle NAT for IPv4.
 This is supposed to be a drop-in replacement for the SFR provided box, so it will have to:"/>
@@ -129,7 +127,7 @@ This is supposed to be a drop-in replacement for the SFR provided box, so it wil
       <div class="post-meta">
         <span class="post-time"> 2018-08-27 </span>
         
-          <span class="more-meta"> 851 words </span>
+          <span class="more-meta"> 852 words </span>
           <span class="more-meta"> 4 mins read </span>
         
       </div>
@@ -139,92 +137,70 @@ This is supposed to be a drop-in replacement for the SFR provided box, so it wil
   <h2 class="post-toc-title">Contents</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#goal">Goal</a></li>
-<li><a href="#how-this-works">How this works</a></li>
-<li><a href="#prerequisites">Prerequisites</a></li>
-<li><a href="#configuration">Configuration</a>
-<ul>
-<li><a href="#system">System</a></li>
-<li><a href="#dhcpv6-client">DHCPv6 client</a></li>
-<li><a href="#rtadvd">rtadvd</a></li>
-<li><a href="#firewall">Firewall</a></li>
-</ul></li>
-<li><a href="#references">References</a>
-<ul>
-<li><a href="#manual-pages">Manual pages</a></li>
-<li><a href="#forums-and-blogs">Forums and blogs</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#system">System</a></li>
+    <li><a href="#dhcpv6-client">DHCPv6 client</a></li>
+    <li><a href="#rtadvd">rtadvd</a></li>
+    <li><a href="#firewall">Firewall</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#manual-pages">Manual pages</a></li>
+    <li><a href="#forums-and-blogs">Forums and blogs</a></li>
+  </ul>
 </nav>
   </div>
 </div>
   <div class="post-outdated">
-    <div class="warn">
-      <p>[NOTE] Updated <span class="timeago" datetime="2018-08-27T09:22:00" title="August 27, 2018">August 27, 2018</span>. This article may have outdated content or subject matter.</p>
+    <div class="hint">
+      <p>[NOTE] Updated <span class="timeago" datetime="2019-06-19T06:37:37" title="June 19, 2019">June 19, 2019</span>. This article may have outdated content or subject matter.</p>
     </div>
   </div>
     <div class="post-content">
-      
-
-<h1 id="goal">Goal</h1>
-
+      <h1 id="goal">Goal</h1>
 <p>I&rsquo;m attempting to set up a router box in to replace my SFR router on a home network. As my SFR plan has native IPv6, this box will request a prefix delegation and set up IPv6 routing for the computers on the home network. It will also handle NAT for IPv4.</p>
-
 <p>This is supposed to be a drop-in replacement for the SFR provided box, so it will have to:</p>
-
 <ul>
 <li>Get an IPv4 via DHCP</li>
 <li>Get an IPv6 PD via DHCPv6</li>
 <li>Announce itself as an IPv6 router to the internal network via SLAAC</li>
 </ul>
-
 <h1 id="how-this-works">How this works</h1>
-
 <ul>
 <li>The router box will ask for a prefix from the provider. This is usually a /56 or larger.</li>
 <li>The router configures an IP from a subprefix of the provided prefix on the internal interfaces.</li>
 <li>The router then advertises this prefix as well as itself to clients over the internal interface.</li>
 </ul>
-
 <h1 id="prerequisites">Prerequisites</h1>
-
 <p>This is based on the following:</p>
-
 <ul>
 <li>A box with two or more network interfaces</li>
 <li>FreeBSD 11.2 (tested on FreeBSD 11.2-release-p2)</li>
 <li>KAME DHCP6 (tested on dhcp6-20080615.2)</li>
 <li>rtadvd (from base installation)</li>
 </ul>
-
 <h1 id="configuration">Configuration</h1>
-
 <p>The following examples are based on the following convention:</p>
-
 <ul>
 <li><code>re0</code> is the wan interface, going to my ISP.</li>
 <li><code>re1</code> is the lan interface, going to my internal network.</li>
 <li><code>bridge0</code> is an internal bridge for hosting VMs that run on the router.</li>
 </ul>
-
 <h2 id="system">System</h2>
-
 <p>Set the following sysctls in <code>/etc/sysctl.conf</code>:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-rc.conf" data-lang="rc.conf"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-rc.conf" data-lang="rc.conf">net.inet6.ip6.rfc6204w3=1</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">net.inet6.ip6.rfc6204w3=1
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>This is not strictly necessary, as it is handled by <code>ipv6_cpe_wanif</code> in <code>rc.conf</code>.</p>
-
+</div><p>This is not strictly necessary, as it is handled by <code>ipv6_cpe_wanif</code> in <code>rc.conf</code>.</p>
 <p>Set up interfaces and enable routing in <code>rc.conf</code> (<a href="https://www.freebsd.org/cgi/man.cgi?query=rc.conf&amp;apropos=0&amp;sektion=0&amp;manpath=FreeBSD+11.2-RELEASE+and+Ports&amp;arch=default&amp;format=html" title="rc.conf">see manual</a>):</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-rc.conf" data-lang="rc.conf"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -236,9 +212,10 @@ This is supposed to be a drop-in replacement for the SFR provided box, so it wil
 </span><span class="lnt">10
 </span><span class="lnt">11
 </span><span class="lnt">12
+</span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-rc.conf" data-lang="rc.conf">ipv6_cpe_wanif=&#34;re0&#34;
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">ipv6_cpe_wanif=&#34;re0&#34;
 ipv6_activate_all_interfaces=&#34;YES&#34;
 ipv6_gateway_enable=&#34;YES&#34;
 
@@ -249,26 +226,25 @@ rtadvd_enable=&#34;YES&#34;
 rtadvd_interfaces=&#34;re1 bridge0&#34;
 
 dhcp6c_enable=&#34;YES&#34;
-dhcp6c_interfaces=&#34;re0&#34;</code></pre></td></tr></table>
-</div>
-</div>
-<h2 id="dhcpv6-client">DHCPv6 client</h2>
+dhcp6c_interfaces=&#34;re0&#34;
 
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="dhcpv6-client">DHCPv6 client</h2>
 <p>This is required to request a prefix delegation from the ISP. Note that this won&rsquo;t setup a routable address on the wan interface. As this is supposed to be a router, it&rsquo;s not required. IPv6 communication to the router is done via link local addresses.</p>
-
 <p>Install KAME/WIDE dhcp6c client with pkg (or from <em>net/dhcp6</em> in ports):</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">pkg install dhcp6</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">pkg install dhcp6
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>Add to <code>/usr/local/etc/dhcp6c.conf</code> (<a href="https://www.freebsd.org/cgi/man.cgi?query=dhcp6c.conf&amp;apropos=0&amp;sektion=0&amp;manpath=FreeBSD+11.2-RELEASE+and+Ports&amp;arch=default&amp;format=html" title="dhcp6c.conf">see manual</a>):</p>
+</div><p>Add to <code>/usr/local/etc/dhcp6c.conf</code> (<a href="https://www.freebsd.org/cgi/man.cgi?query=dhcp6c.conf&amp;apropos=0&amp;sektion=0&amp;manpath=FreeBSD+11.2-RELEASE+and+Ports&amp;arch=default&amp;format=html" title="dhcp6c.conf">see manual</a>):</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-rc.conf" data-lang="rc.conf"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -297,7 +273,7 @@ dhcp6c_interfaces=&#34;re0&#34;</code></pre></td></tr></table>
 </span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-rc.conf" data-lang="rc.conf"># Request a prefix delegation on re0
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"># Request a prefix delegation on re0
 interface re0 {
         send    ia-na 1;
         send    ia-pd 1;
@@ -323,45 +299,36 @@ id-assoc pd 1 {
 };
 
 id-assoc na 1 {
-};</code></pre></td></tr></table>
+};
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>My ISP delegates me a /56. If I want to obtain a /64, I have to cut 8 bits from it. This is what the <code>sla-len 8</code> statement does.</p>
-
+</div><p>My ISP delegates me a /56. If I want to obtain a /64, I have to cut 8 bits from it. This is what the <code>sla-len 8</code> statement does.</p>
 <p>What basically happens is it builds an IPv6 of the following form: <code>prefix:sla:local_addr</code>. This is then configured on the interface corresponding to the <code>prefix-interface</code> statement. This is on the client side.</p>
-
 <p>The <em>sla</em> becomes part of the prefix as advertised to the client subnets.</p>
-
 <h2 id="rtadvd">rtadvd</h2>
-
 <p>This is a daemon that works on the client side of the router and handles host autoconfiguration via SLAAC:</p>
-
 <ul>
 <li>It announces the prefix of the interface to the hosts connected to that interface by periodically sending router advertisements and responding to router solicitations.</li>
 <li>It announces itself as the router for the segment by replying to neighbour solicitations and sending gratuitious neighbour advertisments.</li>
 </ul>
-
 <p>rtadvd is part of the FreeBSD base system. It expects its configuration in <code>/etc/rtadvd.conf</code> (<a href="https://www.freebsd.org/cgi/man.cgi?query=rtadvd.conf&amp;apropos=0&amp;sektion=0&amp;manpath=FreeBSD+11.2-RELEASE+and+Ports&amp;arch=default&amp;format=html" title="rtadvd.conf">see manual</a>):</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-rc.conf" data-lang="rc.conf"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-rc.conf" data-lang="rc.conf">default:\
-       :prefixlen#64:\</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">default:\
+       :prefixlen#64:\
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>If the prefixes on the client side are dynamic, as is the case when handled via dhcp6c, there is no need to specify them in the configuration file. rtadvd will use the ones configured on the interface and handle prefix changes.</p>
-
+</div><p>If the prefixes on the client side are dynamic, as is the case when handled via dhcp6c, there is no need to specify them in the configuration file. rtadvd will use the ones configured on the interface and handle prefix changes.</p>
 <p>If you need different settings per interface, you can specify the interface name instead of <em>default</em> in the config file.</p>
-
 <h2 id="firewall">Firewall</h2>
-
 <p>If you&rsquo;re using PF, be sure to only NAT IPv4 packets. The below configuration shows what&rsquo;s required to allow IPv6 autoconfiguration.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-pf.conf" data-lang="pf.conf"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -373,7 +340,7 @@ id-assoc na 1 {
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-pf.conf" data-lang="pf.conf">wan = &#34;re0&#34;
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">wan = &#34;re0&#34;
 lan = &#34;re1&#34;
 
 nat log on $wan inet from ! $wan to any -&gt; ($wan)
@@ -382,27 +349,20 @@ nat log on $wan inet from ! $wan to any -&gt; ($wan)
 pass in log on $wan inet6 proto udp from any to ( $wan ) port dhcpv6-client keep state
 pass out log on $wan inet6 proto udp from self to any port dhcpv6-server keep state
 
-pass log inet6 proto icmp6 all icmp6-type {neighbradv, neighbrsol, routersol, routeradv}</code></pre></td></tr></table>
+pass log inet6 proto icmp6 all icmp6-type {neighbradv, neighbrsol, routersol, routeradv}
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>As dhcp6c doesn&rsquo;t get a route, it&rsquo;s necessary that the router be able to send router solicitations and receive advertisments on the wan interface (see entry for <code>ipv6_cpe_wanif</code> in <a href="https://www.freebsd.org/cgi/man.cgi?query=rc.conf&amp;apropos=0&amp;sektion=0&amp;manpath=FreeBSD+11.2-RELEASE+and+Ports&amp;arch=default&amp;format=html" title="rc.conf">rc.conf manual</a>).</p>
-
+</div><p>As dhcp6c doesn&rsquo;t get a route, it&rsquo;s necessary that the router be able to send router solicitations and receive advertisments on the wan interface (see entry for <code>ipv6_cpe_wanif</code> in <a href="https://www.freebsd.org/cgi/man.cgi?query=rc.conf&amp;apropos=0&amp;sektion=0&amp;manpath=FreeBSD+11.2-RELEASE+and+Ports&amp;arch=default&amp;format=html" title="rc.conf">rc.conf manual</a>).</p>
 <p>Add other firewall rules as necessary. The above rules won&rsquo;t allow ping for example.</p>
-
 <h1 id="references">References</h1>
-
 <p>Resources that have helped me along the way:</p>
-
 <h2 id="manual-pages">Manual pages</h2>
-
 <ul>
 <li><a href="https://www.freebsd.org/cgi/man.cgi?query=rc.conf&amp;apropos=0&amp;sektion=0&amp;manpath=FreeBSD+11.2-RELEASE+and+Ports&amp;arch=default&amp;format=html" title="rc.conf">rc.conf manual</a></li>
 <li><a href="https://www.freebsd.org/cgi/man.cgi?query=rtadvd.conf&amp;apropos=0&amp;sektion=0&amp;manpath=FreeBSD+11.2-RELEASE+and+Ports&amp;arch=default&amp;format=html" title="rtadvd.conf">rtadvd.conf manual</a></li>
 <li><a href="https://www.freebsd.org/cgi/man.cgi?query=dhcp6c.conf&amp;apropos=0&amp;sektion=0&amp;manpath=FreeBSD+11.2-RELEASE+and+Ports&amp;arch=default&amp;format=html" title="dhcp6c.conf">dhcp6c.conf manual</a></li>
 </ul>
-
 <h2 id="forums-and-blogs">Forums and blogs</h2>
-
 <ul>
 <li><a href="https://blog.crashed.org/setting-up-freebsd-with-comcast-ipv6/">Setting up FreeBSD with Comcast IPv6</a></li>
 <li><a href="https://forums.freebsd.org/threads/ipv6-gateway.53522/">FreeBSD Forums - IPv6 Gateway</a></li>
@@ -419,8 +379,8 @@ pass log inet6 proto icmp6 all icmp6-type {neighbradv, neighbrsol, routersol, ro
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2018-08-27
-        
+        2019-06-19
+        <a href="/commit/b3a711e31f64c70ccbaaaaf0c8f22a11b2fec7b6" title="Initial commit.">(b3a711e)</a>
     </span>
   </p>
   
@@ -441,7 +401,11 @@ pass log inet6 proto icmp6 all icmp6-type {neighbradv, neighbrsol, routersol, ro
           <a href="/tags/slaac/">SLAAC</a>
           </div>
       <nav class="post-nav">
-        
+        <a class="prev" href="/post/20200419-1046-mac-intl-layout-in-gnome/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Mac International keyboard layout in Gnome</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
         <a class="next" href="/post/20180807-1626-dual_screen_kiosk_ubuntu/">
             <span class="next-text nav-default">Running Chrome in dual screen kiosk mode on Ubuntu</span>
             <span class="next-text nav-mobile">Next</span>
@@ -497,11 +461,11 @@ pass log inet6 proto icmp6 all icmp6-type {neighbradv, neighbrsol, routersol, ro
   <span class="copyright-year">
     &copy; 
     2013 - 
-    2019
+    2020
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
-    <span class="author">Copyright © 2019 Vlad Vasiliu; all rights reserved.</span>
+    <span class="author">Vlad Vasiliu; all rights reserved.</span>
   </span>
 </div>
     </footer>
@@ -521,7 +485,10 @@ pass log inet6 proto icmp6 all icmp6-type {neighbradv, neighbrsol, routersol, ro
     timeago().render(document.querySelectorAll('.timeago'), languageCode);
     timeago.cancel();  
   </script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+<script type="text/javascript" src="https://vladvasiliu.com/js/main.cddea96674a99fd8cea50d36fb19d9c91f497feea4af5ce4596afd2dbaab9202.js"></script>
 
 
 <script type="application/javascript">
