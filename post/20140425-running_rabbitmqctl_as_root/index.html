@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-
-  <meta name="generator" content="Hugo 0.68.3" />
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="keywords" content="RabbitMQ"><meta property="og:title" content="Running rabbitmqctl as root" />
+	
+	<meta name="generator" content="Hugo 0.75.1" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="keywords" content="RabbitMQ"><meta property="og:title" content="Running rabbitmqctl as root" />
 <meta property="og:description" content="On some Linux distributions, running rabbitmqctl as root may fail with the following error:
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33  Error: unable to connect to node rabbit@host: nodedown DIAGNOSTICS =========== attempted to contact: [rabbit@host] rabbit@host: * found rabbit (port 25672) * TCP connection succeeded * suggestion: hostname mismatch?" />
 <meta property="og:type" content="article" />
@@ -17,54 +17,66 @@
 <meta name="twitter:description" content="On some Linux distributions, running rabbitmqctl as root may fail with the following error:
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33  Error: unable to connect to node rabbit@host: nodedown DIAGNOSTICS =========== attempted to contact: [rabbit@host] rabbit@host: * found rabbit (port 25672) * TCP connection succeeded * suggestion: hostname mismatch?"/>
 
-  <link rel="stylesheet" type="text/css" media="screen" href="https://vladvasiliu.com/css/normalize.css" />
-  <link rel="stylesheet" type="text/css" media="screen" href="https://vladvasiliu.com/css/main.css" />
-  <link rel="stylesheet" type="text/css" media="screen" href="https://vladvasiliu.com/css/all.css" />
-<title>Running rabbitmqctl as root | vBlog</title></head>
-<body><header id="withavatar">
-  <div id="avatar">
-    <a href="https://vladvasiliu.com/">
-      <img src="/img/avatar.png" alt="vBlog">
-    </a>
-  </div><div id="titletext"><h2 id="title"><a href="https://vladvasiliu.com/">vBlog</a></h2><p id="subtitle">Useful tips and snippets</p></div>
-  <div id=social>
-    <nav>
-      <ul><li><a href="https://github.com/vladvasiliu"><i title="Github" class="icons fab fa-github"></i></a></li><li><a href="https://www.behance.net/vvasiliu"><i title="Behance" class="icons fab fa-behance-square"></i></a></li><li><a href="https://photo.vladvasiliu.com"><i title="Photography" class="icons fas fa-camera"></i></a></li></ul>
-    </nav>
-  </div>
-  <div id="mainmenu">
-    <nav>
-      <ul>
-        
-        <li><a href="/">Home</a></li>
-        
-        <li><a href="/post">All posts</a></li>
-        
-        <li><a href="/about">About</a></li>
-        
-      </ul>
-    </nav>
-  </div>
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" />
+	<title>Running rabbitmqctl as root | vBlog</title></head>
+<body><header>
+	
+	<div id="avatar">
+		<a href="https://vladvasiliu.com/">
+		  <img src="/img/avatar.png" alt="vBlog">
+		</a>
+	</div>
+	
+	<div id="titletext"><h2 id="title"><a href="https://vladvasiliu.com/">vBlog</a></h2></div>
+	<div id="title-description"><p id="subtitle">Useful tips and snippets</p><div id="social">
+			<nav>
+				<ul>
+					<li><a href="https://github.com/vladvasiliu"><i title="Github" class="icons fab fa-github"></i></a></li>
+					<li><a href="https://www.behance.net/vvasiliu"><i title="Behance" class="icons fab fa-behance-square"></i></a></li>
+					<li><a href="https://photo.vladvasiliu.com"><i title="Photography" class="icons fas fa-camera"></i></a></li></ul>
+			</nav>
+		</div>
+	</div>
+	
+	<div id="mainmenu">
+		<nav>
+			<ul>
+				
+				<li><a href="/">Home</a></li>
+				
+				<li><a href="/post">All posts</a></li>
+				
+				<li><a href="/about">About</a></li>
+				
+			</ul>
+		</nav>
+	</div>
+	
 </header>
 <main><div class="post">
-<div class="author">
-
-</div>
-<div class="post-header">
-
-<div class="meta">
-<div class="date">
-<span class="day">25</span>
-<span class="rest">Apr 2014</span>
-</div>
-</div>
-
-<div class="matter">
-<h1 class="title">Running rabbitmqctl as root</h1>
-</div>
-</div>
-<div class="markdown">
-<p>On some Linux distributions, running <code>rabbitmqctl</code> as root may fail with the following error:</p>
+	
+	<div class="author">
+	
+	</div>
+	<div class="post-header">
+	
+		<div class="meta">
+			
+			<div class="date">
+				<span class="day">25</span>
+				<span class="rest">Apr 2014</span>
+			</div>
+			
+		</div>
+		
+		<div class="matter">
+			<h1 class="title">Running rabbitmqctl as root</h1>
+		</div>
+	</div>
+	<div class="markdown">
+		<p>On some Linux distributions, running <code>rabbitmqctl</code> as root may fail with the following error:</p>
 <div class="highlight"><div style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -140,232 +152,218 @@
 </div><p>Assuming that the hostname is correct and running <code>rabbitmqctl</code> as the rabbitmq user works, this is a cookie mismatch problem.</p>
 <p>In order to be able to run <code>rabbitmqctl</code> as root, it must use the same cookie as the one used by the server. This cookie is usually found in <code>/var/lib/rabbitmq/.erlang.cookie</code>. To use this cookie, the <code>HOME</code> environment must be set to <code>/var/lib/rabbitmq</code>. Either create a wrapper around <code>/usr/bin/rabbitmqctl</code> that sets the correct environment, or edit this file to add <code>HOME=/var/lib/rabbitmq</code> on the line that starts with <code>exec ${ERL_DIR}</code>.</p>
 
-</div>
-<div class="tags">
-
-
-
-
-
-
-
-
-
-<div class="taxosfloating_left">
-<p>Tags</p>
-</div>
-<div class="termsfloating_right">
-<p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<a href="/tags/rabbitmq/"> rabbitmq </a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-<div class="clearit"></div>
-
-
-
-
-
-</div><script type="text/javascript">
-(function () {
-
-
-if (window.location.hostname == "localhost")
-return;
-
-var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-var disqus_shortname = 'vladvasiliu';
-dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();
-</script>
-<noscript>Please enable JavaScript to view the</a></noscript>
-<a href="http://disqus.com/">comments powered by <span>Disqus</span></a>
-</div>
-</div>
-
-</main><footer>
- © 2020 Vlad Vasiliu 
-
-
+	</div>
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	<div class="tags">
+		<div class="taxosfloating_left">
+			<p>Tags</p>
+		</div>
+		<div class="termsfloating_right">
+			<p>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<a href="/tags/rabbitmq/"> rabbitmq </a>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			</p>
+		</div>
+		<div class="clearit"></div>
+		
+		
+		
+		
+		
+	</div></div>
+
+  </main>
+<footer>
+	 © 2020 Vlad Vasiliu 
+	
+	
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -377,6 +375,9 @@ if (!doNotTrack) {
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
+	
 </footer>
+
+
 </body>
 </html>

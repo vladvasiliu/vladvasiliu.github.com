@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-
-  <meta name="generator" content="Hugo 0.68.3" />
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="author" content="Vlad Vasiliu"><meta name="keywords" content="xkbd,gnome,ubuntu"><meta name="description" content="How to setup ISO Level 3 to any modifier"><meta property="og:title" content="Mac International keyboard layout in Gnome" />
+	
+	<meta name="generator" content="Hugo 0.75.1" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="author" content="Vlad Vasiliu"><meta name="keywords" content="xkbd,gnome,ubuntu"><meta name="description" content="How to setup ISO Level 3 to any modifier"><meta property="og:title" content="Mac International keyboard layout in Gnome" />
 <meta property="og:description" content="How to setup ISO Level 3 to any modifier" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://vladvasiliu.com/post/20200419-1046-mac-intl-layout-in-gnome/" />
@@ -15,54 +15,66 @@
 <meta name="twitter:title" content="Mac International keyboard layout in Gnome"/>
 <meta name="twitter:description" content="How to setup ISO Level 3 to any modifier"/>
 
-  <link rel="stylesheet" type="text/css" media="screen" href="https://vladvasiliu.com/css/normalize.css" />
-  <link rel="stylesheet" type="text/css" media="screen" href="https://vladvasiliu.com/css/main.css" />
-  <link rel="stylesheet" type="text/css" media="screen" href="https://vladvasiliu.com/css/all.css" />
-<title>Mac International keyboard layout in Gnome | vBlog</title></head>
-<body><header id="withavatar">
-  <div id="avatar">
-    <a href="https://vladvasiliu.com/">
-      <img src="/img/avatar.png" alt="vBlog">
-    </a>
-  </div><div id="titletext"><h2 id="title"><a href="https://vladvasiliu.com/">vBlog</a></h2><p id="subtitle">Useful tips and snippets</p></div>
-  <div id=social>
-    <nav>
-      <ul><li><a href="https://github.com/vladvasiliu"><i title="Github" class="icons fab fa-github"></i></a></li><li><a href="https://www.behance.net/vvasiliu"><i title="Behance" class="icons fab fa-behance-square"></i></a></li><li><a href="https://photo.vladvasiliu.com"><i title="Photography" class="icons fas fa-camera"></i></a></li></ul>
-    </nav>
-  </div>
-  <div id="mainmenu">
-    <nav>
-      <ul>
-        
-        <li><a href="/">Home</a></li>
-        
-        <li><a href="/post">All posts</a></li>
-        
-        <li><a href="/about">About</a></li>
-        
-      </ul>
-    </nav>
-  </div>
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" />
+	<title>Mac International keyboard layout in Gnome | vBlog</title></head>
+<body><header>
+	
+	<div id="avatar">
+		<a href="https://vladvasiliu.com/">
+		  <img src="/img/avatar.png" alt="vBlog">
+		</a>
+	</div>
+	
+	<div id="titletext"><h2 id="title"><a href="https://vladvasiliu.com/">vBlog</a></h2></div>
+	<div id="title-description"><p id="subtitle">Useful tips and snippets</p><div id="social">
+			<nav>
+				<ul>
+					<li><a href="https://github.com/vladvasiliu"><i title="Github" class="icons fab fa-github"></i></a></li>
+					<li><a href="https://www.behance.net/vvasiliu"><i title="Behance" class="icons fab fa-behance-square"></i></a></li>
+					<li><a href="https://photo.vladvasiliu.com"><i title="Photography" class="icons fas fa-camera"></i></a></li></ul>
+			</nav>
+		</div>
+	</div>
+	
+	<div id="mainmenu">
+		<nav>
+			<ul>
+				
+				<li><a href="/">Home</a></li>
+				
+				<li><a href="/post">All posts</a></li>
+				
+				<li><a href="/about">About</a></li>
+				
+			</ul>
+		</nav>
+	</div>
+	
 </header>
 <main><div class="post">
-<div class="author">
-
-</div>
-<div class="post-header">
-
-<div class="meta">
-<div class="date">
-<span class="day">19</span>
-<span class="rest">Apr 2020</span>
-</div>
-</div>
-
-<div class="matter">
-<h1 class="title">Mac International keyboard layout in Gnome</h1>
-</div>
-</div>
-<div class="markdown">
-<p>For international users the MacOS layout allows using a QWERTY keyboard but also entering local symbols. This is not directly available on Gnome.</p>
+	
+	<div class="author">
+	
+	</div>
+	<div class="post-header">
+	
+		<div class="meta">
+			
+			<div class="date">
+				<span class="day">19</span>
+				<span class="rest">Apr 2020</span>
+			</div>
+			
+		</div>
+		
+		<div class="matter">
+			<h1 class="title">Mac International keyboard layout in Gnome</h1>
+		</div>
+	</div>
+	<div class="markdown">
+		<p>For international users the MacOS layout allows using a QWERTY keyboard but also entering local symbols. This is not directly available on Gnome.</p>
 <h2 id="goal">Goal</h2>
 <p>I&rsquo;m usig regularly both a Mac and Linux PC. I prefer the US layout for programming use but I also have to type in French.
 The standard US layout on the Mac is perfect for this as it allows me to use the familiar QWERTY layout for system / programming tasks but I&rsquo;m also able to type in French symbols easily.</p>
@@ -88,236 +100,222 @@ The solution is to set up the configuration on the command line. See point two a
 <li><a href="https://wiki.archlinux.org/index.php/X_keyboard_extension">Arch Wiki • X keyboard extension</a></li>
 <li><a href="https://wiki.archlinux.org/index.php/Xorg/Keyboard_configuration#Setting_keyboard_layout">Arch Wiki • Keyboard configuration</a></li>
 </ul>
-</div>
-<div class="tags">
-
-
-
-
-
-
-
-
-
-<div class="taxosfloating_left">
-<p>Tags</p>
-</div>
-<div class="termsfloating_right">
-<p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<a href="/tags/gnome/"> gnome </a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<a href="/tags/ubuntu/"> ubuntu </a>
-
-
-
-
-
-
-
-
-
-<a href="/tags/xkbd/"> xkbd </a>
-
-
-
-
-
-
-
-
-
-
-
-</div>
-<div class="clearit"></div>
-
-
-
-
-
-</div><script type="text/javascript">
-(function () {
-
-
-if (window.location.hostname == "localhost")
-return;
-
-var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-var disqus_shortname = 'vladvasiliu';
-dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();
-</script>
-<noscript>Please enable JavaScript to view the</a></noscript>
-<a href="http://disqus.com/">comments powered by <span>Disqus</span></a>
-</div>
-</div>
-
-</main><footer>
- © 2020 Vlad Vasiliu 
-
-
+	</div>
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	<div class="tags">
+		<div class="taxosfloating_left">
+			<p>Tags</p>
+		</div>
+		<div class="termsfloating_right">
+			<p>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<a href="/tags/gnome/"> gnome </a>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<a href="/tags/ubuntu/"> ubuntu </a>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<a href="/tags/xkbd/"> xkbd </a>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			</p>
+		</div>
+		<div class="clearit"></div>
+		
+		
+		
+		
+		
+	</div></div>
+
+  </main>
+<footer>
+	 © 2020 Vlad Vasiliu 
+	
+	
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -329,6 +327,9 @@ if (!doNotTrack) {
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
+	
 </footer>
+
+
 </body>
 </html>

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-
-  <meta name="generator" content="Hugo 0.68.3" />
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="keywords" content="MySQL"><meta property="og:title" content="MySQL Replication - I/O Error Code 1045" />
+	
+	<meta name="generator" content="Hugo 0.75.1" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="keywords" content="MySQL"><meta property="og:title" content="MySQL Replication - I/O Error Code 1045" />
 <meta property="og:description" content="Setting up replication on MySQL may yield the following error:
 1  [ERROR] Slave I/O: error connecting to master, Error code 1045   The MySQL troubleshooting page gives a few hints, talking about credentials for the replication user. However, attempting a connection via the command line client works, so the password is OK and the slave can reach the master. As it turns out, for replication purposes, the maximum password length is 32 characters." />
 <meta property="og:type" content="article" />
@@ -17,54 +17,66 @@
 <meta name="twitter:description" content="Setting up replication on MySQL may yield the following error:
 1  [ERROR] Slave I/O: error connecting to master, Error code 1045   The MySQL troubleshooting page gives a few hints, talking about credentials for the replication user. However, attempting a connection via the command line client works, so the password is OK and the slave can reach the master. As it turns out, for replication purposes, the maximum password length is 32 characters."/>
 
-  <link rel="stylesheet" type="text/css" media="screen" href="https://vladvasiliu.com/css/normalize.css" />
-  <link rel="stylesheet" type="text/css" media="screen" href="https://vladvasiliu.com/css/main.css" />
-  <link rel="stylesheet" type="text/css" media="screen" href="https://vladvasiliu.com/css/all.css" />
-<title>MySQL Replication - I/O Error Code 1045 | vBlog</title></head>
-<body><header id="withavatar">
-  <div id="avatar">
-    <a href="https://vladvasiliu.com/">
-      <img src="/img/avatar.png" alt="vBlog">
-    </a>
-  </div><div id="titletext"><h2 id="title"><a href="https://vladvasiliu.com/">vBlog</a></h2><p id="subtitle">Useful tips and snippets</p></div>
-  <div id=social>
-    <nav>
-      <ul><li><a href="https://github.com/vladvasiliu"><i title="Github" class="icons fab fa-github"></i></a></li><li><a href="https://www.behance.net/vvasiliu"><i title="Behance" class="icons fab fa-behance-square"></i></a></li><li><a href="https://photo.vladvasiliu.com"><i title="Photography" class="icons fas fa-camera"></i></a></li></ul>
-    </nav>
-  </div>
-  <div id="mainmenu">
-    <nav>
-      <ul>
-        
-        <li><a href="/">Home</a></li>
-        
-        <li><a href="/post">All posts</a></li>
-        
-        <li><a href="/about">About</a></li>
-        
-      </ul>
-    </nav>
-  </div>
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" />
+	<title>MySQL Replication - I/O Error Code 1045 | vBlog</title></head>
+<body><header>
+	
+	<div id="avatar">
+		<a href="https://vladvasiliu.com/">
+		  <img src="/img/avatar.png" alt="vBlog">
+		</a>
+	</div>
+	
+	<div id="titletext"><h2 id="title"><a href="https://vladvasiliu.com/">vBlog</a></h2></div>
+	<div id="title-description"><p id="subtitle">Useful tips and snippets</p><div id="social">
+			<nav>
+				<ul>
+					<li><a href="https://github.com/vladvasiliu"><i title="Github" class="icons fab fa-github"></i></a></li>
+					<li><a href="https://www.behance.net/vvasiliu"><i title="Behance" class="icons fab fa-behance-square"></i></a></li>
+					<li><a href="https://photo.vladvasiliu.com"><i title="Photography" class="icons fas fa-camera"></i></a></li></ul>
+			</nav>
+		</div>
+	</div>
+	
+	<div id="mainmenu">
+		<nav>
+			<ul>
+				
+				<li><a href="/">Home</a></li>
+				
+				<li><a href="/post">All posts</a></li>
+				
+				<li><a href="/about">About</a></li>
+				
+			</ul>
+		</nav>
+	</div>
+	
 </header>
 <main><div class="post">
-<div class="author">
-
-</div>
-<div class="post-header">
-
-<div class="meta">
-<div class="date">
-<span class="day">17</span>
-<span class="rest">Aug 2013</span>
-</div>
-</div>
-
-<div class="matter">
-<h1 class="title">MySQL Replication - I/O Error Code 1045</h1>
-</div>
-</div>
-<div class="markdown">
-<p>Setting up replication on MySQL may yield the following error:</p>
+	
+	<div class="author">
+	
+	</div>
+	<div class="post-header">
+	
+		<div class="meta">
+			
+			<div class="date">
+				<span class="day">17</span>
+				<span class="rest">Aug 2013</span>
+			</div>
+			
+		</div>
+		
+		<div class="matter">
+			<h1 class="title">MySQL Replication - I/O Error Code 1045</h1>
+		</div>
+	</div>
+	<div class="markdown">
+		<p>Setting up replication on MySQL may yield the following error:</p>
 <div class="highlight"><div style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -75,232 +87,218 @@
 </div>
 </div><p>The MySQL troubleshooting page gives a few hints, talking about credentials for the replication user. However, attempting a connection via the command line client works, so the password is OK and the slave can reach the master. As it turns out, for replication purposes, the maximum password length is 32 characters.</p>
 
-</div>
-<div class="tags">
-
-
-
-
-
-
-
-
-
-<div class="taxosfloating_left">
-<p>Tags</p>
-</div>
-<div class="termsfloating_right">
-<p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<a href="/tags/mysql/"> mysql </a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-<div class="clearit"></div>
-
-
-
-
-
-</div><script type="text/javascript">
-(function () {
-
-
-if (window.location.hostname == "localhost")
-return;
-
-var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-var disqus_shortname = 'vladvasiliu';
-dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();
-</script>
-<noscript>Please enable JavaScript to view the</a></noscript>
-<a href="http://disqus.com/">comments powered by <span>Disqus</span></a>
-</div>
-</div>
-
-</main><footer>
- © 2020 Vlad Vasiliu 
-
-
+	</div>
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	<div class="tags">
+		<div class="taxosfloating_left">
+			<p>Tags</p>
+		</div>
+		<div class="termsfloating_right">
+			<p>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<a href="/tags/mysql/"> mysql </a>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			</p>
+		</div>
+		<div class="clearit"></div>
+		
+		
+		
+		
+		
+	</div></div>
+
+  </main>
+<footer>
+	 © 2020 Vlad Vasiliu 
+	
+	
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -312,6 +310,9 @@ if (!doNotTrack) {
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
+	
 </footer>
+
+
 </body>
 </html>

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-
-  <meta name="generator" content="Hugo 0.68.3" />
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="keywords" content="Net,dhcp,PFSense"><meta name="description" content="Send a classless route with DHCP"><meta property="og:title" content="DHCP Option 121 in PFSense" />
+	
+	<meta name="generator" content="Hugo 0.75.1" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="keywords" content="Net,dhcp,PFSense"><meta name="description" content="Send a classless route with DHCP"><meta property="og:title" content="DHCP Option 121 in PFSense" />
 <meta property="og:description" content="Send a classless route with DHCP" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://vladvasiliu.com/post/20150311-2031_dhcp_option_121/" />
@@ -15,287 +15,285 @@
 <meta name="twitter:title" content="DHCP Option 121 in PFSense"/>
 <meta name="twitter:description" content="Send a classless route with DHCP"/>
 
-  <link rel="stylesheet" type="text/css" media="screen" href="https://vladvasiliu.com/css/normalize.css" />
-  <link rel="stylesheet" type="text/css" media="screen" href="https://vladvasiliu.com/css/main.css" />
-  <link rel="stylesheet" type="text/css" media="screen" href="https://vladvasiliu.com/css/all.css" />
-<title>DHCP Option 121 in PFSense | vBlog</title></head>
-<body><header id="withavatar">
-  <div id="avatar">
-    <a href="https://vladvasiliu.com/">
-      <img src="/img/avatar.png" alt="vBlog">
-    </a>
-  </div><div id="titletext"><h2 id="title"><a href="https://vladvasiliu.com/">vBlog</a></h2><p id="subtitle">Useful tips and snippets</p></div>
-  <div id=social>
-    <nav>
-      <ul><li><a href="https://github.com/vladvasiliu"><i title="Github" class="icons fab fa-github"></i></a></li><li><a href="https://www.behance.net/vvasiliu"><i title="Behance" class="icons fab fa-behance-square"></i></a></li><li><a href="https://photo.vladvasiliu.com"><i title="Photography" class="icons fas fa-camera"></i></a></li></ul>
-    </nav>
-  </div>
-  <div id="mainmenu">
-    <nav>
-      <ul>
-        
-        <li><a href="/">Home</a></li>
-        
-        <li><a href="/post">All posts</a></li>
-        
-        <li><a href="/about">About</a></li>
-        
-      </ul>
-    </nav>
-  </div>
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" />
+	<title>DHCP Option 121 in PFSense | vBlog</title></head>
+<body><header>
+	
+	<div id="avatar">
+		<a href="https://vladvasiliu.com/">
+		  <img src="/img/avatar.png" alt="vBlog">
+		</a>
+	</div>
+	
+	<div id="titletext"><h2 id="title"><a href="https://vladvasiliu.com/">vBlog</a></h2></div>
+	<div id="title-description"><p id="subtitle">Useful tips and snippets</p><div id="social">
+			<nav>
+				<ul>
+					<li><a href="https://github.com/vladvasiliu"><i title="Github" class="icons fab fa-github"></i></a></li>
+					<li><a href="https://www.behance.net/vvasiliu"><i title="Behance" class="icons fab fa-behance-square"></i></a></li>
+					<li><a href="https://photo.vladvasiliu.com"><i title="Photography" class="icons fas fa-camera"></i></a></li></ul>
+			</nav>
+		</div>
+	</div>
+	
+	<div id="mainmenu">
+		<nav>
+			<ul>
+				
+				<li><a href="/">Home</a></li>
+				
+				<li><a href="/post">All posts</a></li>
+				
+				<li><a href="/about">About</a></li>
+				
+			</ul>
+		</nav>
+	</div>
+	
 </header>
 <main><div class="post">
-<div class="author">
-
-</div>
-<div class="post-header">
-
-<div class="meta">
-<div class="date">
-<span class="day">11</span>
-<span class="rest">Mar 2015</span>
-</div>
-</div>
-
-<div class="matter">
-<h1 class="title">DHCP Option 121 in PFSense</h1>
-</div>
-</div>
-<div class="markdown">
-<p>The DHCP Option 121 is described here: <a href="http://tools.ietf.org/html/rfc3442">http://tools.ietf.org/html/rfc3442</a>. It allows the DHCP server to send a classless route.</p>
+	
+	<div class="author">
+	
+	</div>
+	<div class="post-header">
+	
+		<div class="meta">
+			
+			<div class="date">
+				<span class="day">11</span>
+				<span class="rest">Mar 2015</span>
+			</div>
+			
+		</div>
+		
+		<div class="matter">
+			<h1 class="title">DHCP Option 121 in PFSense</h1>
+		</div>
+	</div>
+	<div class="markdown">
+		<p>The DHCP Option 121 is described here: <a href="http://tools.ietf.org/html/rfc3442">http://tools.ietf.org/html/rfc3442</a>. It allows the DHCP server to send a classless route.</p>
 <p>In PFSense, one can add this option by setting the type to string. The catch is that the length is variable, according to the netmask length.</p>
 <p>For example, to add 10.0.0.0/8 via 10.100.5.1, the HEX is: <code>08:0A:0A:64:05:01</code></p>
 
-</div>
-<div class="tags">
-
-
-
-
-
-
-
-
-
-<div class="taxosfloating_left">
-<p>Tags</p>
-</div>
-<div class="termsfloating_right">
-<p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<a href="/tags/dhcp/"> dhcp </a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<a href="/tags/net/"> net </a>
-
-
-
-
-
-
-
-
-
-<a href="/tags/pfsense/"> pfsense </a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-<div class="clearit"></div>
-
-
-
-
-
-</div><script type="text/javascript">
-(function () {
-
-
-if (window.location.hostname == "localhost")
-return;
-
-var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-var disqus_shortname = 'vladvasiliu';
-dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();
-</script>
-<noscript>Please enable JavaScript to view the</a></noscript>
-<a href="http://disqus.com/">comments powered by <span>Disqus</span></a>
-</div>
-</div>
-
-</main><footer>
- © 2020 Vlad Vasiliu 
-
-
+	</div>
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	<div class="tags">
+		<div class="taxosfloating_left">
+			<p>Tags</p>
+		</div>
+		<div class="termsfloating_right">
+			<p>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<a href="/tags/dhcp/"> dhcp </a>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<a href="/tags/net/"> net </a>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<a href="/tags/pfsense/"> pfsense </a>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			</p>
+		</div>
+		<div class="clearit"></div>
+		
+		
+		
+		
+		
+	</div></div>
+
+  </main>
+<footer>
+	 © 2020 Vlad Vasiliu 
+	
+	
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -307,6 +305,9 @@ if (!doNotTrack) {
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
+	
 </footer>
+
+
 </body>
 </html>

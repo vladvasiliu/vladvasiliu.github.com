@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-
-  <meta name="generator" content="Hugo 0.68.3" />
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="keywords" content="FreeBSD,ZFS,ACL,sysadmin"><meta property="og:title" content="Setting default NFSv4 ACLs on FreeBSD" />
+	
+	<meta name="generator" content="Hugo 0.75.1" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="keywords" content="FreeBSD,ZFS,ACL,sysadmin"><meta property="og:title" content="Setting default NFSv4 ACLs on FreeBSD" />
 <meta property="og:description" content="On FreeBSD with ZFS, only NFSv4 ACLs are supported. At the time of this writing, the FreeBSD documentation regarding ACLs is a bit vague. Specifically, it doesn’t talk about inheritable attributes.
 The -d argument, used to define default POSIX ACLs is not supported. Instead, there are some flags one can set in order to define how ACLs are inherited. For an explanation, look in the manual for setfacl, section ACL inheritance flags." />
 <meta property="og:type" content="article" />
@@ -17,54 +17,66 @@ The -d argument, used to define default POSIX ACLs is not supported. Instead, th
 <meta name="twitter:description" content="On FreeBSD with ZFS, only NFSv4 ACLs are supported. At the time of this writing, the FreeBSD documentation regarding ACLs is a bit vague. Specifically, it doesn’t talk about inheritable attributes.
 The -d argument, used to define default POSIX ACLs is not supported. Instead, there are some flags one can set in order to define how ACLs are inherited. For an explanation, look in the manual for setfacl, section ACL inheritance flags."/>
 
-  <link rel="stylesheet" type="text/css" media="screen" href="https://vladvasiliu.com/css/normalize.css" />
-  <link rel="stylesheet" type="text/css" media="screen" href="https://vladvasiliu.com/css/main.css" />
-  <link rel="stylesheet" type="text/css" media="screen" href="https://vladvasiliu.com/css/all.css" />
-<title>Setting default NFSv4 ACLs on FreeBSD | vBlog</title></head>
-<body><header id="withavatar">
-  <div id="avatar">
-    <a href="https://vladvasiliu.com/">
-      <img src="/img/avatar.png" alt="vBlog">
-    </a>
-  </div><div id="titletext"><h2 id="title"><a href="https://vladvasiliu.com/">vBlog</a></h2><p id="subtitle">Useful tips and snippets</p></div>
-  <div id=social>
-    <nav>
-      <ul><li><a href="https://github.com/vladvasiliu"><i title="Github" class="icons fab fa-github"></i></a></li><li><a href="https://www.behance.net/vvasiliu"><i title="Behance" class="icons fab fa-behance-square"></i></a></li><li><a href="https://photo.vladvasiliu.com"><i title="Photography" class="icons fas fa-camera"></i></a></li></ul>
-    </nav>
-  </div>
-  <div id="mainmenu">
-    <nav>
-      <ul>
-        
-        <li><a href="/">Home</a></li>
-        
-        <li><a href="/post">All posts</a></li>
-        
-        <li><a href="/about">About</a></li>
-        
-      </ul>
-    </nav>
-  </div>
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" />
+	<title>Setting default NFSv4 ACLs on FreeBSD | vBlog</title></head>
+<body><header>
+	
+	<div id="avatar">
+		<a href="https://vladvasiliu.com/">
+		  <img src="/img/avatar.png" alt="vBlog">
+		</a>
+	</div>
+	
+	<div id="titletext"><h2 id="title"><a href="https://vladvasiliu.com/">vBlog</a></h2></div>
+	<div id="title-description"><p id="subtitle">Useful tips and snippets</p><div id="social">
+			<nav>
+				<ul>
+					<li><a href="https://github.com/vladvasiliu"><i title="Github" class="icons fab fa-github"></i></a></li>
+					<li><a href="https://www.behance.net/vvasiliu"><i title="Behance" class="icons fab fa-behance-square"></i></a></li>
+					<li><a href="https://photo.vladvasiliu.com"><i title="Photography" class="icons fas fa-camera"></i></a></li></ul>
+			</nav>
+		</div>
+	</div>
+	
+	<div id="mainmenu">
+		<nav>
+			<ul>
+				
+				<li><a href="/">Home</a></li>
+				
+				<li><a href="/post">All posts</a></li>
+				
+				<li><a href="/about">About</a></li>
+				
+			</ul>
+		</nav>
+	</div>
+	
 </header>
 <main><div class="post">
-<div class="author">
-
-</div>
-<div class="post-header">
-
-<div class="meta">
-<div class="date">
-<span class="day">17</span>
-<span class="rest">Aug 2013</span>
-</div>
-</div>
-
-<div class="matter">
-<h1 class="title">Setting default NFSv4 ACLs on FreeBSD</h1>
-</div>
-</div>
-<div class="markdown">
-<p>On FreeBSD with ZFS, only NFSv4 ACLs are supported. At the time of this writing, the <a href="https://wiki.freebsd.org/NFSv4_ACLs">FreeBSD documentation regarding ACLs</a> is a bit vague. Specifically, it doesn’t talk about inheritable attributes.</p>
+	
+	<div class="author">
+	
+	</div>
+	<div class="post-header">
+	
+		<div class="meta">
+			
+			<div class="date">
+				<span class="day">17</span>
+				<span class="rest">Aug 2013</span>
+			</div>
+			
+		</div>
+		
+		<div class="matter">
+			<h1 class="title">Setting default NFSv4 ACLs on FreeBSD</h1>
+		</div>
+	</div>
+	<div class="markdown">
+		<p>On FreeBSD with ZFS, only NFSv4 ACLs are supported. At the time of this writing, the <a href="https://wiki.freebsd.org/NFSv4_ACLs">FreeBSD documentation regarding ACLs</a> is a bit vague. Specifically, it doesn’t talk about inheritable attributes.</p>
 <p>The <code>-d</code> argument, used to define default POSIX ACLs is not supported. Instead, there are some flags one can set in order to define how ACLs are inherited. For an explanation, look in the manual for <code>setfacl</code>, section <em>ACL inheritance flags</em>.</p>
 <p>Let’s say you want all the files and directories inside <code>somedir</code> to be readable by the users in the group <code>somegroup</code>. You would do the following:</p>
 <div class="highlight"><div style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
@@ -91,238 +103,224 @@ find . -type f -exec setfacl -m g:somegroup:r::allow {} \;
 <p>In order for this to work, some ZFS attributes must be set: <code>aclinherit=passthrough-x</code> and <code>aclmode=passthrough</code>.
 See <a href="http://docs.oracle.com/cd/E19082-01/817-2271/gbaaz/index.html">here</a> for the ZFS properties documentation.</p>
 
-</div>
-<div class="tags">
-
-
-
-
-
-
-
-
-
-<div class="taxosfloating_left">
-<p>Tags</p>
-</div>
-<div class="termsfloating_right">
-<p>
-
-
-
-<a href="/tags/acl/"> acl </a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<a href="/tags/freebsd/"> freebsd </a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<a href="/tags/sysadmin/"> sysadmin </a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<a href="/tags/zfs/"> zfs </a>
-
-
-
-
-
-
-
-</div>
-<div class="clearit"></div>
-
-
-
-
-
-</div><script type="text/javascript">
-(function () {
-
-
-if (window.location.hostname == "localhost")
-return;
-
-var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-var disqus_shortname = 'vladvasiliu';
-dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();
-</script>
-<noscript>Please enable JavaScript to view the</a></noscript>
-<a href="http://disqus.com/">comments powered by <span>Disqus</span></a>
-</div>
-</div>
-
-</main><footer>
- © 2020 Vlad Vasiliu 
-
-
+	</div>
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	<div class="tags">
+		<div class="taxosfloating_left">
+			<p>Tags</p>
+		</div>
+		<div class="termsfloating_right">
+			<p>
+			
+			
+			
+			<a href="/tags/acl/"> acl </a>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<a href="/tags/freebsd/"> freebsd </a>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<a href="/tags/sysadmin/"> sysadmin </a>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<a href="/tags/zfs/"> zfs </a>
+			
+			
+			
+			
+			
+			
+			
+			</p>
+		</div>
+		<div class="clearit"></div>
+		
+		
+		
+		
+		
+	</div></div>
+
+  </main>
+<footer>
+	 © 2020 Vlad Vasiliu 
+	
+	
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -334,6 +332,9 @@ if (!doNotTrack) {
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
+	
 </footer>
+
+
 </body>
 </html>
