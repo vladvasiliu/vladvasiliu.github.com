@@ -6,10 +6,7 @@
 		<description>Recent content in Categories on vladvasiliu.com</description>
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en</language>
-		<copyright>© 2020 Vlad Vasiliu</copyright>
-		
+		<copyright>© 2022 Vlad Vasiliu</copyright>
 		<atom:link href="https://vladvasiliu.com/categories/index.xml" rel="self" type="application/rss+xml" />
-		
-		
 	</channel>
 </rss>

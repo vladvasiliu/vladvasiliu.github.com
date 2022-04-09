@@ -1,82 +1,92 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-	
-	<meta name="generator" content="Hugo 0.75.1" />
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="keywords" content="Dell,drac,cert,ssl"><meta property="og:title" content="Custom SSL certificate for iDrac 7 without CSR" />
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Custom SSL certificate for iDrac 7 without CSR | vBlog</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.96.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="Dell, drac, cert, ssl">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" />
+
+
+
+
+<meta property="og:title" content="Custom SSL certificate for iDrac 7 without CSR" />
 <meta property="og:description" content="If you want to use the Dell iDrac with a certificate signed by your CA, the web gui allows you to create a CSR, and upload the signed certificate. But if for some reason you want to generate the certificate and key outside of iDrac, the gui doesn&rsquo;t offer a way to upload the key.
 There is a way to use fully custom certificates, but it requires the racadm command line utility." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://vladvasiliu.com/post/20150204-1737-drac_custom_ssl_cert/" />
+<meta property="og:url" content="https://vladvasiliu.com/post/20150204-1737-drac_custom_ssl_cert/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2015-02-04T17:38:00+02:00" />
 <meta property="article:modified_time" content="2015-02-04T17:38:00+02:00" />
+
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Custom SSL certificate for iDrac 7 without CSR"/>
 <meta name="twitter:description" content="If you want to use the Dell iDrac with a certificate signed by your CA, the web gui allows you to create a CSR, and upload the signed certificate. But if for some reason you want to generate the certificate and key outside of iDrac, the gui doesn&rsquo;t offer a way to upload the key.
 There is a way to use fully custom certificates, but it requires the racadm command line utility."/>
 
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" />
-	<title>Custom SSL certificate for iDrac 7 without CSR | vBlog</title></head>
-<body><header>
-	
-	<div id="avatar">
-		<a href="https://vladvasiliu.com/">
-		  <img src="/img/avatar.png" alt="vBlog">
-		</a>
-	</div>
-	
-	<div id="titletext"><h2 id="title"><a href="https://vladvasiliu.com/">vBlog</a></h2></div>
-	<div id="title-description"><p id="subtitle">Useful tips and snippets</p><div id="social">
-			<nav>
-				<ul>
-					<li><a href="https://github.com/vladvasiliu"><i title="Github" class="icons fab fa-github"></i></a></li>
-					<li><a href="https://www.behance.net/vvasiliu"><i title="Behance" class="icons fab fa-behance-square"></i></a></li>
-					<li><a href="https://photo.vladvasiliu.com"><i title="Photography" class="icons fas fa-camera"></i></a></li></ul>
-			</nav>
-		</div>
-	</div>
-	
-	<div id="mainmenu">
-		<nav>
-			<ul>
-				
-				<li><a href="/">Home</a></li>
-				
-				<li><a href="/post">All posts</a></li>
-				
-				<li><a href="/about">About</a></li>
-				
-			</ul>
-		</nav>
-	</div>
-	
+<meta itemprop="name" content="Custom SSL certificate for iDrac 7 without CSR">
+<meta itemprop="description" content="If you want to use the Dell iDrac with a certificate signed by your CA, the web gui allows you to create a CSR, and upload the signed certificate. But if for some reason you want to generate the certificate and key outside of iDrac, the gui doesn&rsquo;t offer a way to upload the key.
+There is a way to use fully custom certificates, but it requires the racadm command line utility."><meta itemprop="datePublished" content="2015-02-04T17:38:00+02:00" />
+<meta itemprop="dateModified" content="2015-02-04T17:38:00+02:00" />
+<meta itemprop="wordCount" content="138">
+<meta itemprop="keywords" content="Dell,drac,cert,ssl," />
+</head>
+<body>
+<header>
+<div id="avatar">
+<a href="https://vladvasiliu.com/"><img src="/img/avatar.png" alt="vBlog"></a>
+</div>
+<div id="titletext">
+<h2 id="title"><a href="https://vladvasiliu.com/">vBlog</a></h2>
+</div>
+<div id="title-description">
+<p id="subtitle">Useful tips and snippets</p>
+<div id="social">
+<nav><ul>
+<li><a href="https://github.com/vladvasiliu"><i title="Github" class="icons fab fa-github"></i></a></li>
+<li><a href="https://www.behance.net/vvasiliu"><i title="Behance" class="icons fab fa-behance-square"></i></a></li>
+<li><a href="https://photo.vladvasiliu.com"><i title="Photography" class="icons fas fa-camera"></i></a></li>
+<li><a><i title="Switch Dark Mode" class="dark-mode icons fas fa-moon"></i></a></li>
+</ul></nav>
+</div>
+</div>
+<div id="mainmenu">
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/post">All posts</a></li>
+<li><a href="/about">About</a></li>
+</ul>
+</nav>
+</div>
 </header>
-<main><div class="post">
-	
-	<div class="author">
-	
-	</div>
-	<div class="post-header">
-	
-		<div class="meta">
-			
-			<div class="date">
-				<span class="day">04</span>
-				<span class="rest">Feb 2015</span>
-			</div>
-			
-		</div>
-		
-		<div class="matter">
-			<h1 class="title">Custom SSL certificate for iDrac 7 without CSR</h1>
-		</div>
-	</div>
-	<div class="markdown">
-		<p>If you want to use the Dell iDrac with a certificate signed by your CA, the web gui allows you to create a CSR, and upload the signed certificate. But if for some reason you want to generate the certificate and key outside of iDrac, the gui doesn&rsquo;t offer a way to upload the key.</p>
+<main>
+<div class="post">
+<article>
+<div class="post-header">
+<div class="meta">
+<div class="date">
+<span class="day">04</span>
+<span class="rest">Feb 2015</span>
+</div>
+</div>
+<div class="matter">
+<h1 class="title">Custom SSL certificate for iDrac 7 without CSR</h1>
+<p class="post-meta">
+<span class="post-meta">
+
+
+
+</span>
+
+</p>
+</div>
+</div>
+<div class="markdown">
+<p>If you want to use the Dell iDrac with a certificate signed by your CA, the web gui allows you to create a CSR, and upload the signed certificate. But if for some reason you want to generate the certificate and key outside of iDrac, the gui doesn&rsquo;t offer a way to upload the key.</p>
 <p>There is a way to use fully custom certificates, but it requires the <code>racadm</code> command line utility. Assuming you have generated the certificate, here are the steps:</p>
 <p>Upload the CA cert:</p>
 <pre><code>    racadm -r 1.2.3.4 -i sslcertupload -f c:\path\to\ca.crt -t 2
@@ -89,238 +99,27 @@ There is a way to use fully custom certificates, but it requires the racadm comm
 </code></pre>
 <p>If you are using intermediate CAs, <code>ca.crt</code> should contain all the CA chain, starting with the root one.</p>
 
-	</div>
-	
-	
-	
-	
-	
-		
-	
-	
-	
-	<div class="tags">
-		<div class="taxosfloating_left">
-			<p>Tags</p>
-		</div>
-		<div class="termsfloating_right">
-			<p>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/cert/"> cert </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/dell/"> dell </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/drac/"> drac </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/ssl/"> ssl </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			</p>
-		</div>
-		<div class="clearit"></div>
-		
-		
-		
-		
-		
-	</div></div>
-
-  </main>
+</div>
+<div class="tags">
+<div class="taxosfloating_left">
+<p>Tags</p>
+</div>
+<div class="termsfloating_right">
+<p>
+<a href="/tags/cert/">cert</a>
+<a href="/tags/dell/">dell</a>
+<a href="/tags/drac/">drac</a>
+<a href="/tags/ssl/">ssl</a>
+</p>
+</div>
+<div class="clearit"></div>
+</div>
+</article>
+</div>
+</main>
 <footer>
-	 © 2020 Vlad Vasiliu 
-	
-	
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-37751901-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-	
-</footer>
-
+© 2022 Vlad Vasiliu
+</footer><script src="/js/dark-mode.js"></script>
 
 </body>
 </html>

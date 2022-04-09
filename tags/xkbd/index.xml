@@ -6,23 +6,17 @@
 		<description>Recent content in xkbd on vladvasiliu.com</description>
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en</language>
-		<copyright>© 2020 Vlad Vasiliu</copyright>
+		<copyright>© 2022 Vlad Vasiliu</copyright>
 		<lastBuildDate>Sun, 19 Apr 2020 10:50:52 +0200</lastBuildDate>
-		
 		<atom:link href="https://vladvasiliu.com/tags/xkbd/index.xml" rel="self" type="application/rss+xml" />
-		
 		<item>
 			<title>Mac International keyboard layout in Gnome</title>
 			<link>https://vladvasiliu.com/post/20200419-1046-mac-intl-layout-in-gnome/</link>
 			<pubDate>Sun, 19 Apr 2020 10:50:52 +0200</pubDate>
-			
 			<guid>https://vladvasiliu.com/post/20200419-1046-mac-intl-layout-in-gnome/</guid>
 			<description>
-				
-				How to setup ISO Level 3 to any modifier
-				
+			How to setup ISO Level 3 to any modifier
 			</description>
 		</item>
-		
 	</channel>
 </rss>

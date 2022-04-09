@@ -1,315 +1,117 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-	
-	<meta name="generator" content="Hugo 0.75.1" />
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="keywords" content="MacOS X,Powerline"><meta property="og:title" content="Installing Powerline on Mac OS X" />
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Installing Powerline on Mac OS X | vBlog</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.96.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="MacOS X, Powerline">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" />
+
+
+
+
+<meta property="og:title" content="Installing Powerline on Mac OS X" />
 <meta property="og:description" content="While installing Powerline on MacOS X following the documentation, there are some import problems.
 It turns out that running python setup.py install installs everything into /path/to/site-packages/Powerline-beta-py2.7.egg/. This folder should be named powerline instead.
 Symlinking the included powerline folder to site-packages/powerline seems to fix this." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://vladvasiliu.com/post/20130819-1225-powerline_on_mac_os_x/" />
+<meta property="og:url" content="https://vladvasiliu.com/post/20130819-1225-powerline_on_mac_os_x/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2013-08-19T12:25:00+02:00" />
 <meta property="article:modified_time" content="2013-08-19T12:25:00+02:00" />
+
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Installing Powerline on Mac OS X"/>
 <meta name="twitter:description" content="While installing Powerline on MacOS X following the documentation, there are some import problems.
 It turns out that running python setup.py install installs everything into /path/to/site-packages/Powerline-beta-py2.7.egg/. This folder should be named powerline instead.
 Symlinking the included powerline folder to site-packages/powerline seems to fix this."/>
 
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" />
-	<title>Installing Powerline on Mac OS X | vBlog</title></head>
-<body><header>
-	
-	<div id="avatar">
-		<a href="https://vladvasiliu.com/">
-		  <img src="/img/avatar.png" alt="vBlog">
-		</a>
-	</div>
-	
-	<div id="titletext"><h2 id="title"><a href="https://vladvasiliu.com/">vBlog</a></h2></div>
-	<div id="title-description"><p id="subtitle">Useful tips and snippets</p><div id="social">
-			<nav>
-				<ul>
-					<li><a href="https://github.com/vladvasiliu"><i title="Github" class="icons fab fa-github"></i></a></li>
-					<li><a href="https://www.behance.net/vvasiliu"><i title="Behance" class="icons fab fa-behance-square"></i></a></li>
-					<li><a href="https://photo.vladvasiliu.com"><i title="Photography" class="icons fas fa-camera"></i></a></li></ul>
-			</nav>
-		</div>
-	</div>
-	
-	<div id="mainmenu">
-		<nav>
-			<ul>
-				
-				<li><a href="/">Home</a></li>
-				
-				<li><a href="/post">All posts</a></li>
-				
-				<li><a href="/about">About</a></li>
-				
-			</ul>
-		</nav>
-	</div>
-	
+<meta itemprop="name" content="Installing Powerline on Mac OS X">
+<meta itemprop="description" content="While installing Powerline on MacOS X following the documentation, there are some import problems.
+It turns out that running python setup.py install installs everything into /path/to/site-packages/Powerline-beta-py2.7.egg/. This folder should be named powerline instead.
+Symlinking the included powerline folder to site-packages/powerline seems to fix this."><meta itemprop="datePublished" content="2013-08-19T12:25:00+02:00" />
+<meta itemprop="dateModified" content="2013-08-19T12:25:00+02:00" />
+<meta itemprop="wordCount" content="44">
+<meta itemprop="keywords" content="MacOS X,Powerline," />
+</head>
+<body>
+<header>
+<div id="avatar">
+<a href="https://vladvasiliu.com/"><img src="/img/avatar.png" alt="vBlog"></a>
+</div>
+<div id="titletext">
+<h2 id="title"><a href="https://vladvasiliu.com/">vBlog</a></h2>
+</div>
+<div id="title-description">
+<p id="subtitle">Useful tips and snippets</p>
+<div id="social">
+<nav><ul>
+<li><a href="https://github.com/vladvasiliu"><i title="Github" class="icons fab fa-github"></i></a></li>
+<li><a href="https://www.behance.net/vvasiliu"><i title="Behance" class="icons fab fa-behance-square"></i></a></li>
+<li><a href="https://photo.vladvasiliu.com"><i title="Photography" class="icons fas fa-camera"></i></a></li>
+<li><a><i title="Switch Dark Mode" class="dark-mode icons fas fa-moon"></i></a></li>
+</ul></nav>
+</div>
+</div>
+<div id="mainmenu">
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/post">All posts</a></li>
+<li><a href="/about">About</a></li>
+</ul>
+</nav>
+</div>
 </header>
-<main><div class="post">
-	
-	<div class="author">
-	
-	</div>
-	<div class="post-header">
-	
-		<div class="meta">
-			
-			<div class="date">
-				<span class="day">19</span>
-				<span class="rest">Aug 2013</span>
-			</div>
-			
-		</div>
-		
-		<div class="matter">
-			<h1 class="title">Installing Powerline on Mac OS X</h1>
-		</div>
-	</div>
-	<div class="markdown">
-		<p>While installing <a href="https://github.com/Lokaltog/powerline">Powerline</a> on MacOS X following the <a href="https://powerline.readthedocs.org/en/latest/installation/osx.html#installation-osx">documentation</a>, there are some import problems.</p>
+<main>
+<div class="post">
+<article>
+<div class="post-header">
+<div class="meta">
+<div class="date">
+<span class="day">19</span>
+<span class="rest">Aug 2013</span>
+</div>
+</div>
+<div class="matter">
+<h1 class="title">Installing Powerline on Mac OS X</h1>
+<p class="post-meta">
+<span class="post-meta">
+
+
+
+</span>
+
+</p>
+</div>
+</div>
+<div class="markdown">
+<p>While installing <a href="https://github.com/Lokaltog/powerline" target="_blank">Powerline</a> on MacOS X following the <a href="https://powerline.readthedocs.org/en/latest/installation/osx.html#installation-osx" target="_blank">documentation</a>, there are some import problems.</p>
 <p>It turns out that running <code>python setup.py install</code> installs everything into <code>/path/to/site-packages/Powerline-beta-py2.7.egg/</code>. This folder should be named <code>powerline</code> instead.</p>
 <p>Symlinking the included <code>powerline</code> folder to <code>site-packages/powerline</code> seems to fix this.</p>
 
-	</div>
-	
-	
-	
-	
-	
-		
-	
-	
-	
-	<div class="tags">
-		<div class="taxosfloating_left">
-			<p>Tags</p>
-		</div>
-		<div class="termsfloating_right">
-			<p>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/macos-x/"> macos-x </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/powerline/"> powerline </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			</p>
-		</div>
-		<div class="clearit"></div>
-		
-		
-		
-		
-		
-	</div></div>
-
-  </main>
+</div>
+<div class="tags">
+<div class="taxosfloating_left">
+<p>Tags</p>
+</div>
+<div class="termsfloating_right">
+<p>
+<a href="/tags/macos-x/">macos-x</a>
+<a href="/tags/powerline/">powerline</a>
+</p>
+</div>
+<div class="clearit"></div>
+</div>
+</article>
+</div>
+</main>
 <footer>
-	 © 2020 Vlad Vasiliu 
-	
-	
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-37751901-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-	
-</footer>
-
+© 2022 Vlad Vasiliu
+</footer><script src="/js/dark-mode.js"></script>
 
 </body>
 </html>

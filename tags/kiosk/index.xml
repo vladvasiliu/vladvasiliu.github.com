@@ -6,23 +6,17 @@
 		<description>Recent content in kiosk on vladvasiliu.com</description>
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en</language>
-		<copyright>© 2020 Vlad Vasiliu</copyright>
+		<copyright>© 2022 Vlad Vasiliu</copyright>
 		<lastBuildDate>Tue, 07 Aug 2018 16:27:00 +0200</lastBuildDate>
-		
 		<atom:link href="https://vladvasiliu.com/tags/kiosk/index.xml" rel="self" type="application/rss+xml" />
-		
 		<item>
 			<title>Running Chrome in dual screen kiosk mode on Ubuntu</title>
 			<link>https://vladvasiliu.com/post/20180807-1626-dual_screen_kiosk_ubuntu/</link>
 			<pubDate>Tue, 07 Aug 2018 16:27:00 +0200</pubDate>
-			
 			<guid>https://vladvasiliu.com/post/20180807-1626-dual_screen_kiosk_ubuntu/</guid>
 			<description>
-				
-				
-				
+			
 			</description>
 		</item>
-		
 	</channel>
 </rss>

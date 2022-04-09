@@ -6,216 +6,163 @@
 		<description>Recent content on vladvasiliu.com</description>
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en</language>
-		<copyright>© 2020 Vlad Vasiliu</copyright>
+		<copyright>© 2022 Vlad Vasiliu</copyright>
 		<lastBuildDate>Sun, 19 Apr 2020 10:50:52 +0200</lastBuildDate>
-		
 		<atom:link href="https://vladvasiliu.com/index.xml" rel="self" type="application/rss+xml" />
-		
 		<item>
 			<title>Mac International keyboard layout in Gnome</title>
 			<link>https://vladvasiliu.com/post/20200419-1046-mac-intl-layout-in-gnome/</link>
 			<pubDate>Sun, 19 Apr 2020 10:50:52 +0200</pubDate>
-			
 			<guid>https://vladvasiliu.com/post/20200419-1046-mac-intl-layout-in-gnome/</guid>
 			<description>
-				
-				How to setup ISO Level 3 to any modifier
-				
+			How to setup ISO Level 3 to any modifier
 			</description>
 		</item>
 		<item>
 			<title>IPv6 prefix delegation on FreeBSD router</title>
 			<link>https://vladvasiliu.com/post/20180827-0922-ipv6_prefix_delegation_freebsd/</link>
 			<pubDate>Mon, 27 Aug 2018 09:22:00 +0200</pubDate>
-			
 			<guid>https://vladvasiliu.com/post/20180827-0922-ipv6_prefix_delegation_freebsd/</guid>
 			<description>
-				
-				
-				
+			
 			</description>
 		</item>
 		<item>
 			<title>Running Chrome in dual screen kiosk mode on Ubuntu</title>
 			<link>https://vladvasiliu.com/post/20180807-1626-dual_screen_kiosk_ubuntu/</link>
 			<pubDate>Tue, 07 Aug 2018 16:27:00 +0200</pubDate>
-			
 			<guid>https://vladvasiliu.com/post/20180807-1626-dual_screen_kiosk_ubuntu/</guid>
 			<description>
-				
-				
-				
+			
 			</description>
 		</item>
 		<item>
 			<title>Using Python in SaltStack reactor</title>
 			<link>https://vladvasiliu.com/post/20161231-1210-using_python_in_saltstack_reactor/</link>
 			<pubDate>Sat, 31 Dec 2016 12:11:00 +0200</pubDate>
-			
 			<guid>https://vladvasiliu.com/post/20161231-1210-using_python_in_saltstack_reactor/</guid>
 			<description>
-				
-				
-				
+			
 			</description>
 		</item>
 		<item>
 			<title>DHCP Option 121 in PFSense</title>
 			<link>https://vladvasiliu.com/post/20150311-2031_dhcp_option_121/</link>
 			<pubDate>Wed, 11 Mar 2015 20:32:00 +0200</pubDate>
-			
 			<guid>https://vladvasiliu.com/post/20150311-2031_dhcp_option_121/</guid>
 			<description>
-				
-				Send a classless route with DHCP
-				
+			Send a classless route with DHCP
 			</description>
 		</item>
 		<item>
 			<title>Custom SSL certificate for iDrac 7 without CSR</title>
 			<link>https://vladvasiliu.com/post/20150204-1737-drac_custom_ssl_cert/</link>
 			<pubDate>Wed, 04 Feb 2015 17:38:00 +0200</pubDate>
-			
 			<guid>https://vladvasiliu.com/post/20150204-1737-drac_custom_ssl_cert/</guid>
 			<description>
-				
-				
-				
+			
 			</description>
 		</item>
 		<item>
 			<title>Zone transfer setup for BIND with split horizon on the same zone</title>
 			<link>https://vladvasiliu.com/post/20141208-1007-bind_split_view_zone_synchronization/</link>
 			<pubDate>Mon, 08 Dec 2014 10:09:00 +0200</pubDate>
-			
 			<guid>https://vladvasiliu.com/post/20141208-1007-bind_split_view_zone_synchronization/</guid>
 			<description>
-				
-				
-				
+			
 			</description>
 		</item>
 		<item>
 			<title>How to transfer Duo Security installation to a new phone on Android</title>
 			<link>https://vladvasiliu.com/post/20140822-1428-backup-duo-security-android/</link>
 			<pubDate>Fri, 22 Aug 2014 14:31:00 +0200</pubDate>
-			
 			<guid>https://vladvasiliu.com/post/20140822-1428-backup-duo-security-android/</guid>
 			<description>
-				
-				
-				
+			
 			</description>
 		</item>
 		<item>
 			<title>Establishing IPSec tunnel between Linux and Fortigate</title>
 			<link>https://vladvasiliu.com/post/20140619-1735-linux_to_fortigate_ipsec_tunnel/</link>
 			<pubDate>Thu, 19 Jun 2014 17:37:00 +0200</pubDate>
-			
 			<guid>https://vladvasiliu.com/post/20140619-1735-linux_to_fortigate_ipsec_tunnel/</guid>
 			<description>
-				
-				
-				
+			
 			</description>
 		</item>
 		<item>
 			<title>IPv6 prefix delegation with static address and dhclient on Ubuntu / Debian</title>
 			<link>https://vladvasiliu.com/post/20140509-ipv6_prefix_delegation_with_dhclient_and_static_ip/</link>
 			<pubDate>Fri, 09 May 2014 10:47:00 +0200</pubDate>
-			
 			<guid>https://vladvasiliu.com/post/20140509-ipv6_prefix_delegation_with_dhclient_and_static_ip/</guid>
 			<description>
-				
-				
-				
+			
 			</description>
 		</item>
 		<item>
 			<title>IPv6 routing and router advertisments on Ubuntu / Debian</title>
 			<link>https://vladvasiliu.com/post/20140514-ipv6_routing_with_router_advertisment/</link>
 			<pubDate>Fri, 09 May 2014 10:47:00 +0200</pubDate>
-			
 			<guid>https://vladvasiliu.com/post/20140514-ipv6_routing_with_router_advertisment/</guid>
 			<description>
-				
-				
-				
+			
 			</description>
 		</item>
 		<item>
 			<title>Running rabbitmqctl as root</title>
 			<link>https://vladvasiliu.com/post/20140425-running_rabbitmqctl_as_root/</link>
 			<pubDate>Fri, 25 Apr 2014 11:42:00 +0200</pubDate>
-			
 			<guid>https://vladvasiliu.com/post/20140425-running_rabbitmqctl_as_root/</guid>
 			<description>
-				
-				
-				
+			
 			</description>
 		</item>
 		<item>
 			<title>Installing Powerline on Mac OS X</title>
 			<link>https://vladvasiliu.com/post/20130819-1225-powerline_on_mac_os_x/</link>
 			<pubDate>Mon, 19 Aug 2013 12:25:00 +0200</pubDate>
-			
 			<guid>https://vladvasiliu.com/post/20130819-1225-powerline_on_mac_os_x/</guid>
 			<description>
-				
-				
-				
+			
 			</description>
 		</item>
 		<item>
 			<title>Building ZSH with zpython module on MacOS X</title>
 			<link>https://vladvasiliu.com/post/20130819-1218-zsh_with_python_module_on_mac_os_x/</link>
 			<pubDate>Mon, 19 Aug 2013 12:19:00 +0200</pubDate>
-			
 			<guid>https://vladvasiliu.com/post/20130819-1218-zsh_with_python_module_on_mac_os_x/</guid>
 			<description>
-				
-				
-				
+			
 			</description>
 		</item>
 		<item>
 			<title>Setting default NFSv4 ACLs on FreeBSD</title>
 			<link>https://vladvasiliu.com/post/2013-08-17_03-setting_default_nfsv4_acls_on_freebsd/</link>
 			<pubDate>Sat, 17 Aug 2013 21:11:00 +0200</pubDate>
-			
 			<guid>https://vladvasiliu.com/post/2013-08-17_03-setting_default_nfsv4_acls_on_freebsd/</guid>
 			<description>
-				
-				
-				
+			
 			</description>
 		</item>
 		<item>
 			<title>MySQL Replication - I/O Error Code 1045</title>
 			<link>https://vladvasiliu.com/post/2013-08-17_02-mysql_replication_io_error_code_1045/</link>
 			<pubDate>Sat, 17 Aug 2013 21:05:00 +0200</pubDate>
-			
 			<guid>https://vladvasiliu.com/post/2013-08-17_02-mysql_replication_io_error_code_1045/</guid>
 			<description>
-				
-				
-				
+			
 			</description>
 		</item>
 		<item>
 			<title>About</title>
 			<link>https://vladvasiliu.com/about/</link>
 			<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-			
 			<guid>https://vladvasiliu.com/about/</guid>
 			<description>
-				
-				Hi! My name is Vlad Vasiliu.
-I’m in charge of the network and systems infrastructure at Les Cinémas Pathé Gaumont ...
-				
+			Hi! My name is Vlad Vasiliu.
+I’m in charge of the network and systems infrastructure at Les Cinémas Pathé Gaumont in Paris, France.
+This is …
 			</description>
 		</item>
-		
 	</channel>
 </rss>

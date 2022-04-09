@@ -6,23 +6,17 @@
 		<description>Recent content in Powerline on vladvasiliu.com</description>
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en</language>
-		<copyright>© 2020 Vlad Vasiliu</copyright>
+		<copyright>© 2022 Vlad Vasiliu</copyright>
 		<lastBuildDate>Mon, 19 Aug 2013 12:25:00 +0200</lastBuildDate>
-		
 		<atom:link href="https://vladvasiliu.com/tags/powerline/index.xml" rel="self" type="application/rss+xml" />
-		
 		<item>
 			<title>Installing Powerline on Mac OS X</title>
 			<link>https://vladvasiliu.com/post/20130819-1225-powerline_on_mac_os_x/</link>
 			<pubDate>Mon, 19 Aug 2013 12:25:00 +0200</pubDate>
-			
 			<guid>https://vladvasiliu.com/post/20130819-1225-powerline_on_mac_os_x/</guid>
 			<description>
-				
-				
-				
+			
 			</description>
 		</item>
-		
 	</channel>
 </rss>

@@ -6,23 +6,17 @@
 		<description>Recent content in ssl on vladvasiliu.com</description>
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en</language>
-		<copyright>© 2020 Vlad Vasiliu</copyright>
+		<copyright>© 2022 Vlad Vasiliu</copyright>
 		<lastBuildDate>Wed, 04 Feb 2015 17:38:00 +0200</lastBuildDate>
-		
 		<atom:link href="https://vladvasiliu.com/tags/ssl/index.xml" rel="self" type="application/rss+xml" />
-		
 		<item>
 			<title>Custom SSL certificate for iDrac 7 without CSR</title>
 			<link>https://vladvasiliu.com/post/20150204-1737-drac_custom_ssl_cert/</link>
 			<pubDate>Wed, 04 Feb 2015 17:38:00 +0200</pubDate>
-			
 			<guid>https://vladvasiliu.com/post/20150204-1737-drac_custom_ssl_cert/</guid>
 			<description>
-				
-				
-				
+			
 			</description>
 		</item>
-		
 	</channel>
 </rss>

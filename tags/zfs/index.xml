@@ -6,23 +6,17 @@
 		<description>Recent content in ZFS on vladvasiliu.com</description>
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en</language>
-		<copyright>© 2020 Vlad Vasiliu</copyright>
+		<copyright>© 2022 Vlad Vasiliu</copyright>
 		<lastBuildDate>Sat, 17 Aug 2013 21:11:00 +0200</lastBuildDate>
-		
 		<atom:link href="https://vladvasiliu.com/tags/zfs/index.xml" rel="self" type="application/rss+xml" />
-		
 		<item>
 			<title>Setting default NFSv4 ACLs on FreeBSD</title>
 			<link>https://vladvasiliu.com/post/2013-08-17_03-setting_default_nfsv4_acls_on_freebsd/</link>
 			<pubDate>Sat, 17 Aug 2013 21:11:00 +0200</pubDate>
-			
 			<guid>https://vladvasiliu.com/post/2013-08-17_03-setting_default_nfsv4_acls_on_freebsd/</guid>
 			<description>
-				
-				
-				
+			
 			</description>
 		</item>
-		
 	</channel>
 </rss>

@@ -1,346 +1,146 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-	
-	<meta name="generator" content="Hugo 0.75.1" />
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="keywords" content="IPSec,VPN,Tunneling"><meta property="og:title" content="Establishing IPSec tunnel between Linux and Fortigate" />
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Establishing IPSec tunnel between Linux and Fortigate | vBlog</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.96.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="IPSec, VPN, Tunneling">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" />
+
+
+
+
+<meta property="og:title" content="Establishing IPSec tunnel between Linux and Fortigate" />
 <meta property="og:description" content="Here is an example of a tunnel setup beetween Linux and Fortigate. It uses StrongSwan.
-1 2 3 4 5 6 7 8 9 10 11 12 13  conn myconn type=tunnel left=[local_ip_address] leftsubnet=[local_subnet_to_be_accessed_through_tunnel] right=[remote_ip_address] rightsubnet=[remote_subnet_to_be_accessed_through_tunnel] keyexchange=ike ikelifetime=28800s ike=aes256-sha1-modp1536 authby=secret keylife=1800s esp=aes256-sha1 auto=start   This configures the forwarding policy. If you want to access the remote end of the tunnel from the gateway, set up a virtual interface and configure it with an address within the local_subnet." />
+1 2 3 4 5 6 7 8 9 10 11 12 13  conn myconn  type=tunnel  left=[local_ip_address]  leftsubnet=[local_subnet_to_be_accessed_through_tunnel]  right=[remote_ip_address]  rightsubnet=[remote_subnet_to_be_accessed_through_tunnel]  keyexchange=ike  ikelifetime=28800s  ike=aes256-sha1-modp1536  authby=secret  keylife=1800s  esp=aes256-sha1  auto=start   This configures the forwarding policy. If you want to access the remote end of the tunnel from the gateway, set up a virtual interface and configure it with an address within the local_subnet." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://vladvasiliu.com/post/20140619-1735-linux_to_fortigate_ipsec_tunnel/" />
+<meta property="og:url" content="https://vladvasiliu.com/post/20140619-1735-linux_to_fortigate_ipsec_tunnel/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2014-06-19T17:37:00+02:00" />
 <meta property="article:modified_time" content="2014-06-19T17:37:00+02:00" />
+
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Establishing IPSec tunnel between Linux and Fortigate"/>
 <meta name="twitter:description" content="Here is an example of a tunnel setup beetween Linux and Fortigate. It uses StrongSwan.
-1 2 3 4 5 6 7 8 9 10 11 12 13  conn myconn type=tunnel left=[local_ip_address] leftsubnet=[local_subnet_to_be_accessed_through_tunnel] right=[remote_ip_address] rightsubnet=[remote_subnet_to_be_accessed_through_tunnel] keyexchange=ike ikelifetime=28800s ike=aes256-sha1-modp1536 authby=secret keylife=1800s esp=aes256-sha1 auto=start   This configures the forwarding policy. If you want to access the remote end of the tunnel from the gateway, set up a virtual interface and configure it with an address within the local_subnet."/>
+1 2 3 4 5 6 7 8 9 10 11 12 13  conn myconn  type=tunnel  left=[local_ip_address]  leftsubnet=[local_subnet_to_be_accessed_through_tunnel]  right=[remote_ip_address]  rightsubnet=[remote_subnet_to_be_accessed_through_tunnel]  keyexchange=ike  ikelifetime=28800s  ike=aes256-sha1-modp1536  authby=secret  keylife=1800s  esp=aes256-sha1  auto=start   This configures the forwarding policy. If you want to access the remote end of the tunnel from the gateway, set up a virtual interface and configure it with an address within the local_subnet."/>
 
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" />
-	<title>Establishing IPSec tunnel between Linux and Fortigate | vBlog</title></head>
-<body><header>
-	
-	<div id="avatar">
-		<a href="https://vladvasiliu.com/">
-		  <img src="/img/avatar.png" alt="vBlog">
-		</a>
-	</div>
-	
-	<div id="titletext"><h2 id="title"><a href="https://vladvasiliu.com/">vBlog</a></h2></div>
-	<div id="title-description"><p id="subtitle">Useful tips and snippets</p><div id="social">
-			<nav>
-				<ul>
-					<li><a href="https://github.com/vladvasiliu"><i title="Github" class="icons fab fa-github"></i></a></li>
-					<li><a href="https://www.behance.net/vvasiliu"><i title="Behance" class="icons fab fa-behance-square"></i></a></li>
-					<li><a href="https://photo.vladvasiliu.com"><i title="Photography" class="icons fas fa-camera"></i></a></li></ul>
-			</nav>
-		</div>
-	</div>
-	
-	<div id="mainmenu">
-		<nav>
-			<ul>
-				
-				<li><a href="/">Home</a></li>
-				
-				<li><a href="/post">All posts</a></li>
-				
-				<li><a href="/about">About</a></li>
-				
-			</ul>
-		</nav>
-	</div>
-	
+<meta itemprop="name" content="Establishing IPSec tunnel between Linux and Fortigate">
+<meta itemprop="description" content="Here is an example of a tunnel setup beetween Linux and Fortigate. It uses StrongSwan.
+1 2 3 4 5 6 7 8 9 10 11 12 13  conn myconn  type=tunnel  left=[local_ip_address]  leftsubnet=[local_subnet_to_be_accessed_through_tunnel]  right=[remote_ip_address]  rightsubnet=[remote_subnet_to_be_accessed_through_tunnel]  keyexchange=ike  ikelifetime=28800s  ike=aes256-sha1-modp1536  authby=secret  keylife=1800s  esp=aes256-sha1  auto=start   This configures the forwarding policy. If you want to access the remote end of the tunnel from the gateway, set up a virtual interface and configure it with an address within the local_subnet."><meta itemprop="datePublished" content="2014-06-19T17:37:00+02:00" />
+<meta itemprop="dateModified" content="2014-06-19T17:37:00+02:00" />
+<meta itemprop="wordCount" content="75">
+<meta itemprop="keywords" content="IPSec,VPN,Tunneling," />
+</head>
+<body>
+<header>
+<div id="avatar">
+<a href="https://vladvasiliu.com/"><img src="/img/avatar.png" alt="vBlog"></a>
+</div>
+<div id="titletext">
+<h2 id="title"><a href="https://vladvasiliu.com/">vBlog</a></h2>
+</div>
+<div id="title-description">
+<p id="subtitle">Useful tips and snippets</p>
+<div id="social">
+<nav><ul>
+<li><a href="https://github.com/vladvasiliu"><i title="Github" class="icons fab fa-github"></i></a></li>
+<li><a href="https://www.behance.net/vvasiliu"><i title="Behance" class="icons fab fa-behance-square"></i></a></li>
+<li><a href="https://photo.vladvasiliu.com"><i title="Photography" class="icons fas fa-camera"></i></a></li>
+<li><a><i title="Switch Dark Mode" class="dark-mode icons fas fa-moon"></i></a></li>
+</ul></nav>
+</div>
+</div>
+<div id="mainmenu">
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/post">All posts</a></li>
+<li><a href="/about">About</a></li>
+</ul>
+</nav>
+</div>
 </header>
-<main><div class="post">
-	
-	<div class="author">
-	
-	</div>
-	<div class="post-header">
-	
-		<div class="meta">
-			
-			<div class="date">
-				<span class="day">19</span>
-				<span class="rest">Jun 2014</span>
-			</div>
-			
-		</div>
-		
-		<div class="matter">
-			<h1 class="title">Establishing IPSec tunnel between Linux and Fortigate</h1>
-		</div>
-	</div>
-	<div class="markdown">
-		<p>Here is an example of a tunnel setup beetween Linux and Fortigate. It uses StrongSwan.</p>
-<div class="highlight"><div style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+<main>
+<div class="post">
+<article>
+<div class="post-header">
+<div class="meta">
+<div class="date">
+<span class="day">19</span>
+<span class="rest">Jun 2014</span>
+</div>
+</div>
+<div class="matter">
+<h1 class="title">Establishing IPSec tunnel between Linux and Fortigate</h1>
+<p class="post-meta">
+<span class="post-meta">
+
+
+
+</span>
+
+</p>
+</div>
+</div>
+<div class="markdown">
+<p>Here is an example of a tunnel setup beetween Linux and Fortigate. It uses StrongSwan.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">conn myconn
-    type=tunnel
-    left=[local_ip_address]
-    leftsubnet=[local_subnet_to_be_accessed_through_tunnel]
-    right=[remote_ip_address]
-    rightsubnet=[remote_subnet_to_be_accessed_through_tunnel]
-    keyexchange=ike
-    ikelifetime=28800s
-    ike=aes256-sha1-modp1536
-    authby=secret
-    keylife=1800s
-    esp=aes256-sha1
-    auto=start
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>conn myconn
+</span></span><span style="display:flex;"><span>    type=tunnel
+</span></span><span style="display:flex;"><span>    left=[local_ip_address]
+</span></span><span style="display:flex;"><span>    leftsubnet=[local_subnet_to_be_accessed_through_tunnel]
+</span></span><span style="display:flex;"><span>    right=[remote_ip_address]
+</span></span><span style="display:flex;"><span>    rightsubnet=[remote_subnet_to_be_accessed_through_tunnel]
+</span></span><span style="display:flex;"><span>    keyexchange=ike
+</span></span><span style="display:flex;"><span>    ikelifetime=28800s
+</span></span><span style="display:flex;"><span>    ike=aes256-sha1-modp1536
+</span></span><span style="display:flex;"><span>    authby=secret
+</span></span><span style="display:flex;"><span>    keylife=1800s
+</span></span><span style="display:flex;"><span>    esp=aes256-sha1
+</span></span><span style="display:flex;"><span>    auto=start
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>This configures the forwarding policy. If you want to access the remote end of the tunnel from the gateway, set up a virtual interface and configure it with an address within the local_subnet.</p>
 
-	</div>
-	
-	
-	
-	
-	
-		
-	
-	
-	
-	<div class="tags">
-		<div class="taxosfloating_left">
-			<p>Tags</p>
-		</div>
-		<div class="termsfloating_right">
-			<p>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/ipsec/"> ipsec </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/tunneling/"> tunneling </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/vpn/"> vpn </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			</p>
-		</div>
-		<div class="clearit"></div>
-		
-		
-		
-		
-		
-	</div></div>
-
-  </main>
+</div>
+<div class="tags">
+<div class="taxosfloating_left">
+<p>Tags</p>
+</div>
+<div class="termsfloating_right">
+<p>
+<a href="/tags/ipsec/">ipsec</a>
+<a href="/tags/tunneling/">tunneling</a>
+<a href="/tags/vpn/">vpn</a>
+</p>
+</div>
+<div class="clearit"></div>
+</div>
+</article>
+</div>
+</main>
 <footer>
-	 © 2020 Vlad Vasiliu 
-	
-	
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-37751901-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-	
-</footer>
-
+© 2022 Vlad Vasiliu
+</footer><script src="/js/dark-mode.js"></script>
 
 </body>
 </html>

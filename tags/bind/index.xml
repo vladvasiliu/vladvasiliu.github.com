@@ -6,23 +6,17 @@
 		<description>Recent content in BIND on vladvasiliu.com</description>
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en</language>
-		<copyright>© 2020 Vlad Vasiliu</copyright>
+		<copyright>© 2022 Vlad Vasiliu</copyright>
 		<lastBuildDate>Mon, 08 Dec 2014 10:09:00 +0200</lastBuildDate>
-		
 		<atom:link href="https://vladvasiliu.com/tags/bind/index.xml" rel="self" type="application/rss+xml" />
-		
 		<item>
 			<title>Zone transfer setup for BIND with split horizon on the same zone</title>
 			<link>https://vladvasiliu.com/post/20141208-1007-bind_split_view_zone_synchronization/</link>
 			<pubDate>Mon, 08 Dec 2014 10:09:00 +0200</pubDate>
-			
 			<guid>https://vladvasiliu.com/post/20141208-1007-bind_split_view_zone_synchronization/</guid>
 			<description>
-				
-				
-				
+			
 			</description>
 		</item>
-		
 	</channel>
 </rss>
